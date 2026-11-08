@@ -15,12 +15,12 @@ Legend: built = works now. Planned steps: (b) Organize, (c) Convert and PDF to I
 | 7 | Number Pages | Edit | built | numberPages |
 | 8 | Crop PDF | Edit | built | crop |
 | 9 | Watermark PDF | Edit | built | watermark |
-| 10 | Redact PDF | Edit | step d | |
-| 11 | PDF Reader | Edit | step d | |
-| 12 | PDF Annotator | Edit | step d | |
-| 13 | PDF Form Filler | Edit | step d | |
-| 14 | Edit PDF (add on top only) | Edit | step d | |
-| 15 | Sign PDF | Fill & Sign | step d | |
+| 10 | Redact PDF (basic) | Edit | built | redact |
+| 11 | PDF Reader | Edit | built | reader |
+| 12 | PDF Annotator | Edit | built | annotate |
+| 13 | PDF Form Filler | Edit | built | formFill |
+| 14 | Edit PDF (add on top only) | Edit | built | editPdf |
+| 15 | Sign PDF | Fill & Sign | built | sign |
 | 16 | JPG to PDF (also PNG) | Convert to PDF | built | jpgToPdf |
 | 17 | TXT to PDF | Convert to PDF | built | txtToPdf |
 | 18 | CSV to PDF | Convert to PDF | built | csvToPdf |

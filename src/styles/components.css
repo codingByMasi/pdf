@@ -161,3 +161,35 @@
 .crop-wait { line-height: 1.4; padding: 3rem 1rem; text-align: center; }
 .crop-sliders { display: grid; gap: 0.5rem; max-width: 30rem; margin-inline: auto; width: 100%; }
 .crop-slider { width: 100%; min-height: var(--tap); accent-color: var(--accent, #1a56db); }
+
+.editor { display: grid; gap: 1rem; }
+.editor-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.editor-hint { color: var(--muted); margin: 0; }
+.page-nav { display: flex; align-items: center; justify-content: space-between; gap: 0.5rem; flex-wrap: wrap; }
+.page-nav-label { margin: 0; font-weight: 600; }
+.overlay-wrap { position: relative; width: 100%; max-width: 40rem; margin-inline: auto; background: var(--bg); box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); }
+.overlay-image { position: absolute; inset: 0; width: 100%; height: 100%; display: block; user-select: none; -webkit-user-select: none; }
+.overlay-svg { position: absolute; inset: 0; width: 100%; height: 100%; touch-action: pan-y pinch-zoom; user-select: none; -webkit-user-select: none; }
+.overlay-pen .overlay-svg, .overlay-box .overlay-svg { touch-action: none; cursor: crosshair; }
+.overlay-select .overlay-item { cursor: move; touch-action: none; }
+.overlay-draft { pointer-events: none; }
+.overlay-selection { fill: none; stroke: #1a56db; stroke-width: 0.003; stroke-dasharray: 0.01 0.008; pointer-events: none; }
+.item-panel { display: grid; gap: 0.75rem; padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius); }
+.item-panel h3 { margin: 0; }
+.nudge { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+.color-row { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.color-choice { position: relative; display: inline-flex; width: var(--tap); height: var(--tap); align-items: center; justify-content: center; }
+.color-choice input { position: absolute; inset: 0; opacity: 0; width: 100%; height: 100%; margin: 0; cursor: pointer; }
+.color-dot { width: 2rem; height: 2rem; border-radius: 50%; border: 2px solid var(--border); }
+.color-choice input:checked + .color-dot { outline: 3px solid var(--text); outline-offset: 2px; }
+.color-choice input:focus-visible + .color-dot, .color-choice input:focus + .color-dot { outline: 3px solid #1a56db; outline-offset: 2px; }
+.field-area { min-height: 8rem; resize: vertical; }
+
+.signature-maker { display: grid; gap: 1rem; padding: 1rem; border: 2px solid var(--border); border-radius: var(--radius); }
+.signature-maker h3 { margin: 0; }
+.signature-canvas { width: 100%; max-width: 30rem; aspect-ratio: 3 / 1; background: #fff; border: 2px dashed var(--border); border-radius: var(--radius); touch-action: none; cursor: crosshair; }
+.signature-pad { display: grid; gap: 0.5rem; justify-items: start; }
+.signature-preview img { max-width: 14rem; max-height: 6rem; background: #fff; border: 1px solid var(--border); padding: 0.25rem; }
+.reader-scroll { overflow: auto; max-height: 75vh; border: 2px solid var(--border); border-radius: var(--radius); background: var(--bg); }
+.reader-image { display: block; height: auto; margin-inline: auto; }
+.form-fields { display: grid; gap: 1rem; }

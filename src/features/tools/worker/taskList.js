@@ -6,6 +6,9 @@ import { compressPdf } from '../compress/compressPdf.js';
 import { imagesToPdf } from '../jpgToPdf/imagesToPdf.js';
 import { mergePdfs } from '../merge/mergePdfs.js';
 import { splitEveryPage } from '../split/splitPdf.js';
+import { applyOverlays } from '../overlay/applyOverlays.js';
+import { fillFormFields } from '../formFill/formFields.js';
+import { replacePages } from '../redact/replacePages.js';
 import { addWatermark } from '../watermark/addWatermark.js';
 import { addNumbers } from '../numberPages/addNumbers.js';
 import { cropPdf } from '../crop/cropPdf.js';
@@ -31,6 +34,14 @@ export const tasks = {
   numberPages: ({ bytes, options }, { onProgress }) => addNumbers(bytes, options, onProgress),
 
   crop: ({ bytes, cuts }, { onProgress }) => cropPdf(bytes, cuts, onProgress),
+
+  // Returns { bytes, replaced }.
+  overlay: ({ bytes, byPage }, { onProgress }) => applyOverlays(bytes, byPage, {}, onProgress),
+
+  fillForm: ({ bytes, values, flatten }) => fillFormFields(bytes, values, { flatten }),
+
+  // rasters: [{ index, bytes, width, height }] pictures that replace whole pages.
+  replacePages: ({ bytes, rasters }, { onProgress }) => replacePages(bytes, rasters, onProgress),
 
   // Returns { bytes, fields }.
   flattenForms: ({ bytes }) => flattenForms(bytes),

@@ -52,3 +52,11 @@
 - Watermark PDF now takes English and Hindi words (page numbers moved to their own tool).
 - Flatten PDF: form fields only (text stays selectable) or everything (pages become pictures, 150 dpi, up to 100 pages).
 - Fixed: pdf-lib left dead pointers to removed form fields after flattening; we remove them.
+
+## Brief v2, step (d2) - Redact, Reader, Annotator, Form Filler, Edit PDF, Sign
+- One shared page editor (`features/tools/overlay/`): page picture with an SVG layer, pen, highlighter, black box, rectangle, oval, line, text (English and Hindi), pictures; move, resize, nudge with buttons, delete, undo. Works on turned pages.
+- Annotate and Edit PDF add things on top of pages. Edit PDF cannot change the original text and says so.
+- Sign PDF: draw, type or upload a signature, place it, move it, resize it. It is a picture of a signature, not a certified digital signature.
+- Redact PDF: pages with black boxes are redrawn as pictures with the boxes painted in, so the hidden text is truly gone (those pages lose text search). Other pages are kept as they are.
+- PDF Reader: page by page with zoom (pages are pictures, so no text copy).
+- Form Filler: text, tick boxes, drop-downs, radio buttons; optional lock after filling. English letters only (pdf-lib limit); forms without fields get a clear message.

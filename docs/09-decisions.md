@@ -27,3 +27,8 @@ Each extra library needs a written reason here.
 - HTML to PDF is read by the page (DOMParser does not exist in a worker) and drawn in the worker. It is deliberately simple: no pictures, colours, styles or links.
 - Letters the fonts do not have (emoji, many other scripts) are shown as "?" and the page says how many.
 - ZIP to PDF needs `deflate-raw` in DecompressionStream: Chrome 103+, Edge 103+, Safari 16.4+, Firefox 113+. Older browsers get a clear message. (Earlier note said Chrome 80; Chrome only added this format in 103.)
+- Page editor items are stored in "page-width units" (x from 0 to 1, y in the same unit) so drawing, resizing and saving use one simple scale on every page size. Saving maps them into the PDF with the same turned-page helper as Number Pages and Crop.
+- Items can be moved, resized and nudged with buttons as well as by dragging, so the editor is usable with a keyboard. The pen and the box-drawing tools need a pointer (finger, pen or mouse).
+- Redact rasterizes only the pages that have boxes (pdf.js, about 160 dpi, JPEG) and copies every other page unchanged. Other pages may still hold hidden text. The page says so.
+- Form Filler uses the pdf-lib form with the standard font, so Hindi text is not offered there (it would need a font per field). Edit PDF is the route for Hindi.
+- Typed signatures use the device's own handwriting-style font, drawn on a canvas and saved as a picture; the person sees what they get.

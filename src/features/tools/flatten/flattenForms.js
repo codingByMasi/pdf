@@ -3,7 +3,7 @@ import { PDFName, PDFRef } from 'pdf-lib';
 import { loadPdf } from '../../../shared/lib/pdfLoad.js';
 
 // pdf-lib leaves pages pointing at the removed field boxes. Remove those dead pointers.
-function dropDeadAnnotations(doc) {
+export function dropDeadAnnotations(doc) {
   for (const page of doc.getPages()) {
     const annots = page.node.Annots();
     if (!annots) continue;
