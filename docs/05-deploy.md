@@ -44,3 +44,7 @@ Cloudflare Pages shows `dist/404.html` with a real "404" status for unknown addr
 - Turning ads on (`ads.enabled` in `config.js`) needs a new policy and a new Privacy page text. Do not turn them on before that.
 - Hindi and English share the same web address. Search engines see the English text. Separate Hindi addresses (like `/hi/merge-pdf`) can be added later if you want Hindi search traffic.
 - Privacy and Terms are simple starter texts, not legal advice. Please have them checked by a lawyer before you launch, especially if you add ads or analytics.
+- Fonts for English and Hindi text (about 450 KB in total) are files in `/assets/` served from your own site. They load only when a tool that writes text runs (TXT, CSV, HTML to PDF, Watermark, Edit, Sign). Nothing comes from Google Fonts or any outside site.
+- The site makes 25 tool pages plus Home, Privacy, Terms and Contact (29 addresses in `sitemap.xml`). Free Cloudflare Pages limits (500 builds a month, 20,000 files) are far above this.
+- Costs: Cloudflare Pages static hosting is free. A domain name (about 1 000 rupees a year) is the only thing you may want to pay for.
+- Camera: the Scanner opens the phone's own camera app, so the site keeps the camera switched off in its security headers.

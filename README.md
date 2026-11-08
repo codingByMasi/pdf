@@ -1,6 +1,6 @@
 # PDF Tools
 
-Free PDF tools that run fully in the browser. Files never leave the user's device. No login, no backend.
+Free PDF tools (25 of them) that run fully in the browser. Files never leave the user's device. No login, no backend.
 
 ## Commands
 - `npm install` - install the parts the site needs

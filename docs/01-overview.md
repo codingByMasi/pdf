@@ -1,5 +1,5 @@
 # Overview
-A free website for PDF jobs like merge, split, rotate, delete pages, image to PDF, PDF to image, watermark and page numbers, and compress.
+A free website with 25 PDF tools: organize, edit, fill and sign, convert to PDF, PDF to image, flatten, compress and scan (list in `docs/03-tools.md`).
 - Everything runs in the visitor's browser. Files are never uploaded.
 - No login. No backend. No database.
 - Languages: English and Hindi.
