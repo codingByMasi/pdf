@@ -1,5 +1,7 @@
 # Roadmap: tools from the big-site menu
 
+> **Superseded (2026-11-08).** The user's newer brief fixes the final list at 25 browser-only tools (see CLAUDE.md). Password tools, OCR and everything that needs a server are not built. This file is kept only as background and will be replaced by `docs/03-tools.md`.
+
 Source: the menu screenshot the user shared ("I want all these").
 Decision by the user: **no AI tools**. They are skipped (AI PDF Assistant, Chat with PDF, AI PDF Summarizer, Translate PDF, AI Question Generator).
 
