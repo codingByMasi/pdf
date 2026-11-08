@@ -60,3 +60,7 @@
 - Redact PDF: pages with black boxes are redrawn as pictures with the boxes painted in, so the hidden text is truly gone (those pages lose text search). Other pages are kept as they are.
 - PDF Reader: page by page with zoom (pages are pictures, so no text copy).
 - Form Filler: text, tick boxes, drop-downs, radio buttons; optional lock after filling. English letters only (pdf-lib limit); forms without fields get a clear message.
+
+## Brief v2, step (e) - Compress and Scanner
+- Compress PDF: new "Strongest" choice that turns pages into small pictures (much smaller, text can no longer be selected). The two normal choices only shrink JPG pictures.
+- PDF Scanner: take a photo (phone camera through the file chooser) or choose photos; turn left or right and cut the edges of each page; black and white, grey or colour look; A4 or photo-size pages; reorder and remove pages.

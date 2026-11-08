@@ -25,5 +25,6 @@ export const toolScreens = {
   zipToPdf: lazy(() => import('./zipToPdf/ZipToPdfTool.jsx')),
   pdfToJpg: lazy(() => import('./pdfToJpg/PdfToJpgTool.jsx')),
   pdfToPng: lazy(() => import('./pdfToPng/PdfToPngTool.jsx')),
+  scanner: lazy(() => import('./scanner/ScannerTool.jsx')),
   compress: lazy(() => import('./compress/CompressTool.jsx')),
 };

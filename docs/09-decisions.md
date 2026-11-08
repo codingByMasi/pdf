@@ -32,3 +32,5 @@ Each extra library needs a written reason here.
 - Redact rasterizes only the pages that have boxes (pdf.js, about 160 dpi, JPEG) and copies every other page unchanged. Other pages may still hold hidden text. The page says so.
 - Form Filler uses the pdf-lib form with the standard font, so Hindi text is not offered there (it would need a font per field). Edit PDF is the route for Hindi.
 - Typed signatures use the device's own handwriting-style font, drawn on a canvas and saved as a picture; the person sees what they get.
+- Scanner uses the phone's own camera through a file chooser (`capture`) instead of a live camera view (`getUserMedia`). It works on every phone browser without a camera permission prompt, and the site keeps `camera=()` in its security headers. The cost: no live preview inside the page.
+- Scanner works in the page's canvas (turn, crop, filter), then the existing picture-to-PDF worker job builds the file.

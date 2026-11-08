@@ -29,8 +29,8 @@ Legend: built = works now. Planned steps: (b) Organize, (c) Convert and PDF to I
 | 21 | PDF to JPG | PDF to Image | built | pdfToJpg (uses pdfToImage) |
 | 22 | PDF to PNG | PDF to Image | built | pdfToPng (uses pdfToImage) |
 | 23 | Flatten PDF | Protect | built | flatten |
-| 24 | Compress PDF | Compress | built (basic) | compress |
-| 25 | PDF Scanner | Scan | step e | |
+| 24 | Compress PDF | Compress | built (basic, plus a strongest option) | compress |
+| 25 | PDF Scanner | Scan | built | scanner |
 
 Not built, on purpose (need a server or a paid service): PDF to Word/Excel/PPT, Word/Excel/PPT to PDF, ODT/ODS/ODP/RTF/HWP/EPUB/Pages to PDF, OCR, PDF/A, AI tools, Translate, password Unlock/Protect, Request Signatures, Share PDF.
 

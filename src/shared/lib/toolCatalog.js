@@ -27,6 +27,7 @@ export const tools = [
   { id: 'pdfToPng', path: '/pdf-to-png', category: 'toImage', icon: '🎞️', kind: 'pdf', multiple: false, format: 'png' },
   { id: 'flatten', path: '/flatten-pdf', category: 'protect', icon: '🧱', kind: 'pdf', multiple: false },
   { id: 'compress', path: '/compress-pdf', category: 'compress', icon: '📦', kind: 'pdf', multiple: false },
+  { id: 'scanner', path: '/pdf-scanner', category: 'scan', icon: '📸', kind: 'image', multiple: true },
 ];
 
 export function findToolByPath(path) {
