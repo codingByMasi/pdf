@@ -7,6 +7,7 @@
 - `src/styles/` - plain CSS.
 - `src/config.js` - site name, file limits, ads switch.
 - `public/_headers` - security headers. Cloudflare Pages reads this file from the build.
-- `public/_redirects` - sends every address to the app so direct links work.
+- `scripts/` - run after the build: `prerender.js` (one HTML file per page and 404.html), `sitemap.js` (sitemap.xml and robots.txt).
+- `src/features/pages/` - Privacy, Terms and Contact (plain text pages built from the text files).
 Rule: `shared` never imports from `features`. A test checks this.
 Pages: own tiny router (no library). Tool addresses are listed in `features/tools/toolList.js`.

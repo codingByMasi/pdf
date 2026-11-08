@@ -18,3 +18,10 @@
 - Watermark and page numbers (slanted text mark, page numbers bottom middle or right; works on turned pages; English letters, numbers and simple signs only).
 - Compress (re-saves the file and shrinks big JPG pictures; shows the before and after size; says so when it cannot get smaller).
 - Fixed: closing pdf.js documents used a call that does not exist in this version.
+
+## Step D - SEO, text pages, deploy
+- Each page has its own title, description, canonical address and social tags (English and Hindi in the browser tab).
+- Prerendered HTML for all 12 pages plus 404.html; sitemap.xml and robots.txt made at build time.
+- Privacy, Terms and Contact pages with footer links.
+- `config.js` now has `siteUrl` and `contactEmail` (placeholders to change before launch).
+- Deploy guide for Cloudflare Pages; `.node-version`; cache header for built files.

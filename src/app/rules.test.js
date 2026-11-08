@@ -4,6 +4,7 @@ import { readdirSync, readFileSync, statSync } from 'node:fs';
 import { join, relative } from 'node:path';
 
 const root = new URL('..', import.meta.url).pathname;
+const scriptsRoot = new URL('../../scripts/', import.meta.url).pathname;
 
 function listFiles(dir) {
   return readdirSync(dir).flatMap((name) => {
@@ -12,9 +13,9 @@ function listFiles(dir) {
   });
 }
 
-const files = listFiles(root).filter((f) => /\.(js|jsx|css)$/.test(f));
+const files = [...listFiles(root), ...listFiles(scriptsRoot)].filter((f) => /\.(js|jsx|css)$/.test(f));
 const isText = (f) => /shared\/i18n\/(en|hi)\.js$/.test(f);
-const rel = (f) => relative(root, f);
+const rel = (f) => (f.startsWith(scriptsRoot) ? relative(scriptsRoot, f) : relative(root, f));
 
 describe('project rules', () => {
   it('keeps every file under 200 lines (text files excepted)', () => {

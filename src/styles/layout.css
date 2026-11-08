@@ -67,3 +67,8 @@
 @media (min-width: 900px) {
   .tool-grid { grid-template-columns: repeat(4, 1fr); }
 }
+
+.footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 0 1.25rem; margin-bottom: 0.5rem; }
+.footer-links a { display: inline-flex; align-items: center; min-height: var(--tap); }
+.info-page { max-width: 42rem; }
+.info-page .button { margin-top: 1rem; }

@@ -1,12 +1,12 @@
 // Home page: heading, privacy promise and the grid of tools.
 import { useI18n } from '../../shared/i18n/useI18n.js';
-import { usePageTitle } from '../../shared/lib/usePageTitle.js';
+import { usePageMeta } from '../../shared/lib/usePageMeta.js';
 import { tools } from '../tools/toolList.js';
 import { ToolCard } from './ToolCard.jsx';
 
 export function HomePage() {
   const { t } = useI18n();
-  usePageTitle('');
+  usePageMeta({ title: t('home.seoTitle'), description: t('home.seoDesc'), path: '/' });
   return (
     <>
       <section className="hero">

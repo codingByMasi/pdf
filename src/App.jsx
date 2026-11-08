@@ -6,12 +6,16 @@ import { HomePage } from './features/home/HomePage.jsx';
 import { ToolPage } from './features/tools/ToolPage.jsx';
 import { NotFoundPage } from './features/home/NotFoundPage.jsx';
 import { findToolByPath } from './features/tools/toolList.js';
+import { findPageByPath } from './features/pages/pageList.js';
+import { InfoPage } from './features/pages/InfoPage.jsx';
 
 function Page() {
   const route = useRoute();
   if (route === '/') return <HomePage />;
   const tool = findToolByPath(route);
-  return tool ? <ToolPage key={tool.id} tool={tool} /> : <NotFoundPage />;
+  if (tool) return <ToolPage key={tool.id} tool={tool} />;
+  const page = findPageByPath(route);
+  return page ? <InfoPage key={page.id} page={page} /> : <NotFoundPage />;
 }
 
 export default function App() {

@@ -14,3 +14,7 @@ Each extra library needs a written reason here.
 - Watermark uses the built-in Helvetica font, so it only draws English letters, numbers and simple signs. Hindi and other scripts need a font file plus the fontkit library (about 1 MB or more); not added yet. The tool says so clearly.
 - Compress only shrinks JPG pictures (the common big part of scanned and photo PDFs). Other picture types and text are only re-saved. This is "basic" as agreed.
 - Picture limits for PDF to image: at most 100 pages and 4096px / 16 million pixels per page, so phones do not run out of memory.
+- Prerender with our own small script (scripts/prerender.js) instead of a prerender library: the site has 12 fixed pages, so we just copy the built index.html with the right title, tags and plain text. No extra library.
+- Pages are written as `merge-pdf.html` (not folders) so Cloudflare Pages serves them at `/merge-pdf` with no trailing slash. We removed `_redirects`: with a `404.html` present, Pages gives unknown addresses a real 404.
+- Question-and-answer data (FAQPage JSON-LD) is added to tool pages so search engines can show the questions.
+- Contact is a `mailto:` link, not a form: a form needs a server and would collect personal data.
