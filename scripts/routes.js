@@ -1,5 +1,5 @@
 // List of every page address on the site (home, 8 tools, 3 text pages), used by sitemap and prerender.
-import { tools } from '../src/features/tools/toolList.js';
+import { tools } from '../src/shared/lib/toolCatalog.js';
 import { pages } from '../src/features/pages/pageList.js';
 
 export function allRoutes() {

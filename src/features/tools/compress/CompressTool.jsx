@@ -8,7 +8,7 @@ import { usePdfJob } from '../../../shared/lib/usePdfJob.js';
 import { ChoiceGroup } from '../../../shared/ui/ChoiceGroup.jsx';
 import { ToolWorkspace } from '../ToolWorkspace.jsx';
 import { useFileSelection } from '../useFileSelection.js';
-import { compressPdf } from './compressPdf.js';
+import { runTask } from '../worker/runTask.js';
 import { recompressJpeg } from './recompressJpeg.js';
 
 const LEVELS = { balanced: { maxSide: 2000, quality: 0.72 }, smaller: { maxSide: 1400, quality: 0.5 } };
@@ -24,13 +24,15 @@ export default function CompressTool({ tool }) {
   function run() {
     job.run(async (onProgress) => {
       const original = new Uint8Array(await file.arrayBuffer());
-      const { bytes } = await compressPdf(original, { ...LEVELS[level], recompress: recompressJpeg }, onProgress);
-      const better = bytes.length < original.length;
+      const before = original.length;
+      const services = { recompress: ({ bytes, maxSide, quality }) => recompressJpeg(bytes, { maxSide, quality }) };
+      const { bytes } = await runTask('compress', { bytes: original, ...LEVELS[level] }, { onProgress, services });
+      const better = bytes.length < before;
       return {
-        blob: new Blob([better ? bytes : original], { type: 'application/pdf' }),
+        blob: better ? new Blob([bytes], { type: 'application/pdf' }) : file,
         fileName: outputName(file.name, '-smaller'),
         noteKey: better ? 'compress.result' : 'compress.nosmaller',
-        noteVars: { before: formatSize(original.length), after: formatSize(better ? bytes.length : original.length) },
+        noteVars: { before: formatSize(before), after: formatSize(better ? bytes.length : before) },
       };
     });
   }

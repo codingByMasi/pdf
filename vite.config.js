@@ -12,5 +12,7 @@ export default defineConfig({
   plugins: [react(), siteNamePlugin],
   // Wide target so older phones and browsers can run the site.
   build: { target: ['es2020', 'chrome80', 'edge88', 'firefox78', 'safari13.1'], cssTarget: ['chrome80', 'safari13.1', 'firefox78'] },
+  // Workers are loaded as modules so they can load pdf-lib on demand.
+  worker: { format: 'es' },
   test: { environment: 'node', include: ['src/**/*.test.js', 'scripts/**/*.test.js'] },
 });

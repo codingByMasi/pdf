@@ -5,12 +5,11 @@ import { outputName } from '../../../shared/lib/outputName.js';
 import { parsePageRange } from '../../../shared/lib/parsePageRange.js';
 import { usePdfInfo } from '../../../shared/lib/usePdfInfo.js';
 import { usePdfJob } from '../../../shared/lib/usePdfJob.js';
-import { makeZip } from '../../../shared/lib/zipFiles.js';
 import { ChoiceGroup } from '../../../shared/ui/ChoiceGroup.jsx';
 import { TextField } from '../../../shared/ui/TextField.jsx';
 import { ToolWorkspace } from '../ToolWorkspace.jsx';
 import { useFileSelection } from '../useFileSelection.js';
-import { extractPages, splitEveryPage } from './splitPdf.js';
+import { runTask } from '../worker/runTask.js';
 
 export default function SplitTool({ tool }) {
   const { t } = useI18n();
@@ -36,10 +35,11 @@ export default function SplitTool({ tool }) {
     job.run(async (onProgress) => {
       const bytes = new Uint8Array(await file.arrayBuffer());
       if (mode === 'range') {
-        const data = await extractPages(bytes, indices, onProgress);
+        const pages = indices.map((index) => ({ index }));
+        const data = await runTask('buildPages', { bytes, pages }, { onProgress });
         return { blob: new Blob([data], { type: 'application/pdf' }), fileName: outputName(file.name, '-pages') };
       }
-      const zip = makeZip(await splitEveryPage(bytes, onProgress));
+      const zip = await runTask('splitToZip', { bytes }, { onProgress });
       return { blob: new Blob([zip], { type: 'application/zip' }), fileName: outputName(file.name, '-pages', 'zip') };
     });
   }

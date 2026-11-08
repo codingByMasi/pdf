@@ -25,3 +25,11 @@
 - Privacy, Terms and Contact pages with footer links.
 - `config.js` now has `siteUrl` and `contactEmail` (placeholders to change before launch).
 - Deploy guide for Cloudflare Pages; `.node-version`; cache header for built files.
+
+## Brief v2, step (a) - base, catalog, worker
+- One tool catalog (`shared/lib/toolCatalog.js`) with categories; feeds home, tool pages, search, sitemap and prerender.
+- Home: tools grouped by category, search box with clear button and spoken result count, "no result" message.
+- Web Worker runner for pdf-lib jobs (merge, split, rotate/delete pages, JPG to PDF, watermark, compress) with progress and a page-only fallback.
+- Tools renamed to the new list: JPG to PDF (`/jpg-to-pdf`), PDF to JPG (`/pdf-to-jpg`), PDF to PNG (`/pdf-to-png`).
+- Removed the old roadmap file; the tools list is now `docs/03-tools.md`.
+- Fixed while testing: handing a picture to the page for shrinking could empty the PDF's own data; call-backs now always copy.

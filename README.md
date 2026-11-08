@@ -8,6 +8,9 @@ Free PDF tools that run fully in the browser. Files never leave the user's devic
 - `npm test` - run the tests
 - `npm run build` - make the final site in `dist/` (also the search pages, sitemap and robots.txt)
 
+## Tools
+The list of tools is in `src/shared/lib/toolCatalog.js` and `docs/03-tools.md`.
+
 ## Docs
 See the `docs/` folder. Project rules are in `CLAUDE.md`.
 

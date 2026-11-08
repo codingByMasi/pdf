@@ -1,4 +1,6 @@
 // Builds the search-engine version of each page: title, description, tags and plain text content.
+import { groupByCategory, tools } from '../src/shared/lib/toolCatalog.js';
+
 const escapeHtml = (text) =>
   String(text).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 
@@ -17,7 +19,16 @@ export function describeRoute(route, en, config) {
       title: full(t('home.seoTitle')),
       description: t('home.seoDesc'),
       jsonLd: null,
-      body: `<h1>${escapeHtml(t('home.title'))}</h1><p>${escapeHtml(t('home.subtitle'))}</p><p>${escapeHtml(t('home.privacy'))}</p>`,
+      body:
+        `<h1>${escapeHtml(t('home.title'))}</h1><p>${escapeHtml(t('home.subtitle'))}</p><p>${escapeHtml(t('home.privacy'))}</p>` +
+        groupByCategory(tools)
+          .map(
+            ({ category, tools: group }) =>
+              `<h2>${escapeHtml(t(`category.${category}`))}</h2><ul>${group
+                .map((tool) => `<li><a href="${tool.path}">${escapeHtml(t(`tool.${tool.id}.name`))}</a> - ${escapeHtml(t(`tool.${tool.id}.desc`))}</li>`)
+                .join('')}</ul>`,
+          )
+          .join(''),
     };
   }
   if (route.kind === 'tool') {

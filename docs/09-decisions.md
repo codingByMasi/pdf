@@ -18,3 +18,7 @@ Each extra library needs a written reason here.
 - Pages are written as `merge-pdf.html` (not folders) so Cloudflare Pages serves them at `/merge-pdf` with no trailing slash. We removed `_redirects`: with a `404.html` present, Pages gives unknown addresses a real 404.
 - Question-and-answer data (FAQPage JSON-LD) is added to tool pages so search engines can show the questions.
 - Contact is a `mailto:` link, not a form: a form needs a server and would collect personal data.
+- Tool catalog is data only in `shared/lib/toolCatalog.js`; screens are connected in `features/tools/toolRegistry.js`. Reason: shared must not import from features, and the catalog also feeds the sitemap script.
+- Web Worker for pdf-lib jobs, built as a module worker (`worker.format: 'es'`) so it can load pdf-lib on demand. Browsers that cannot start it (for example Safari before 15) use the main-thread fallback. Our own tiny message layer instead of a worker library.
+- Decided with the user (2026-11-08), for later steps: (1) Hindi text in Edit, Sign, Watermark, TXT and CSV will use `fontkit` plus one small Hindi font (about 300 KB), loaded only on those tools. (2) ZIP to PDF will use our own zip reader built on the browser's decompression (needs Chrome 80, Safari 16.4 or Firefox 113 and newer; older browsers get a clear message). No zip library.
+- Step (d) is split into two smaller steps.

@@ -2,7 +2,7 @@
 import { describe, it, expect } from 'vitest';
 import { PDFDocument } from 'pdf-lib';
 import { mergePdfs } from './mergePdfs.js';
-import { extractPages, splitEveryPage } from '../split/splitPdf.js';
+import { splitEveryPage } from '../split/splitPdf.js';
 import { loadPdf } from '../../../shared/lib/pdfLoad.js';
 
 async function sample(widths) {
@@ -28,11 +28,6 @@ describe('mergePdfs', () => {
 });
 
 describe('split helpers', () => {
-  it('extracts chosen pages', async () => {
-    const out = await loadPdf(await extractPages(await sample([100, 110, 120, 130]), [0, 3]));
-    expect(out.getPageCount()).toBe(2);
-    expect(out.getPage(1).getWidth()).toBe(130);
-  });
   it('makes one file per page with padded names', async () => {
     const files = await splitEveryPage(await sample(Array(10).fill(100)));
     expect(files).toHaveLength(10);

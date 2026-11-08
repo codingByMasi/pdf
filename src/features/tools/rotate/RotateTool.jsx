@@ -1,14 +1,13 @@
 // Rotate and reorder screen: page pictures with turn and move buttons.
 import { useEffect, useState } from 'react';
 import { useI18n } from '../../../shared/i18n/useI18n.js';
-import { loadPdf } from '../../../shared/lib/pdfLoad.js';
-import { buildPdfFromPages } from '../../../shared/lib/pdfPages.js';
 import { outputName } from '../../../shared/lib/outputName.js';
 import { useThumbnails } from '../../../shared/lib/useThumbnails.js';
 import { usePdfJob } from '../../../shared/lib/usePdfJob.js';
 import { Button } from '../../../shared/ui/Button.jsx';
 import { PageThumb } from '../../../shared/ui/PageThumb.jsx';
 import { StatusMessage } from '../../../shared/ui/StatusMessage.jsx';
+import { runTask } from '../worker/runTask.js';
 import { ToolWorkspace } from '../ToolWorkspace.jsx';
 import { useFileSelection } from '../useFileSelection.js';
 import { movePage, startEdits, turnPage } from './rotatePages.js';
@@ -27,8 +26,8 @@ export default function RotateTool({ tool }) {
 
   function run() {
     job.run(async (onProgress) => {
-      const source = await loadPdf(new Uint8Array(await file.arrayBuffer()));
-      const data = await buildPdfFromPages(source, edits, onProgress);
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      const data = await runTask('buildPages', { bytes, pages: edits }, { onProgress });
       return { blob: new Blob([data], { type: 'application/pdf' }), fileName: outputName(file.name, '-edited') };
     });
   }

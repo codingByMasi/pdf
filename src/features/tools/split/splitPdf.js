@@ -1,12 +1,7 @@
-// Two ways to split: keep chosen pages as one PDF, or make one PDF for every page.
+// Splits a PDF into one small PDF for every page.
 import { loadPdf } from '../../../shared/lib/pdfLoad.js';
 import { buildPdfFromPages } from '../../../shared/lib/pdfPages.js';
 import { yieldToUi } from '../../../shared/lib/yieldToUi.js';
-
-export async function extractPages(bytes, indices, onProgress) {
-  const source = await loadPdf(bytes);
-  return buildPdfFromPages(source, indices.map((index) => ({ index })), onProgress);
-}
 
 // Returns [{ name, data }] with names like page-01.pdf.
 export async function splitEveryPage(bytes, onProgress) {

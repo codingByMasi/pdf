@@ -1,13 +1,12 @@
 // Delete pages screen: tick the pages to remove, then save a new PDF without them.
 import { useEffect, useState } from 'react';
 import { useI18n } from '../../../shared/i18n/useI18n.js';
-import { loadPdf } from '../../../shared/lib/pdfLoad.js';
-import { buildPdfFromPages } from '../../../shared/lib/pdfPages.js';
 import { outputName } from '../../../shared/lib/outputName.js';
 import { useThumbnails } from '../../../shared/lib/useThumbnails.js';
 import { usePdfJob } from '../../../shared/lib/usePdfJob.js';
 import { PageThumb } from '../../../shared/ui/PageThumb.jsx';
 import { StatusMessage } from '../../../shared/ui/StatusMessage.jsx';
+import { runTask } from '../worker/runTask.js';
 import { ToolWorkspace } from '../ToolWorkspace.jsx';
 import { useFileSelection } from '../useFileSelection.js';
 import { pagesToKeep, toggleRemoved } from './deletePages.js';
@@ -26,8 +25,9 @@ export default function DeleteTool({ tool }) {
 
   function run() {
     job.run(async (onProgress) => {
-      const source = await loadPdf(new Uint8Array(await file.arrayBuffer()));
-      const data = await buildPdfFromPages(source, pagesToKeep(thumbs.numPages, removed), onProgress);
+      const bytes = new Uint8Array(await file.arrayBuffer());
+      const pages = pagesToKeep(thumbs.numPages, removed);
+      const data = await runTask('buildPages', { bytes, pages }, { onProgress });
       return { blob: new Blob([data], { type: 'application/pdf' }), fileName: outputName(file.name, '-edited') };
     });
   }

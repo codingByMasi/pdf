@@ -5,7 +5,7 @@ import { Layout } from './app/Layout.jsx';
 import { HomePage } from './features/home/HomePage.jsx';
 import { ToolPage } from './features/tools/ToolPage.jsx';
 import { NotFoundPage } from './features/home/NotFoundPage.jsx';
-import { findToolByPath } from './features/tools/toolList.js';
+import { findToolByPath } from './shared/lib/toolCatalog.js';
 import { findPageByPath } from './features/pages/pageList.js';
 import { InfoPage } from './features/pages/InfoPage.jsx';
 

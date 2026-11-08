@@ -8,7 +8,7 @@ import { ChoiceGroup } from '../../../shared/ui/ChoiceGroup.jsx';
 import { TextField } from '../../../shared/ui/TextField.jsx';
 import { ToolWorkspace } from '../ToolWorkspace.jsx';
 import { useFileSelection } from '../useFileSelection.js';
-import { addMarks } from './addMarks.js';
+import { runTask } from '../worker/runTask.js';
 
 export default function WatermarkTool({ tool }) {
   const { t } = useI18n();
@@ -28,11 +28,8 @@ export default function WatermarkTool({ tool }) {
   function run() {
     job.run(async (onProgress) => {
       const bytes = new Uint8Array(await file.arrayBuffer());
-      const data = await addMarks(
-        bytes,
-        { watermarkText: useMark ? markText : '', numbers: useNumbers ? { position, style } : null },
-        onProgress,
-      );
+      const options = { watermarkText: useMark ? markText : '', numbers: useNumbers ? { position, style } : null };
+      const data = await runTask('addMarks', { bytes, options }, { onProgress });
       return { blob: new Blob([data], { type: 'application/pdf' }), fileName: outputName(file.name, '-marked') };
     });
   }
