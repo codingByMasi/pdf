@@ -1,0 +1,70 @@
+/* Base look: colors, big readable text, keyboard focus and reduced motion. */
+:root {
+  --bg: #f6f7fb;
+  --surface: #ffffff;
+  --text: #1a1d24;
+  --muted: #4a5163;
+  --primary: #1f4fd8;
+  --primary-dark: #163aa3;
+  --border: #c9cfdd;
+  --error-bg: #fdecec;
+  --error-text: #8a1212;
+  --info-bg: #e8f0fe;
+  --info-text: #17356b;
+  --radius: 14px;
+  --tap: 52px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { font-size: 112.5%; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Noto Sans', 'Noto Sans Devanagari', sans-serif;
+  line-height: 1.6;
+}
+
+h1 { font-size: 1.8rem; line-height: 1.25; margin: 0 0 0.5rem; }
+h2 { font-size: 1.35rem; margin: 0 0 0.75rem; }
+p { margin: 0 0 0.75rem; }
+a { color: var(--primary); }
+
+:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -4rem;
+  z-index: 10;
+  padding: 0.75rem 1rem;
+  background: var(--surface);
+  border-radius: 8px;
+}
+.skip-link:focus { top: 0.5rem; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

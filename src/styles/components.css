@@ -1,0 +1,99 @@
+/* Look of shared pieces: buttons, drop-zone, file list, progress, messages, cards. */
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--tap);
+  min-width: var(--tap);
+  padding: 0.5rem 1.25rem;
+  border: 2px solid var(--primary);
+  border-radius: var(--radius);
+  font: inherit;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+}
+.button-primary { background: var(--primary); color: #fff; }
+.button-primary:hover { background: var(--primary-dark); }
+.button-light { background: var(--surface); color: var(--primary); }
+.button:disabled { opacity: 0.5; cursor: not-allowed; }
+
+.tool-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  height: 100%;
+  min-height: var(--tap);
+  padding: 1rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  color: var(--text);
+  text-decoration: none;
+}
+.tool-card:hover { border-color: var(--primary); }
+.tool-icon { font-size: 2rem; }
+.tool-name { font-size: 1.15rem; font-weight: 700; }
+.tool-desc { color: var(--muted); }
+
+.workspace { display: grid; gap: 1rem; }
+
+.drop-zone {
+  display: grid;
+  justify-items: center;
+  gap: 0.25rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  background: var(--surface);
+  border: 3px dashed var(--border);
+  border-radius: var(--radius);
+}
+.drop-zone-over { border-color: var(--primary); background: var(--info-bg); }
+.drop-title { font-size: 1.2rem; font-weight: 700; margin: 0; }
+.drop-hint { color: var(--muted); }
+
+.small-heading { font-size: 1.1rem; margin: 0 0 0.5rem; }
+.file-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.5rem; }
+.file-item {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.25rem 0.75rem;
+  padding: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.file-name { overflow-wrap: anywhere; font-weight: 600; }
+.file-size { grid-column: 1; color: var(--muted); }
+.file-item .button { grid-column: 2; grid-row: 1 / span 2; }
+.empty-state { text-align: center; color: var(--muted); padding: 1rem; }
+
+.status-message { padding: 0.75rem 1rem; border-radius: var(--radius); }
+.status-message p { margin: 0; }
+.status-error { background: var(--error-bg); color: var(--error-text); }
+.status-info { background: var(--info-bg); color: var(--info-text); }
+.status-title { display: block; margin-bottom: 0.25rem; }
+
+.progress-track { height: 1rem; background: var(--border); border-radius: 999px; overflow: hidden; }
+.progress-fill { height: 100%; width: 100%; background: var(--primary); transition: width 0.2s; }
+.progress-unknown { width: 40%; animation: progress-slide 1.2s ease-in-out infinite alternate; }
+.progress-text { margin-top: 0.5rem; text-align: center; color: var(--muted); }
+@keyframes progress-slide { from { margin-left: 0; } to { margin-left: 60%; } }
+
+.download { display: grid; justify-items: start; gap: 0.5rem; }
+.download-ready { font-weight: 600; margin: 0; }
+
+.steps { padding-left: 1.5rem; }
+.steps li { margin-bottom: 0.5rem; }
+
+.faq-item {
+  margin-bottom: 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+.faq-item summary { min-height: var(--tap); padding: 0.75rem 1rem; font-weight: 600; cursor: pointer; }
+.faq-item p { padding: 0 1rem; }
+
+.ad-slot { min-height: 90px; margin-bottom: 1rem; }
