@@ -1,6 +1,7 @@
 // Tests that every tool is complete and has all its texts in English and Hindi.
 import { describe, it, expect } from 'vitest';
 import { tools, findToolByPath } from './toolList.js';
+import { toolScreens } from './toolRegistry.js';
 import { en } from '../../shared/i18n/en.js';
 import { hi } from '../../shared/i18n/hi.js';
 
@@ -19,6 +20,9 @@ describe('toolList', () => {
         expect(hi[`tool.${tool.id}.${part}`], `${tool.id} ${part} (hi)`).toBeTruthy();
       }
     }
+  });
+  it('has a screen for every tool', () => {
+    for (const tool of tools) expect(toolScreens[tool.id], tool.id).toBeDefined();
   });
   it('finds a tool by its address', () => {
     expect(findToolByPath('/merge-pdf').id).toBe('merge');

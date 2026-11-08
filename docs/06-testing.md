@@ -4,5 +4,5 @@
 - Not covered by tests: how screens look, real PDF work in real browsers. Test those by hand, especially on a phone.
 
 ## Browsers and screens
-- Tested by hand-script in Chromium only, at widths 320, 360, 768, 1024, 1440 and 2560, in English and Hindi: no sideways scroll, all buttons at least 52px.
+- Tested by script in Chromium only, at widths 320, 360, 768, 1024, 1440 and 2560 (all 8 tools at 320, 768 and 1440), in English and Hindi: no sideways scroll, all buttons at least 52px.
 - NOT tested: Firefox, Safari (Mac, iPhone, iPad), Samsung Internet, real phones. Please test these by hand.

@@ -35,6 +35,7 @@ export function ToolWorkspace({ tool, selection, job, reorderable, hasFiles = tr
       ) : null}
       {job.busy ? <ProgressBar value={job.progress} /> : null}
       {job.result ? <DownloadButton blob={job.result.blob} fileName={job.result.fileName} /> : null}
+      {job.result?.noteKey ? <StatusMessage kind="info">{t(job.result.noteKey, job.result.noteVars)}</StatusMessage> : null}
     </section>
   );
 }

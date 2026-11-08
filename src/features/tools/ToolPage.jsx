@@ -4,14 +4,14 @@ import { usePageTitle } from '../../shared/lib/usePageTitle.js';
 import { Link } from '../../shared/ui/Link.jsx';
 import { Suspense } from 'react';
 import { StatusMessage } from '../../shared/ui/StatusMessage.jsx';
-import { toolScreens, placeholderScreen } from './toolRegistry.js';
+import { toolScreens } from './toolRegistry.js';
 import { HowToSteps } from './HowToSteps.jsx';
 import { FaqList } from './FaqList.jsx';
 
 export function ToolPage({ tool }) {
   const { t } = useI18n();
   const name = t(`tool.${tool.id}.name`);
-  const Screen = toolScreens[tool.id] ?? placeholderScreen;
+  const Screen = toolScreens[tool.id];
   usePageTitle(name);
   return (
     <>

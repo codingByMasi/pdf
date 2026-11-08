@@ -16,7 +16,7 @@ export function useThumbnails(file) {
       return undefined;
     }
     let cancelled = false;
-    let doc = null;
+    let task = null;
     const urls = [];
     setState({ ...idle, status: 'loading' });
 
@@ -24,7 +24,8 @@ export function useThumbnails(file) {
       try {
         const [pdfjs, buffer] = await Promise.all([loadPdfjs(), file.arrayBuffer()]);
         // pdf.js takes over the data it is given, so it gets its own copy.
-        doc = await pdfjs.getDocument({ data: new Uint8Array(buffer).slice(), isEvalSupported: false }).promise;
+        task = pdfjs.getDocument({ data: new Uint8Array(buffer).slice(), isEvalSupported: false });
+        const doc = await task.promise;
         if (doc.numPages > config.limits.maxThumbPages) throw Object.assign(new Error('pages'), { errorKey: 'error.tooManyPages' });
         if (cancelled) return;
         setState({ status: 'loading', numPages: doc.numPages, urls: [], errorKey: '' });
@@ -51,7 +52,7 @@ export function useThumbnails(file) {
     return () => {
       cancelled = true;
       urls.forEach((url) => URL.revokeObjectURL(url));
-      doc?.destroy();
+      task?.destroy();
     };
   }, [file]);
 
