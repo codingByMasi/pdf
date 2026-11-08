@@ -12,9 +12,9 @@ Legend: built = works now. Planned steps: (b) Organize, (c) Convert and PDF to I
 | 4 | Delete PDF Pages | Organize | built | delete |
 | 5 | Extract PDF Pages | Organize | built | extract |
 | 6 | Organize PDF | Organize | built | organize |
-| 7 | Number Pages | Edit | step d (works today inside Watermark) | |
-| 8 | Crop PDF | Edit | step d | |
-| 9 | Watermark PDF | Edit | built (English letters only until the Hindi font is added) | watermark |
+| 7 | Number Pages | Edit | built | numberPages |
+| 8 | Crop PDF | Edit | built | crop |
+| 9 | Watermark PDF | Edit | built | watermark |
 | 10 | Redact PDF | Edit | step d | |
 | 11 | PDF Reader | Edit | step d | |
 | 12 | PDF Annotator | Edit | step d | |
@@ -28,7 +28,7 @@ Legend: built = works now. Planned steps: (b) Organize, (c) Convert and PDF to I
 | 20 | ZIP to PDF | Convert to PDF | built | zipToPdf |
 | 21 | PDF to JPG | PDF to Image | built | pdfToJpg (uses pdfToImage) |
 | 22 | PDF to PNG | PDF to Image | built | pdfToPng (uses pdfToImage) |
-| 23 | Flatten PDF | Protect | step d | |
+| 23 | Flatten PDF | Protect | built | flatten |
 | 24 | Compress PDF | Compress | built (basic) | compress |
 | 25 | PDF Scanner | Scan | step e | |
 
@@ -41,5 +41,4 @@ Not built, on purpose (need a server or a paid service): PDF to Word/Excel/PPT, 
 
 ## Known weaker points (be honest with users)
 - Compress only shrinks JPG pictures; text-only PDFs barely change.
-- Watermark text is English letters, numbers and simple signs until the Hindi font is added (step d).
 - Very large PDFs may still be slow or fail on older phones, even with the worker.

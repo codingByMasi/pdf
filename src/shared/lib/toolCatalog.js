@@ -9,6 +9,8 @@ export const tools = [
   { id: 'delete', path: '/delete-pdf-pages', category: 'organize', icon: '🗑️', kind: 'pdf', multiple: false },
   { id: 'extract', path: '/extract-pdf-pages', category: 'organize', icon: '📤', kind: 'pdf', multiple: false },
   { id: 'organize', path: '/organize-pdf', category: 'organize', icon: '🗂️', kind: 'pdf', multiple: false },
+  { id: 'numberPages', path: '/number-pdf-pages', category: 'edit', icon: '🔢', kind: 'pdf', multiple: false },
+  { id: 'crop', path: '/crop-pdf', category: 'edit', icon: '📐', kind: 'pdf', multiple: false },
   { id: 'watermark', path: '/watermark-pdf', category: 'edit', icon: '💧', kind: 'pdf', multiple: false },
   { id: 'jpgToPdf', path: '/jpg-to-pdf', category: 'toPdf', icon: '🖼️', kind: 'image', multiple: true },
   { id: 'txtToPdf', path: '/txt-to-pdf', category: 'toPdf', icon: '📝', kind: 'txt', multiple: false },
@@ -17,6 +19,7 @@ export const tools = [
   { id: 'zipToPdf', path: '/zip-to-pdf', category: 'toPdf', icon: '🗜️', kind: 'zip', multiple: false },
   { id: 'pdfToJpg', path: '/pdf-to-jpg', category: 'toImage', icon: '📷', kind: 'pdf', multiple: false, format: 'jpg' },
   { id: 'pdfToPng', path: '/pdf-to-png', category: 'toImage', icon: '🎞️', kind: 'pdf', multiple: false, format: 'png' },
+  { id: 'flatten', path: '/flatten-pdf', category: 'protect', icon: '🧱', kind: 'pdf', multiple: false },
   { id: 'compress', path: '/compress-pdf', category: 'compress', icon: '📦', kind: 'pdf', multiple: false },
 ];
 

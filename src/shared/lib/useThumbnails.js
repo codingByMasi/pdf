@@ -7,7 +7,8 @@ import { friendlyErrorKey } from './friendlyError.js';
 const THUMB_WIDTH = 240;
 const idle = { status: 'idle', numPages: 0, urls: [], errorKey: '' };
 
-export function useThumbnails(file) {
+// options: width (picture width in pixels), firstOnly (just page 1, for previews).
+export function useThumbnails(file, { width = THUMB_WIDTH, firstOnly = false } = {}) {
   const [state, setState] = useState(idle);
 
   useEffect(() => {
@@ -28,11 +29,11 @@ export function useThumbnails(file) {
         const doc = await task.promise;
         if (doc.numPages > config.limits.maxThumbPages) throw Object.assign(new Error('pages'), { errorKey: 'error.tooManyPages' });
         if (cancelled) return;
-        setState({ status: 'loading', numPages: doc.numPages, urls: [], errorKey: '' });
-        for (let n = 1; n <= doc.numPages; n += 1) {
+        setState({ status: 'loading', numPages: firstOnly ? 1 : doc.numPages, urls: [], errorKey: '' });
+        for (let n = 1; n <= (firstOnly ? 1 : doc.numPages); n += 1) {
           const page = await doc.getPage(n);
           const base = page.getViewport({ scale: 1 });
-          const viewport = page.getViewport({ scale: THUMB_WIDTH / base.width });
+          const viewport = page.getViewport({ scale: width / base.width });
           const canvas = document.createElement('canvas');
           canvas.width = Math.ceil(viewport.width);
           canvas.height = Math.ceil(viewport.height);
@@ -54,7 +55,7 @@ export function useThumbnails(file) {
       urls.forEach((url) => URL.revokeObjectURL(url));
       task?.destroy();
     };
-  }, [file]);
+  }, [file, width, firstOnly]);
 
   return state;
 }

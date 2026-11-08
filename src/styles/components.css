@@ -153,3 +153,11 @@
 .selection-tools { display: grid; gap: 0.5rem; max-width: 32rem; }
 .selection-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
 .turn-all { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+
+.crop-area { display: grid; gap: 1rem; }
+.crop-preview { position: relative; line-height: 0; width: 100%; max-width: 30rem; margin-inline: auto; background: var(--bg); }
+.crop-image { width: 100%; height: auto; display: block; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); }
+.crop-shade { position: absolute; background: rgba(0, 0, 0, 0.55); }
+.crop-wait { line-height: 1.4; padding: 3rem 1rem; text-align: center; }
+.crop-sliders { display: grid; gap: 0.5rem; max-width: 30rem; margin-inline: auto; width: 100%; }
+.crop-slider { width: 100%; min-height: var(--tap); accent-color: var(--accent, #1a56db); }

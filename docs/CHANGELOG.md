@@ -45,3 +45,10 @@
 - Shared pieces: font book, text wrapping, page writer, table drawing, CSV reader, text decoder (UTF-8, UTF-16 and old Windows text).
 - HTML is read in an inert page, only an allow-list of plain content is kept (headings, paragraphs, lists, tables, bold). Scripts, styles, frames, forms, pictures and links are dropped and nothing is loaded.
 - ZIP: own reader on the browser's built-in unzip, with limits on number of files, size and unpacked size.
+
+## Brief v2, step (d1) - Number Pages, Crop, Watermark, Flatten
+- Number Pages: top or bottom, left, middle or right; "1" or "1 / 10"; start number; skip the first page.
+- Crop PDF: page 1 preview with shaded cut parts and four sliders; same share cut from every page; works on turned pages. Cut parts are hidden, not erased (the page says so).
+- Watermark PDF now takes English and Hindi words (page numbers moved to their own tool).
+- Flatten PDF: form fields only (text stays selectable) or everything (pages become pictures, 150 dpi, up to 100 pages).
+- Fixed: pdf-lib left dead pointers to removed form fields after flattening; we remove them.

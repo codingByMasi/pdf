@@ -1,10 +1,9 @@
-// Watermark and page numbers screen: tick what to add, choose options, save a new PDF.
+// Watermark screen: type the words, press the button, get a PDF with a slanted mark on every page.
 import { useState } from 'react';
 import { useI18n } from '../../../shared/i18n/useI18n.js';
 import { outputName } from '../../../shared/lib/outputName.js';
 import { usePdfInfo } from '../../../shared/lib/usePdfInfo.js';
 import { usePdfJob } from '../../../shared/lib/usePdfJob.js';
-import { ChoiceGroup } from '../../../shared/ui/ChoiceGroup.jsx';
 import { TextField } from '../../../shared/ui/TextField.jsx';
 import { ToolWorkspace } from '../ToolWorkspace.jsx';
 import { useFileSelection } from '../useFileSelection.js';
@@ -14,23 +13,19 @@ export default function WatermarkTool({ tool }) {
   const { t } = useI18n();
   const selection = useFileSelection(tool);
   const job = usePdfJob();
-  const [useMark, setUseMark] = useState(true);
-  const [markText, setMarkText] = useState('');
-  const [useNumbers, setUseNumbers] = useState(false);
-  const [position, setPosition] = useState('center');
-  const [style, setStyle] = useState('simple');
+  const [text, setText] = useState('');
   const file = selection.items[0]?.file;
   const info = usePdfInfo(file);
-
-  const markReady = useMark && markText.trim() !== '';
-  const canRun = info.status === 'ready' && (markReady || useNumbers);
 
   function run() {
     job.run(async (onProgress) => {
       const bytes = new Uint8Array(await file.arrayBuffer());
-      const options = { watermarkText: useMark ? markText : '', numbers: useNumbers ? { position, style } : null };
-      const data = await runTask('addMarks', { bytes, options }, { onProgress });
-      return { blob: new Blob([data], { type: 'application/pdf' }), fileName: outputName(file.name, '-marked') };
+      const result = await runTask('watermark', { bytes, text }, { onProgress });
+      return {
+        blob: new Blob([result.bytes], { type: 'application/pdf' }),
+        fileName: outputName(file.name, '-watermark'),
+        ...(result.replaced > 0 ? { noteKey: 'note.replaced', noteVars: { count: result.replaced } } : {}),
+      };
     });
   }
 
@@ -41,48 +36,15 @@ export default function WatermarkTool({ tool }) {
       job={job}
       error={{ key: info.errorKey }}
       hasFiles={Boolean(file) && info.status !== 'error'}
-      action={{ labelKey: 'run.watermark', enabled: canRun, onRun: run }}
+      action={{ labelKey: 'run.watermark', enabled: info.status === 'ready' && text.trim() !== '', onRun: run }}
     >
-      <label className="choice">
-        <input type="checkbox" checked={useMark} onChange={(event) => setUseMark(event.target.checked)} />
-        <span>{t('watermark.useWatermark')}</span>
-      </label>
-      {useMark ? (
-        <TextField
-          label={t('watermark.textLabel')}
-          value={markText}
-          maxLength={40}
-          autoComplete="off"
-          onChange={(event) => setMarkText(event.target.value)}
-        />
-      ) : null}
-      <label className="choice">
-        <input type="checkbox" checked={useNumbers} onChange={(event) => setUseNumbers(event.target.checked)} />
-        <span>{t('watermark.useNumbers')}</span>
-      </label>
-      {useNumbers ? (
-        <>
-          <ChoiceGroup
-            legend={t('watermark.positionLabel')}
-            value={position}
-            onChange={setPosition}
-            options={[
-              { value: 'center', label: t('watermark.posCenter') },
-              { value: 'right', label: t('watermark.posRight') },
-            ]}
-          />
-          <ChoiceGroup
-            legend={t('watermark.styleLabel')}
-            value={style}
-            onChange={setStyle}
-            options={[
-              { value: 'simple', label: t('watermark.styleSimple') },
-              { value: 'total', label: t('watermark.styleTotal') },
-            ]}
-          />
-        </>
-      ) : null}
-      {!markReady && !useNumbers ? <p>{t('watermark.pickOne')}</p> : null}
+      <TextField
+        label={t('watermark.textLabel')}
+        value={text}
+        maxLength={40}
+        autoComplete="off"
+        onChange={(event) => setText(event.target.value)}
+      />
     </ToolWorkspace>
   );
 }
