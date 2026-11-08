@@ -1,4 +1,9 @@
 # Changelog
+## Design port, part 2
+- Language switch is now a two-part EN | हिन्दी control.
+- Annotate, Edit, Sign and Redact editors sit in a card with a page strip (thumbnails), tool chips and a dotted stage.
+- Not built from the design: zoom bar, drag-to-reorder, millimetre crop boxes (they would change how tools work).
+
 ## Design port
 - New look from the ClearPDF design: colours, self-hosted fonts, icons, header with menu, dark footer, new home, tool page, info pages, contact form and 404.
 - Added a Start over button after a download. Tools work as before.

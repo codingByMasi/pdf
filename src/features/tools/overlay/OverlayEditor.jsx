@@ -4,6 +4,7 @@ import { useI18n } from '../../../shared/i18n/useI18n.js';
 import { usePdfViewer } from '../../../shared/lib/usePdfViewer.js';
 import { Button } from '../../../shared/ui/Button.jsx';
 import { ChoiceGroup } from '../../../shared/ui/ChoiceGroup.jsx';
+import { PageRail } from '../../../shared/ui/PageRail.jsx';
 import { StatusMessage } from '../../../shared/ui/StatusMessage.jsx';
 import { prepareImage } from '../jpgToPdf/prepareImage.js';
 import { ColorPicker } from './ColorPicker.jsx';
@@ -69,8 +70,11 @@ export function OverlayEditor({ file, overlay, tools, addText = false, addPictur
   const drawing = tool === 'pen' || tool === 'rect' || tool === 'ellipse' || tool === 'line';
 
   return (
-    <div className="editor">
+    <div className="editor editor-shell">
+      <PageRail file={file} current={page} onSelect={(n) => { viewer.setPage(n); setSelectedId(null); }} />
+      <div className="editor-main">
       <PageNav page={page} numPages={viewer.numPages} onChange={(n) => { viewer.setPage(n); setSelectedId(null); }} />
+      <div className="editor-stage">
       {size ? (
         <PageOverlay
           url={viewer.url}
@@ -86,9 +90,11 @@ export function OverlayEditor({ file, overlay, tools, addText = false, addPictur
           onDragStart={overlay.mark}
         />
       ) : <p>{t('progress.wait')}</p>}
+      </div>
       <p className="editor-hint">{t(mode === 'select' ? 'overlay.hintSelect' : 'overlay.hintDraw')}</p>
       <ChoiceGroup
         legend={t('overlay.tool')}
+        chips
         value={tool}
         onChange={(value) => { setTool(value); setSelectedId(null); }}
         options={tools.map((name) => ({ value: name, label: t(`overlay.tool.${name}`) }))}
@@ -127,6 +133,7 @@ export function OverlayEditor({ file, overlay, tools, addText = false, addPictur
           onRemove={() => { overlay.remove(page, selected.id); setSelectedId(null); }}
         />
       ) : null}
+      </div>
     </div>
   );
 }

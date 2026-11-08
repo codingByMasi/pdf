@@ -130,7 +130,7 @@
 .tone-toImage { --tone-ink: #137a72; --tone-bg: #e3f7f3; }
 .tone-protect { --tone-ink: #4c673e; --tone-bg: #edf4e9; }
 .tone-compress { --tone-ink: #17745b; --tone-bg: #dff7ee; }
-.tone-scan { --tone-ink: #7a5d00; --tone-bg: #fff6d6; }
+.tone-scan { --tone-ink: #8f4a12; --tone-bg: #fff0df; }
 
 @media (min-width: 600px) {
   .tool-grid { grid-template-columns: repeat(2, 1fr); }
