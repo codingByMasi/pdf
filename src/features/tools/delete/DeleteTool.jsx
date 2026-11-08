@@ -1,14 +1,15 @@
-// Delete pages screen: tick the pages to remove, then save a new PDF without them.
+// Delete pages screen: tick the pages to remove (or type numbers), then save a new PDF without them.
 import { useEffect, useState } from 'react';
 import { useI18n } from '../../../shared/i18n/useI18n.js';
 import { outputName } from '../../../shared/lib/outputName.js';
-import { useThumbnails } from '../../../shared/lib/useThumbnails.js';
 import { usePdfJob } from '../../../shared/lib/usePdfJob.js';
-import { PageThumb } from '../../../shared/ui/PageThumb.jsx';
+import { useThumbnails } from '../../../shared/lib/useThumbnails.js';
 import { StatusMessage } from '../../../shared/ui/StatusMessage.jsx';
-import { runTask } from '../worker/runTask.js';
+import { PageSelectionTools } from '../pageEditor/PageSelectionTools.jsx';
+import { PageTickGrid } from '../pageEditor/PageTickGrid.jsx';
 import { ToolWorkspace } from '../ToolWorkspace.jsx';
 import { useFileSelection } from '../useFileSelection.js';
+import { runTask } from '../worker/runTask.js';
 import { pagesToKeep, toggleRemoved } from './deletePages.js';
 
 export default function DeleteTool({ tool }) {
@@ -43,22 +44,16 @@ export default function DeleteTool({ tool }) {
     >
       {thumbs.status === 'loading' ? <StatusMessage kind="info">{t('thumbs.loading')}</StatusMessage> : null}
       <p>{t('delete.hint')}</p>
-      <ul className="page-grid">
-        {Array.from({ length: thumbs.numPages }, (_, index) => (
-          <li key={index} className="page-card">
-            <PageThumb url={thumbs.urls[index]} number={index + 1} dimmed={removed.has(index)} />
-            <label className="choice">
-              <input
-                type="checkbox"
-                checked={removed.has(index)}
-                disabled={job.busy}
-                onChange={() => setRemoved(toggleRemoved(removed, index))}
-              />
-              <span>{t('delete.pageCheck', { n: index + 1 })}</span>
-            </label>
-          </li>
-        ))}
-      </ul>
+      <PageSelectionTools pageCount={thumbs.numPages} disabled={job.busy || thumbs.numPages === 0} onSelect={setRemoved} />
+      <PageTickGrid
+        count={thumbs.numPages}
+        urls={thumbs.urls}
+        selected={removed}
+        disabled={job.busy}
+        checkKey="delete.pageCheck"
+        dimSelected
+        onToggle={(index) => setRemoved(toggleRemoved(removed, index))}
+      />
       {removed.size > 0 ? <p>{t('delete.summary', { count: removed.size })}</p> : <p>{t('delete.selectSome')}</p>}
     </ToolWorkspace>
   );

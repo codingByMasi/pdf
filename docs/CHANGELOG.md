@@ -33,3 +33,8 @@
 - Tools renamed to the new list: JPG to PDF (`/jpg-to-pdf`), PDF to JPG (`/pdf-to-jpg`), PDF to PNG (`/pdf-to-png`).
 - Removed the old roadmap file; the tools list is now `docs/03-tools.md`.
 - Fixed while testing: handing a picture to the page for shrinking could empty the PDF's own data; call-backs now always copy.
+
+## Brief v2, step (b) - Organize
+- Rotate PDF (turn one page or all pages), Extract PDF Pages (tick pages or type numbers), Organize PDF (reorder, turn and remove in one place).
+- Delete pages can also pick pages by typing numbers.
+- Shared page-editing pieces in `features/tools/pageEditor/` (edit plans, page grids, selection tools).

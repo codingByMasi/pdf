@@ -8,10 +8,10 @@ Legend: built = works now. Planned steps: (b) Organize, (c) Convert and PDF to I
 |---|---|---|---|---|
 | 1 | Merge PDF | Organize | built | merge |
 | 2 | Split PDF | Organize | built | split |
-| 3 | Rotate PDF | Organize | built (today it also reorders; step b splits them) | rotate |
+| 3 | Rotate PDF | Organize | built | rotate |
 | 4 | Delete PDF Pages | Organize | built | delete |
-| 5 | Extract PDF Pages | Organize | step b | |
-| 6 | Organize PDF | Organize | step b | |
+| 5 | Extract PDF Pages | Organize | built | extract |
+| 6 | Organize PDF | Organize | built | organize |
 | 7 | Number Pages | Edit | step d (works today inside Watermark) | |
 | 8 | Crop PDF | Edit | step d | |
 | 9 | Watermark PDF | Edit | built (English letters only until the Hindi font is added) | watermark |

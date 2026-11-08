@@ -149,3 +149,7 @@
 .page-thumb-img { max-width: 90%; max-height: 90%; box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3); transition: transform 0.2s; }
 .page-thumb-dimmed .page-thumb-img { opacity: 0.35; }
 .page-thumb-wait { width: 50%; height: 70%; background: var(--border); border-radius: 4px; }
+
+.selection-tools { display: grid; gap: 0.5rem; max-width: 32rem; }
+.selection-buttons { display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.turn-all { display: flex; flex-wrap: wrap; gap: 0.5rem; }

@@ -1,16 +1,15 @@
-// Rotate and reorder screen: page pictures with turn and move buttons.
-import { useEffect, useState } from 'react';
+// Rotate PDF screen: page pictures with turn buttons, and buttons to turn every page.
 import { useI18n } from '../../../shared/i18n/useI18n.js';
 import { outputName } from '../../../shared/lib/outputName.js';
-import { useThumbnails } from '../../../shared/lib/useThumbnails.js';
 import { usePdfJob } from '../../../shared/lib/usePdfJob.js';
+import { useThumbnails } from '../../../shared/lib/useThumbnails.js';
 import { Button } from '../../../shared/ui/Button.jsx';
-import { PageThumb } from '../../../shared/ui/PageThumb.jsx';
 import { StatusMessage } from '../../../shared/ui/StatusMessage.jsx';
-import { runTask } from '../worker/runTask.js';
+import { PageEditGrid } from '../pageEditor/PageEditGrid.jsx';
+import { usePageEdits } from '../pageEditor/usePageEdits.js';
 import { ToolWorkspace } from '../ToolWorkspace.jsx';
 import { useFileSelection } from '../useFileSelection.js';
-import { movePage, startEdits, turnPage } from './rotatePages.js';
+import { runTask } from '../worker/runTask.js';
 
 export default function RotateTool({ tool }) {
   const { t } = useI18n();
@@ -18,17 +17,13 @@ export default function RotateTool({ tool }) {
   const job = usePdfJob();
   const file = selection.items[0]?.file;
   const thumbs = useThumbnails(file);
-  const [edits, setEdits] = useState([]);
-
-  useEffect(() => setEdits(startEdits(thumbs.numPages)), [file, thumbs.numPages]);
-
-  const changed = edits.some((edit, position) => edit.rotation !== 0 || edit.index !== position);
+  const pages = usePageEdits(file, thumbs.numPages);
 
   function run() {
     job.run(async (onProgress) => {
       const bytes = new Uint8Array(await file.arrayBuffer());
-      const data = await runTask('buildPages', { bytes, pages: edits }, { onProgress });
-      return { blob: new Blob([data], { type: 'application/pdf' }), fileName: outputName(file.name, '-edited') };
+      const data = await runTask('buildPages', { bytes, pages: pages.kept }, { onProgress });
+      return { blob: new Blob([data], { type: 'application/pdf' }), fileName: outputName(file.name, '-rotated') };
     });
   }
 
@@ -39,23 +34,15 @@ export default function RotateTool({ tool }) {
       job={job}
       error={{ key: thumbs.errorKey }}
       hasFiles={Boolean(file) && thumbs.status !== 'error'}
-      action={{ labelKey: 'run.rotate', enabled: thumbs.status === 'ready' && changed, onRun: run }}
+      action={{ labelKey: 'run.rotate', enabled: thumbs.status === 'ready' && pages.changed, onRun: run }}
     >
       {thumbs.status === 'loading' ? <StatusMessage kind="info">{t('thumbs.loading')}</StatusMessage> : null}
       <p>{t('rotate.hint')}</p>
-      <ul className="page-grid">
-        {edits.map((edit, position) => (
-          <li key={edit.index} className="page-card">
-            <PageThumb url={thumbs.urls[edit.index]} number={edit.index + 1} rotation={edit.rotation} />
-            <div className="page-card-actions">
-              <Button variant="light" disabled={job.busy} aria-label={t('rotate.left', { n: edit.index + 1 })} onClick={() => setEdits(turnPage(edits, position, -90))}>⟲</Button>
-              <Button variant="light" disabled={job.busy} aria-label={t('rotate.right', { n: edit.index + 1 })} onClick={() => setEdits(turnPage(edits, position, 90))}>⟳</Button>
-              <Button variant="light" disabled={job.busy || position === 0} aria-label={t('rotate.earlier', { n: edit.index + 1 })} onClick={() => setEdits(movePage(edits, position, -1))}>◀</Button>
-              <Button variant="light" disabled={job.busy || position === edits.length - 1} aria-label={t('rotate.later', { n: edit.index + 1 })} onClick={() => setEdits(movePage(edits, position, 1))}>▶</Button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className="turn-all">
+        <Button variant="light" disabled={job.busy} onClick={() => pages.turnEvery(-90)}>⟲ {t('rotate.allLeft')}</Button>
+        <Button variant="light" disabled={job.busy} onClick={() => pages.turnEvery(90)}>⟳ {t('rotate.allRight')}</Button>
+      </div>
+      <PageEditGrid edits={pages.edits} urls={thumbs.urls} disabled={job.busy} onTurn={pages.turn} />
     </ToolWorkspace>
   );
 }

@@ -7,6 +7,8 @@ export const tools = [
   { id: 'split', path: '/split-pdf', category: 'organize', icon: '✂️', kind: 'pdf', multiple: false },
   { id: 'rotate', path: '/rotate-pdf', category: 'organize', icon: '🔄', kind: 'pdf', multiple: false },
   { id: 'delete', path: '/delete-pdf-pages', category: 'organize', icon: '🗑️', kind: 'pdf', multiple: false },
+  { id: 'extract', path: '/extract-pdf-pages', category: 'organize', icon: '📤', kind: 'pdf', multiple: false },
+  { id: 'organize', path: '/organize-pdf', category: 'organize', icon: '🗂️', kind: 'pdf', multiple: false },
   { id: 'watermark', path: '/watermark-pdf', category: 'edit', icon: '💧', kind: 'pdf', multiple: false },
   { id: 'jpgToPdf', path: '/jpg-to-pdf', category: 'toPdf', icon: '🖼️', kind: 'image', multiple: true },
   { id: 'pdfToJpg', path: '/pdf-to-jpg', category: 'toImage', icon: '📷', kind: 'pdf', multiple: false, format: 'jpg' },
