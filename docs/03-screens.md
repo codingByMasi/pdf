@@ -3,4 +3,4 @@
 - Tool page: title, working area (drop-zone, file list, messages), 3-step guide, questions and answers.
 - Not found page.
 - Coming in step D: Privacy, Terms, Contact.
-Step A status: tool pages show the shared pieces working. The tools themselves are not built yet, and the page says so.
+Step B status: Merge, Split, Rotate and reorder, and Delete pages work. The other four tools show the shared pieces and a "coming soon" note.

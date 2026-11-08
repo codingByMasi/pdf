@@ -17,7 +17,7 @@
 
 *, *::before, *::after { box-sizing: border-box; }
 
-html { font-size: 112.5%; }
+html { font-size: 112.5%; -webkit-text-size-adjust: 100%; text-size-adjust: 100%; }
 
 body {
   margin: 0;
@@ -32,6 +32,12 @@ h2 { font-size: 1.35rem; margin: 0 0 0.75rem; }
 p { margin: 0 0 0.75rem; }
 a { color: var(--primary); }
 
+:focus {
+  outline: 3px solid var(--primary);
+  outline-offset: 3px;
+}
+/* Browsers that know :focus-visible hide the ring for mouse clicks only. */
+:focus:not(:focus-visible) { outline: none; }
 :focus-visible {
   outline: 3px solid var(--primary);
   outline-offset: 3px;

@@ -1,44 +1,40 @@
-// Working area shared by all tools: add files, check them, show the list and any error.
-import { useState } from 'react';
-import { config } from '../../config.js';
+// Working area shared by all tools: add files, options, action button, progress, result, and errors.
+import { useEffect } from 'react';
 import { useI18n } from '../../shared/i18n/useI18n.js';
-import { validateFile } from '../../shared/lib/validateFile.js';
+import { Button } from '../../shared/ui/Button.jsx';
+import { DownloadButton } from '../../shared/ui/DownloadButton.jsx';
 import { DropZone } from '../../shared/ui/DropZone.jsx';
 import { FileList } from '../../shared/ui/FileList.jsx';
+import { ProgressBar } from '../../shared/ui/ProgressBar.jsx';
 import { StatusMessage } from '../../shared/ui/StatusMessage.jsx';
 
-let nextId = 1;
-
-export function ToolWorkspace({ tool }) {
+export function ToolWorkspace({ tool, selection, job, reorderable, hasFiles = true, children, action, error }) {
   const { t } = useI18n();
-  const [items, setItems] = useState([]);
-  const [errorKey, setErrorKey] = useState('');
+  const { items } = selection;
+  const { reset } = job;
 
-  function addFiles(files) {
-    const maxBytes = config.limits.maxFileMB * 1024 * 1024;
-    const good = [];
-    let problem = '';
-    for (const file of files) {
-      const result = validateFile(file, { kind: tool.kind, maxBytes });
-      if (result.ok) good.push({ id: nextId++, file });
-      else problem = result.errorKey;
-    }
-    const merged = tool.multiple ? [...items, ...good] : good.slice(0, 1).length ? good.slice(0, 1) : items;
-    if (merged.length > config.limits.maxFiles) {
-      setErrorKey('error.tooMany');
-      return;
-    }
-    setErrorKey(problem);
-    setItems(merged);
-  }
+  useEffect(() => reset(), [items, reset]);
 
+  const shownError = error?.key || selection.errorKey || job.errorKey;
   return (
     <section className="workspace" aria-labelledby="workspace-heading">
       <h2 id="workspace-heading" className="visually-hidden">{t('tool.workspace')}</h2>
-      <DropZone kind={tool.kind} multiple={tool.multiple} onFiles={addFiles} />
-      {errorKey ? <StatusMessage title={t('error.heading')}>{t(errorKey)}</StatusMessage> : null}
-      <FileList items={items} onRemove={(id) => setItems(items.filter((i) => i.id !== id))} />
-      <StatusMessage kind="info">{t('tool.comingSoon')}</StatusMessage>
+      <DropZone kind={tool.kind} multiple={tool.multiple} disabled={job.busy} onFiles={selection.addFiles} />
+      {shownError ? (
+        <StatusMessage title={t('error.heading')}>{t(shownError, error?.vars)}</StatusMessage>
+      ) : null}
+      <FileList
+        items={items}
+        disabled={job.busy}
+        onRemove={selection.removeItem}
+        onMove={reorderable ? selection.moveItem : undefined}
+      />
+      {hasFiles ? children : null}
+      {action && hasFiles ? (
+        <Button disabled={job.busy || !action.enabled} onClick={action.onRun}>{t(action.labelKey)}</Button>
+      ) : null}
+      {job.busy ? <ProgressBar value={job.progress} /> : null}
+      {job.result ? <DownloadButton blob={job.result.blob} fileName={job.result.fileName} /> : null}
     </section>
   );
 }

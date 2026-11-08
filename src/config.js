@@ -6,5 +6,6 @@ export const config = {
   limits: {
     maxFileMB: 100,
     maxFiles: 50,
+    maxThumbPages: 150,
   },
 };

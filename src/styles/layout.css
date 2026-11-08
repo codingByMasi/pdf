@@ -1,5 +1,5 @@
 /* Page layout: header, main column, footer, home grid. Mobile first. */
-.page-frame { min-height: 100vh; display: flex; flex-direction: column; }
+.page-frame { min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column; }
 
 .site-header {
   display: flex;

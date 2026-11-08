@@ -46,6 +46,13 @@ Each tool is one folder: src/features/tools/<toolName>/. All tools share the sam
 - Visible keyboard focus. A label on every input.
 - Respect reduced motion.
 
+## Browsers and screens
+- Must work in all common browsers: Chrome, Edge, Firefox, Safari (including iPhone and iPad), Samsung Internet, and recent older versions of each.
+- Must work on all screens: from 320px wide phones up to very wide desktops. Mobile first. No sideways scrolling at any width.
+- Build target is set wide in vite.config.js. Use the pdf.js "legacy" build so older browsers work.
+- Do not use a browser feature that only some browsers have unless there is a fallback.
+- Say plainly which browsers and widths were tested and which were not.
+
 ## Errors
 - Never show technical words to users.
 - Handle password-protected, corrupted and very large files with a clear message.
