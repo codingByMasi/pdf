@@ -1,28 +1,36 @@
-// A plain text page (Privacy, Terms or Contact) built from the text files.
+// A text page (Privacy, Terms or Contact): title block, text sections, and the contact form.
 import { config } from '../../config.js';
 import { useI18n } from '../../shared/i18n/useI18n.js';
 import { usePageMeta } from '../../shared/lib/usePageMeta.js';
-import { Link } from '../../shared/ui/Link.jsx';
+import { ContactForm } from './ContactForm.jsx';
 
 export function InfoPage({ page }) {
   const { t } = useI18n();
   const vars = { site: config.siteName };
+  const isContact = page.id === 'contact';
   usePageMeta({ title: t(`${page.id}.title`), description: t(`${page.id}.seoDesc`, vars), path: page.path });
   return (
     <article className="info-page">
-      <Link to="/" className="back-link">← {t('tool.backHome')}</Link>
-      <h1>{t(`${page.id}.title`)}</h1>
-      <p className="hero-text">{t(`${page.id}.intro`, vars)}</p>
-      {Array.from({ length: page.sections }, (_, i) => (
-        <section key={i} className="info-section">
-          <h2>{t(`${page.id}.s${i + 1}.h`)}</h2>
-          <p>{t(`${page.id}.s${i + 1}.p`, vars)}</p>
-        </section>
-      ))}
-      {page.id === 'contact' ? (
-        <a className="button button-primary" href={`mailto:${config.contactEmail}`}>
-          {t('contact.emailButton', { email: config.contactEmail })}
-        </a>
+      <header className="info-hero">
+        <p className="kicker">{t(isContact ? 'info.kickerHelp' : 'info.kickerLegal')}</p>
+        <h1>{t(`${page.id}.title`)}</h1>
+        <p className="info-lead">{t(`${page.id}.intro`, vars)}</p>
+      </header>
+      <div className="info-content">
+        {Array.from({ length: page.sections }, (_, i) => (
+          <section key={i}>
+            <h2>{t(`${page.id}.s${i + 1}.h`)}</h2>
+            <p>{t(`${page.id}.s${i + 1}.p`, vars)}</p>
+          </section>
+        ))}
+      </div>
+      {isContact ? (
+        <>
+          <ContactForm />
+          <p className="contact-direct">
+            <a href={`mailto:${config.contactEmail}`}>{t('contact.emailButton', { email: config.contactEmail })}</a>
+          </p>
+        </>
       ) : null}
     </article>
   );

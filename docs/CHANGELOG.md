@@ -1,4 +1,8 @@
 # Changelog
+## Design port
+- New look from the ClearPDF design: colours, self-hosted fonts, icons, header with menu, dark footer, new home, tool page, info pages, contact form and 404.
+- Added a Start over button after a download. Tools work as before.
+
 ## Step A - base
 - Base layout, home page with 8-tool grid, tool page shell (steps, questions, working area).
 - Shared pieces: drop-zone, file list, progress bar, download button, messages, ad slot (off).

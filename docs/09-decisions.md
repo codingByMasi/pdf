@@ -34,3 +34,13 @@ Each extra library needs a written reason here.
 - Typed signatures use the device's own handwriting-style font, drawn on a canvas and saved as a picture; the person sees what they get.
 - Scanner uses the phone's own camera through a file chooser (`capture`) instead of a live camera view (`getUserMedia`). It works on every phone browser without a camera permission prompt, and the site keeps `camera=()` in its security headers. The cost: no live preview inside the page.
 - Scanner works in the page's canvas (turn, crop, filter), then the existing picture-to-PDF worker job builds the file.
+
+## Self-hosted fonts: @fontsource/dm-sans and @fontsource/manrope
+- Why: the design uses DM Sans and Manrope. Loading them from Google Fonts would send visitors' requests to another company and break our strict security rule (default-src 'self').
+- What: these two packages hold the font files. They are bundled into our own site, latin letters only, 5 small files. Hindi text uses the Noto or system font as before.
+- Cost: no running cost, no outside request.
+
+## Design port (ClearPDF)
+- Site name is now "ClearPDF" in src/config.js (only place). A trailing "PDF" is shown in blue.
+- We kept our 8 categories, our page addresses and our own Privacy/Terms text. The design's "Popular" group, fake processing and fake options were not copied.
+- The contact form opens the visitor's email app (mailto). There is no server.

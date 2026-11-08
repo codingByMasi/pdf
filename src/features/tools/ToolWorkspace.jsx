@@ -17,9 +17,9 @@ export function ToolWorkspace({ tool, selection, job, reorderable, hasFiles = tr
 
   const shownError = error?.key || selection.errorKey || job.errorKey;
   return (
-    <section className="workspace" aria-labelledby="workspace-heading">
+    <section className="workspace workspace-card" aria-labelledby="workspace-heading">
       <h2 id="workspace-heading" className="visually-hidden">{t('tool.workspace')}</h2>
-      <DropZone kind={tool.kind} multiple={tool.multiple} disabled={job.busy} onFiles={selection.addFiles} />
+      <DropZone kind={tool.kind} multiple={tool.multiple} disabled={job.busy} compact={items.length > 0} onFiles={selection.addFiles} />
       {shownError ? (
         <StatusMessage title={t('error.heading')}>{t(shownError, error?.vars)}</StatusMessage>
       ) : null}
@@ -34,7 +34,7 @@ export function ToolWorkspace({ tool, selection, job, reorderable, hasFiles = tr
         <Button disabled={job.busy || !action.enabled} onClick={action.onRun}>{t(action.labelKey)}</Button>
       ) : null}
       {job.busy ? <ProgressBar value={job.progress} /> : null}
-      {job.result ? <DownloadButton blob={job.result.blob} fileName={job.result.fileName} /> : null}
+      {job.result ? <DownloadButton blob={job.result.blob} fileName={job.result.fileName} onStartOver={selection.clear} /> : null}
       {job.result?.noteKey ? <StatusMessage kind="info">{t(job.result.noteKey, job.result.noteVars)}</StatusMessage> : null}
     </section>
   );

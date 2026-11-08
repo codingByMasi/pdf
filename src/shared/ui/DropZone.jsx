@@ -1,10 +1,11 @@
-// Area where people drop files or tap to choose them.
+// Area where people drop files or tap to choose them. Gets smaller once files are added.
 import { useRef, useState } from 'react';
 import { useI18n } from '../i18n/useI18n.js';
 import { acceptFor } from '../lib/validateFile.js';
 import { Button } from './Button.jsx';
+import { Icon } from './Icon.jsx';
 
-export function DropZone({ kind, multiple, disabled, onFiles }) {
+export function DropZone({ kind, multiple, disabled, compact, onFiles }) {
   const { t } = useI18n();
   const inputRef = useRef(null);
   const [over, setOver] = useState(false);
@@ -21,16 +22,19 @@ export function DropZone({ kind, multiple, disabled, onFiles }) {
     if (picked.length) onFiles(picked);
   }
 
+  const classes = ['drop-zone', over ? 'drop-zone-over' : '', compact ? 'drop-zone-compact' : ''].join(' ').trim();
   return (
     <div
-      className={`drop-zone${over ? ' drop-zone-over' : ''}`}
+      className={classes}
       onDragOver={(event) => { event.preventDefault(); if (!disabled) setOver(true); }}
       onDragLeave={() => setOver(false)}
       onDrop={handleDrop}
     >
+      <span className="drop-icon" aria-hidden="true"><Icon name="file" size={32} /></span>
       <p className="drop-title">{t('drop.title')}</p>
       <p className="drop-hint">{t(`drop.${kind}Hint`)}</p>
-      <Button disabled={disabled} onClick={() => inputRef.current.click()}>
+      <p className="drop-private"><Icon name="lock" size={16} />{t('drop.private')}</p>
+      <Button variant="secondary" disabled={disabled} onClick={() => inputRef.current.click()}>
         {t(multiple ? 'drop.choose' : 'drop.chooseOne')}
       </Button>
       <input

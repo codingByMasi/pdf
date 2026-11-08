@@ -1,10 +1,11 @@
-// Home page: privacy promise, search box, and the tools grouped by category.
+// Home page: hero with privacy promise and search, then the tools grouped by category.
 import { useState } from 'react';
 import { useI18n } from '../../shared/i18n/useI18n.js';
 import { usePageMeta } from '../../shared/lib/usePageMeta.js';
 import { searchTools } from '../../shared/lib/searchTools.js';
 import { groupByCategory, tools } from '../../shared/lib/toolCatalog.js';
-import { StatusMessage } from '../../shared/ui/StatusMessage.jsx';
+import { Icon } from '../../shared/ui/Icon.jsx';
+import { TrustRow } from '../../shared/ui/TrustRow.jsx';
 import { ToolSearch } from './ToolSearch.jsx';
 import { ToolCard } from './ToolCard.jsx';
 
@@ -16,23 +17,44 @@ export function HomePage() {
   const found = searchTools(tools, query, (tool) => `${t(`tool.${tool.id}.name`)} ${t(`tool.${tool.id}.desc`)}`);
   return (
     <>
-      <section className="hero">
-        <h1>{t('home.title')}</h1>
-        <p className="hero-text">{t('home.subtitle')}</p>
-        <p className="privacy-line">🔒 {t('home.privacy')}</p>
+      <section className="home-hero">
+        <span className="hero-orb orb-one" aria-hidden="true" />
+        <span className="hero-orb orb-two" aria-hidden="true" />
+        <div className="hero-inner">
+          <p className="eyebrow">
+            <span className="eyebrow-icon" aria-hidden="true"><Icon name="shield" size={18} /></span>
+            {t('home.eyebrow')}
+          </p>
+          <h1>{t('home.heroA')} <em>{t('home.heroB')}</em></h1>
+          <p className="hero-text">{t('home.subtitle')}</p>
+          <p className="privacy-note"><Icon name="lock" size={18} />{t('home.privacy')}</p>
+          <ToolSearch query={query} onChange={setQuery} count={found.length} />
+          <TrustRow />
+        </div>
       </section>
-      <ToolSearch query={query} onChange={setQuery} count={found.length} />
-      {found.length === 0 ? <StatusMessage kind="info">{t('search.none')}</StatusMessage> : null}
-      {groupByCategory(found).map(({ category, tools: group }) => (
-        <section key={category} className="tool-group" aria-labelledby={`group-${category}`}>
-          <h2 id={`group-${category}`}>{t(`category.${category}`)}</h2>
-          <ul className="tool-grid">
-            {group.map((tool) => (
-              <li key={tool.id}><ToolCard tool={tool} /></li>
-            ))}
-          </ul>
-        </section>
-      ))}
+      <section id="tools" className="tools-section" aria-labelledby="tools-heading">
+        <div className="section-heading">
+          <div>
+            <p className="kicker">{t('home.kicker', { count: tools.length })}</p>
+            <h2 id="tools-heading">{t('home.allTools')}</h2>
+          </div>
+          <p>{t('home.toolsText')}</p>
+        </div>
+        {found.length === 0 ? <p className="no-results" role="status">{t('search.none')}</p> : null}
+        {groupByCategory(found).map(({ category, tools: group }) => (
+          <section key={category} className="category" aria-labelledby={`group-${category}`}>
+            <div className="category-title">
+              <h3 id={`group-${category}`}>{t(`category.${category}`)}</h3>
+              <span className="count-badge">{group.length}</span>
+            </div>
+            <ul className="tool-grid">
+              {group.map((tool) => (
+                <li key={tool.id}><ToolCard tool={tool} /></li>
+              ))}
+            </ul>
+          </section>
+        ))}
+      </section>
     </>
   );
 }

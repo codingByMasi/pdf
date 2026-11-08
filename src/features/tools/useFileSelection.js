@@ -45,5 +45,10 @@ export function useFileSelection(tool) {
     });
   }
 
-  return { items, errorKey, addFiles, removeItem, moveItem };
+  function clear() {
+    setErrorKey('');
+    setItems([]);
+  }
+
+  return { items, errorKey, addFiles, removeItem, moveItem, clear };
 }

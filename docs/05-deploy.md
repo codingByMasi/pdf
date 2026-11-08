@@ -1,7 +1,7 @@
 # Deploy guide (Cloudflare Pages)
 
 ## Before the first deploy: change 3 things in `src/config.js`
-1. `siteName` - the name shown on the site ("PDF Tools" is only a placeholder).
+1. `siteName` - the name shown on the site ("ClearPDF" is set now; change it if you pick another name).
 2. `siteUrl` - your real web address, like `https://mypdftools.com` (no slash at the end). It is used in the sitemap and in the search-engine tags.
 3. `contactEmail` - a real email address that you read.
 Then run `npm test` and `npm run build`.

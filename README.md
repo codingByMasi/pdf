@@ -1,4 +1,4 @@
-# PDF Tools
+# ClearPDF
 
 Free PDF tools (25 of them) that run fully in the browser. Files never leave the user's device. No login, no backend.
 

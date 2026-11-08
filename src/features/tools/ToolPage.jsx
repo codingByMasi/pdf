@@ -1,9 +1,11 @@
-// Page for one tool: title, working area, 3-step guide and questions.
+// Page for one tool: breadcrumb, title with icon, working area, trust row, 3 steps and questions.
+import { Suspense } from 'react';
 import { useI18n } from '../../shared/i18n/useI18n.js';
 import { usePageMeta } from '../../shared/lib/usePageMeta.js';
+import { Icon } from '../../shared/ui/Icon.jsx';
 import { Link } from '../../shared/ui/Link.jsx';
-import { Suspense } from 'react';
 import { StatusMessage } from '../../shared/ui/StatusMessage.jsx';
+import { TrustRow } from '../../shared/ui/TrustRow.jsx';
 import { toolScreens } from './toolRegistry.js';
 import { HowToSteps } from './HowToSteps.jsx';
 import { FaqList } from './FaqList.jsx';
@@ -14,17 +16,25 @@ export function ToolPage({ tool }) {
   const Screen = toolScreens[tool.id];
   usePageMeta({ title: t(`tool.${tool.id}.seoTitle`), description: t(`tool.${tool.id}.seoDesc`), path: tool.path });
   return (
-    <>
-      <Link to="/" className="back-link">← {t('tool.backHome')}</Link>
-      <section className="hero">
-        <h1>{name}</h1>
-        <p className="hero-text">{t(`tool.${tool.id}.desc`)}</p>
+    <div className="tool-page">
+      <nav className="breadcrumb" aria-label={t('tool.backHome')}>
+        <Link to="/" className="breadcrumb-link">{t('nav.homeShort')}</Link>
+        <Icon name="arrow" size={16} />
+        <span aria-current="page">{name}</span>
+      </nav>
+      <section className="tool-intro">
+        <span className={`tool-page-icon tone-${tool.category}`} aria-hidden="true"><Icon name={tool.icon} size={34} /></span>
+        <div>
+          <h1>{name}</h1>
+          <p>{t(`tool.${tool.id}.desc`)}</p>
+        </div>
       </section>
       <Suspense fallback={<StatusMessage kind="info">{t('tool.loading')}</StatusMessage>}>
         <Screen tool={tool} />
       </Suspense>
+      <TrustRow />
       <HowToSteps toolId={tool.id} />
       <FaqList toolId={tool.id} />
-    </>
+    </div>
   );
 }
