@@ -38,3 +38,10 @@
 - Rotate PDF (turn one page or all pages), Extract PDF Pages (tick pages or type numbers), Organize PDF (reorder, turn and remove in one place).
 - Delete pages can also pick pages by typing numbers.
 - Shared page-editing pieces in `features/tools/pageEditor/` (edit plans, page grids, selection tools).
+
+## Brief v2, step (c) - Convert to PDF
+- TXT to PDF, CSV to PDF, HTML to PDF (simple pages) and ZIP to PDF. TXT, CSV and HTML also accept pasted text.
+- English and Hindi text in the PDFs: Noto Sans fonts (Latin and Hindi, normal and bold) are fetched only when one of these tools runs, and only the letters used are saved into the PDF.
+- Shared pieces: font book, text wrapping, page writer, table drawing, CSV reader, text decoder (UTF-8, UTF-16 and old Windows text).
+- HTML is read in an inert page, only an allow-list of plain content is kept (headings, paragraphs, lists, tables, bold). Scripts, styles, frames, forms, pictures and links are dropped and nothing is loaded.
+- ZIP: own reader on the browser's built-in unzip, with limits on number of files, size and unpacked size.

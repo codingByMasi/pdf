@@ -22,10 +22,10 @@ Legend: built = works now. Planned steps: (b) Organize, (c) Convert and PDF to I
 | 14 | Edit PDF (add on top only) | Edit | step d | |
 | 15 | Sign PDF | Fill & Sign | step d | |
 | 16 | JPG to PDF (also PNG) | Convert to PDF | built | jpgToPdf |
-| 17 | TXT to PDF | Convert to PDF | step c | |
-| 18 | CSV to PDF | Convert to PDF | step c | |
-| 19 | HTML to PDF (simple pages) | Convert to PDF | step c | |
-| 20 | ZIP to PDF | Convert to PDF | step c | |
+| 17 | TXT to PDF | Convert to PDF | built | txtToPdf |
+| 18 | CSV to PDF | Convert to PDF | built | csvToPdf |
+| 19 | HTML to PDF (simple pages) | Convert to PDF | built | htmlToPdf |
+| 20 | ZIP to PDF | Convert to PDF | built | zipToPdf |
 | 21 | PDF to JPG | PDF to Image | built | pdfToJpg (uses pdfToImage) |
 | 22 | PDF to PNG | PDF to Image | built | pdfToPng (uses pdfToImage) |
 | 23 | Flatten PDF | Protect | step d | |

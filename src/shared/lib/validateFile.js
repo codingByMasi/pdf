@@ -6,6 +6,18 @@ const KINDS = {
     mimes: ['image/jpeg', 'image/png'],
     accept: '.jpg,.jpeg,.png,image/jpeg,image/png',
   },
+  txt: { exts: ['txt', 'text'], mimes: ['text/plain'], accept: '.txt,.text,text/plain' },
+  csv: {
+    exts: ['csv', 'tsv'],
+    mimes: ['text/csv', 'text/tab-separated-values', 'text/plain', 'application/vnd.ms-excel', 'application/csv'],
+    accept: '.csv,.tsv,text/csv,text/plain',
+  },
+  html: { exts: ['html', 'htm'], mimes: ['text/html', 'application/xhtml+xml'], accept: '.html,.htm,text/html' },
+  zip: {
+    exts: ['zip'],
+    mimes: ['application/zip', 'application/x-zip-compressed', 'application/x-zip', 'multipart/x-zip'],
+    accept: '.zip,application/zip',
+  },
 };
 
 export function acceptFor(kind) {

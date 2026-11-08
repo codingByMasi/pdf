@@ -25,8 +25,7 @@ async function redrawUpright(bytes) {
   }
 }
 
-export async function prepareImage(file) {
-  const bytes = new Uint8Array(await file.arrayBuffer());
+export async function prepareImageBytes(bytes) {
   const type = sniffImageType(bytes);
   if (!type) throw badImage();
   if (type === 'jpg' && jpegOrientation(bytes) > 1) {
@@ -37,4 +36,8 @@ export async function prepareImage(file) {
     }
   }
   return { bytes, type };
+}
+
+export async function prepareImage(file) {
+  return prepareImageBytes(new Uint8Array(await file.arrayBuffer()));
 }

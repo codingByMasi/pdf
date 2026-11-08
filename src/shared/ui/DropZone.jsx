@@ -29,7 +29,7 @@ export function DropZone({ kind, multiple, disabled, onFiles }) {
       onDrop={handleDrop}
     >
       <p className="drop-title">{t('drop.title')}</p>
-      <p className="drop-hint">{t(kind === 'image' ? 'drop.imageHint' : 'drop.pdfHint')}</p>
+      <p className="drop-hint">{t(`drop.${kind}Hint`)}</p>
       <Button disabled={disabled} onClick={() => inputRef.current.click()}>
         {t(multiple ? 'drop.choose' : 'drop.chooseOne')}
       </Button>

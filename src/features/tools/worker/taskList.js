@@ -7,6 +7,9 @@ import { imagesToPdf } from '../jpgToPdf/imagesToPdf.js';
 import { mergePdfs } from '../merge/mergePdfs.js';
 import { splitEveryPage } from '../split/splitPdf.js';
 import { addMarks } from '../watermark/addMarks.js';
+import { csvToPdf } from '../csvToPdf/csvToPdf.js';
+import { htmlToPdf } from '../htmlToPdf/htmlToPdf.js';
+import { textToPdf } from '../txtToPdf/textToPdf.js';
 
 export const tasks = {
   merge: ({ pdfs }, { onProgress }) => mergePdfs(pdfs, onProgress),
@@ -19,6 +22,13 @@ export const tasks = {
   imagesToPdf: ({ images, pageMode }, { onProgress }) => imagesToPdf(images, { pageMode }, onProgress),
 
   addMarks: ({ bytes, options }, { onProgress }) => addMarks(bytes, options, onProgress),
+
+  // These three return { bytes, replaced } where replaced counts letters shown as "?".
+  textToPdf: ({ text }, { onProgress }) => textToPdf(text, {}, onProgress),
+
+  csvToPdf: ({ text }, { onProgress }) => csvToPdf(text, {}, onProgress),
+
+  htmlToPdf: ({ blocks }, { onProgress }) => htmlToPdf(blocks, {}, onProgress),
 
   compress: ({ bytes, maxSide, quality }, { onProgress, callMain }) =>
     compressPdf(
