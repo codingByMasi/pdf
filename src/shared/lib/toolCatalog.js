@@ -59,6 +59,12 @@ export const tools = [
   { id: 'splitBy', path: '/split-pdf-by-bookmarks', category: 'organize', icon: 'split', kind: 'pdf', multiple: false },
   { id: 'photoSheet', path: '/passport-photo-sheet', category: 'image', icon: 'person', kind: 'image', multiple: false },
   { id: 'pdfCheck', path: '/check-pdf', category: 'inspect', icon: 'check', kind: 'pdf', multiple: false },
+  { id: 'docxToPdf', path: '/word-to-pdf', category: 'toPdf', icon: 'doc', kind: 'docx', multiple: false },
+  { id: 'xlsxToPdf', path: '/excel-to-pdf', category: 'toPdf', icon: 'sheet', kind: 'xlsx', multiple: false },
+  { id: 'pptxToPdf', path: '/powerpoint-to-pdf', category: 'toPdf', icon: 'slides', kind: 'pptx', multiple: false },
+  { id: 'pdfToWord', path: '/pdf-to-word', category: 'inspect', icon: 'doc', kind: 'pdf', multiple: false, format: 'docx' },
+  { id: 'pdfToExcel', path: '/pdf-to-excel', category: 'inspect', icon: 'sheet', kind: 'pdf', multiple: false, format: 'xlsx' },
+  { id: 'pdfToPowerpoint', path: '/pdf-to-powerpoint', category: 'inspect', icon: 'slides', kind: 'pdf', multiple: false, format: 'pptx' },
   { id: 'textToImage', path: '/text-to-image', category: 'image', icon: 'image', kind: 'txt', multiple: false },
 ];
 

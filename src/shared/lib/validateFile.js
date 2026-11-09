@@ -14,6 +14,9 @@ const KINDS = {
     accept: '.csv,.tsv,text/csv,text/plain',
   },
   html: { exts: ['html', 'htm'], mimes: ['text/html', 'application/xhtml+xml'], accept: '.html,.htm,text/html' },
+  docx: { exts: ['docx'], mimes: ['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/zip'], accept: '.docx' },
+  xlsx: { exts: ['xlsx'], mimes: ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/zip'], accept: '.xlsx' },
+  pptx: { exts: ['pptx'], mimes: ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/zip'], accept: '.pptx' },
   zip: {
     exts: ['zip'],
     mimes: ['application/zip', 'application/x-zip-compressed', 'application/x-zip', 'multipart/x-zip'],

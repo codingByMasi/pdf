@@ -52,3 +52,7 @@ Each extra library needs a written reason here.
 
 ## Licences file (step 4)
 - What: scripts/licences.js writes dist/licences.txt at build time. Why: MIT, Apache and OFL licences ask that the licence text travels with the files.
+
+## pako as a direct dependency (step 5)
+- What: pako (MIT and Zlib), already inside pdf-lib, is now listed in package.json.
+- Why: older browsers have no built-in unzip (DecompressionStream). Office files are zips, and the zip-to-PDF tool needed the same fallback. No new code is shipped; it was already in the bundle.

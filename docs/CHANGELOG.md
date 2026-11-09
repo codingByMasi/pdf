@@ -1,4 +1,9 @@
 # Changelog
+## Step (k): Office basics
+- Word, Excel and PowerPoint to PDF (text only), PDF to Word, Excel and PowerPoint (rough, text only).
+- The zip reader moved to shared/lib/zipRead.js and now works in older browsers too (pako).
+- Checked with LibreOffice and python-docx/openpyxl/python-pptx. NOT checked with Microsoft Office itself.
+
 ## Step (j): extra PDF tools
 - 16 new tools: compress to size, remove blank pages, grayscale, margins and borders, background colour, stamp, booklet, repair, QR on pages, highlight words, find and replace, attach and extract files, split by bookmarks or blank pages, passport photo sheet, check PDF.
 - Legal: Licences page and licences.txt, responsible-use notes on tools, Terms section 6, docs/10-legal.md.

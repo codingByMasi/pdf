@@ -57,12 +57,12 @@ Every item must work fully in the browser, with no server and no upload.
 - [x] Find and replace words (hide and retype overlay)
 
 ## E. Office files (basic only, limits stated on each page)
-- [ ] DOCX to PDF (plain text, headings, lists)
-- [ ] XLSX to PDF (cell values as a table)
-- [ ] PPTX to PDF (text of each slide)
-- [ ] PDF to Word (rough, text only)
-- [ ] PDF to Excel (rough, text only)
-- [ ] PDF to PowerPoint (rough, text only)
+- [x] DOCX to PDF (plain text, headings, lists)
+- [x] XLSX to PDF (cell values as a table)
+- [x] PPTX to PDF (text of each slide)
+- [x] PDF to Word (rough, text only)
+- [x] PDF to Excel (rough, text only)
+- [x] PDF to PowerPoint (rough, text only)
 
 ## F. Image tools
 - [ ] Resize
