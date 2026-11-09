@@ -1,4 +1,9 @@
 # Changelog
+## Step (p): audio and video
+- Audio trimmer (cuts a part, saves WAV; own WAV writer), voice recorder, screen recorder (browser MediaRecorder). New group "Audio and video".
+- No big libraries: no MP3 or video converting or trimming (needs ffmpeg or lame, which are heavy and have tricky licences).
+- Permissions-Policy now allows microphone and screen capture for this site only. CSP got media-src blob: (needed for previews).
+- Video frame grabber now fully tested (seeking works). Screen recorder does not work on most phones; the page says so.
 ## Step (o): document makers
 - New group "Make a document": invoice (plain tax percent, no GST advice), resume, letters (leave, resignation, complaint; English or Hindi), visiting cards, certificate, name plate, calendar (year or month, English or Hindi), timetable. Hindi typing (English letters to Hindi) added to the text group.
 - The GST calculator was removed at the owner's request (page, texts, SEO, notice). The invoice keeps only a plain "tax rate" field.

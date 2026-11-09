@@ -113,9 +113,9 @@ Every item must work fully in the browser, with no server and no upload.
 - [x] Hindi typing (English letters to Devanagari)
 
 ## J. Audio and video (small files only, limits stated)
-- [ ] Audio trimmer and converter (small files)
-- [ ] Voice recorder
-- [ ] Screen recorder
+- [x] Audio trimmer and converter (small files)
+- [x] Voice recorder
+- [x] Screen recorder
 
 ## K. Site ideas (suggested by Claude, not yet asked for)
 Tool favourites and recent tools row, share-a-tool link, several-files queue, blog and guides, more languages

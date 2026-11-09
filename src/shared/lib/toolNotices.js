@@ -12,6 +12,8 @@ export const notices = {
   stamp: 'stamp',
   qrPages: 'rights',
   photoSheet: 'id',
+  voiceRecorder: 'record',
+  screenRecorder: 'record',
   invoiceMaker: 'docs',
   letterMaker: 'docs',
   visitingCard: 'docs',

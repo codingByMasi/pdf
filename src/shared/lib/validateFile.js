@@ -17,6 +17,7 @@ const KINDS = {
   docx: { exts: ['docx'], mimes: ['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/zip'], accept: '.docx' },
   xlsx: { exts: ['xlsx'], mimes: ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/zip'], accept: '.xlsx' },
   pptx: { exts: ['pptx'], mimes: ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/zip'], accept: '.pptx' },
+  audio: { exts: ['mp3', 'wav', 'm4a', 'aac', 'ogg', 'oga', 'opus', 'webm', 'flac'], mimes: ['audio/mpeg', 'audio/mp3', 'audio/wav', 'audio/x-wav', 'audio/wave', 'audio/mp4', 'audio/x-m4a', 'audio/aac', 'audio/ogg', 'audio/opus', 'audio/webm', 'audio/flac', 'audio/x-flac', 'video/webm', 'video/mp4'], accept: '.mp3,.wav,.m4a,.aac,.ogg,.opus,.flac,.webm,audio/*' },
   video: { exts: ['mp4', 'webm', 'mov', 'm4v', 'ogv'], mimes: ['video/mp4', 'video/webm', 'video/quicktime', 'video/x-m4v', 'video/ogg'], accept: '.mp4,.webm,.mov,.m4v,.ogv,video/*' },
   zip: {
     exts: ['zip'],

@@ -110,4 +110,7 @@ export const toolScreens = {
   calendarMaker: lazy(() => import('./calendarMaker/CalendarMakerTool.jsx')),
   timetableMaker: lazy(() => import('./timetableMaker/TimetableMakerTool.jsx')),
   hindiTyping: lazy(() => import('./hindiTyping/HindiTypingTool.jsx')),
+  audioTrim: lazy(() => import('./audioTrim/AudioTrimTool.jsx')),
+  voiceRecorder: lazy(() => import('./voiceRecorder/VoiceRecorderTool.jsx')),
+  screenRecorder: lazy(() => import('./screenRecorder/ScreenRecorderTool.jsx')),
 };

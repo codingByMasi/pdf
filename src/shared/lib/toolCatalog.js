@@ -1,5 +1,5 @@
 // THE one list of tools (data only): id, address, category, icon name (see shared/ui/Icon.jsx), file kind. Feeds home, tool pages, search, sitemap.
-export const categories = ['organize', 'edit', 'sign', 'toPdf', 'toImage', 'protect', 'compress', 'scan', 'inspect', 'image', 'text', 'calc', 'docs'];
+export const categories = ['organize', 'edit', 'sign', 'toPdf', 'toImage', 'protect', 'compress', 'scan', 'inspect', 'image', 'text', 'calc', 'docs', 'media'];
 
 // kind: what files the tool takes. multiple: can take many files. format: only for the picture exporters.
 export const tools = [
@@ -111,6 +111,9 @@ export const tools = [
   { id: 'calendarMaker', path: '/calendar-maker', category: 'docs', icon: 'calendar', kind: 'none', multiple: false },
   { id: 'timetableMaker', path: '/timetable-maker', category: 'docs', icon: 'table', kind: 'none', multiple: false },
   { id: 'hindiTyping', path: '/hindi-typing', category: 'text', icon: 'text', kind: 'none', multiple: false },
+  { id: 'audioTrim', path: '/audio-trimmer', category: 'media', icon: 'wave', kind: 'audio', multiple: false },
+  { id: 'voiceRecorder', path: '/voice-recorder', category: 'media', icon: 'mic', kind: 'none', multiple: false },
+  { id: 'screenRecorder', path: '/screen-recorder', category: 'media', icon: 'screen', kind: 'none', multiple: false },
 ];
 
 export function findToolByPath(path) {
