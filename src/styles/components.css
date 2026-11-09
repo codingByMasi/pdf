@@ -173,3 +173,12 @@
 .reorder-dragging { opacity: 0.55; }
 .reorder-target { outline: 3px dashed var(--primary); outline-offset: 2px; }
 .page-card-actions .drag-handle { grid-column: 1 / -1; width: 100%; color: var(--primary); border: 1px dashed var(--border-strong); border-radius: 10px; }
+
+/* PDF check results. */
+.check-list { display: grid; gap: 0.5rem; margin: 0; }
+.check-row { display: grid; gap: 0.15rem; padding: 0.6rem 0.8rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+.check-row dt { color: var(--text-soft); font-size: 0.85rem; font-weight: 700; }
+.check-row dd { margin: 0; overflow-wrap: anywhere; }
+
+/* Short responsible-use note under a tool. */
+.legal-note { margin: 0.75rem 0 0; padding: 0.7rem 0.9rem; color: var(--text-soft); font-size: 0.92rem; background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--primary); border-radius: 10px; }

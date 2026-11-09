@@ -78,6 +78,9 @@ NOT BUILT (need a server or a paid service, never add): PDF to Word/Excel/PPT, W
 - Never show raw HTML from file contents. HTML to PDF must sanitize its input: parse it in an inert document (DOMParser), keep only an allow-list of tags, never run scripts, never load outside links or pictures.
 - Never upload files anywhere. No analytics that send file data.
 
+## Legal
+- Nothing we build or publish may be illegal. Read docs/10-legal.md. Only MIT, Apache, BSD, ISC, 0BSD, Zlib or OFL licences. No GPL/AGPL/non-commercial. No copied text, logos or designs. No claim of certified signatures, PDF/A, legal redaction or compliance. Tools that could be misused get a short note (src/shared/lib/toolNotices.js).
+
 ## Ads
 - Ad slot components exist but stay OFF through a switch in src/config.js.
 

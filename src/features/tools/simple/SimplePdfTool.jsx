@@ -18,8 +18,8 @@ export default function SimplePdfTool({ tool, prepare, suffix, ext = 'pdf', mime
   const info = usePdfInfo(file);
   const [problem, setProblem] = useState(null);
 
-  function run() {
-    const plan = prepare(info);
+  async function run() {
+    const plan = await prepare(info);
     setProblem(plan.error ?? null);
     if (plan.error) return;
     job.run(async (onProgress) => {

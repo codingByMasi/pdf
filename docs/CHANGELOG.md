@@ -1,4 +1,8 @@
 # Changelog
+## Step (j): extra PDF tools
+- 16 new tools: compress to size, remove blank pages, grayscale, margins and borders, background colour, stamp, booklet, repair, QR on pages, highlight words, find and replace, attach and extract files, split by bookmarks or blank pages, passport photo sheet, check PDF.
+- Legal: Licences page and licences.txt, responsible-use notes on tools, Terms section 6, docs/10-legal.md.
+
 ## Step (i): site polish
 - Dark mode (follows the device, with a switch). Install as an app and work offline (service worker written at build time).
 - The site remembers recent options on this device only; a footer button forgets them.

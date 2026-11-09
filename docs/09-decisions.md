@@ -44,3 +44,11 @@ Each extra library needs a written reason here.
 - Site name is now "ClearPDF" in src/config.js (only place). A trailing "PDF" is shown in blue.
 - We kept our 8 categories, our page addresses and our own Privacy/Terms text. The design's "Popular" group, fake processing and fake options were not copied.
 - The contact form opens the visitor's email app (mailto). There is no server.
+
+## Own QR encoder (step 4)
+- What: src/shared/lib/qr, about 200 lines, byte mode, versions 1 to 10, levels L/M/Q/H.
+- Why: a QR library is one more package to license and ship. The standard is free to use. Tested by reading codes back with a real QR reader (jsQR, test-time only, not shipped).
+- Limit: text up to about 210 bytes at level M. Longer text gives a clear message.
+
+## Licences file (step 4)
+- What: scripts/licences.js writes dist/licences.txt at build time. Why: MIT, Apache and OFL licences ask that the licence text travels with the files.

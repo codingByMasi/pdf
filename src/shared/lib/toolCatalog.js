@@ -51,6 +51,14 @@ export const tools = [
   { id: 'booklet', path: '/pdf-booklet', category: 'organize', icon: 'book', kind: 'pdf', multiple: false },
   { id: 'compressTarget', path: '/compress-pdf-to-size', category: 'compress', icon: 'target', kind: 'pdf', multiple: false },
   { id: 'repair', path: '/repair-pdf', category: 'protect', icon: 'wrench', kind: 'pdf', multiple: false },
+  { id: 'highlightText', path: '/highlight-pdf-text', category: 'edit', icon: 'highlight', kind: 'pdf', multiple: false },
+  { id: 'findReplace', path: '/find-replace-pdf-text', category: 'edit', icon: 'replace', kind: 'pdf', multiple: false },
+  { id: 'qrPages', path: '/add-qr-code-to-pdf', category: 'edit', icon: 'qr', kind: 'pdf', multiple: false },
+  { id: 'attach', path: '/attach-files-to-pdf', category: 'organize', icon: 'clip', kind: 'pdf', multiple: false },
+  { id: 'extractAttachments', path: '/extract-pdf-attachments', category: 'inspect', icon: 'clip', kind: 'pdf', multiple: false },
+  { id: 'splitBy', path: '/split-pdf-by-bookmarks', category: 'organize', icon: 'split', kind: 'pdf', multiple: false },
+  { id: 'photoSheet', path: '/passport-photo-sheet', category: 'image', icon: 'person', kind: 'image', multiple: false },
+  { id: 'pdfCheck', path: '/check-pdf', category: 'inspect', icon: 'check', kind: 'pdf', multiple: false },
   { id: 'textToImage', path: '/text-to-image', category: 'image', icon: 'image', kind: 'txt', multiple: false },
 ];
 

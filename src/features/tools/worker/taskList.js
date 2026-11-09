@@ -27,6 +27,12 @@ import { addBackground } from '../background/addBackground.js';
 import { addStamp } from '../stamp/addStamp.js';
 import { makeBooklet } from '../booklet/makeBooklet.js';
 import { repairPdf } from '../repair/repairPdf.js';
+import { addQr } from '../qrPages/addQr.js';
+import { attachFiles } from '../attach/attachFiles.js';
+import { extractAttachments } from '../attach/extractAttachments.js';
+import { applyMarks } from '../textMarks/applyMarks.js';
+import { splitByGroups } from '../splitMarks/splitByGroups.js';
+import { makePhotoSheet } from '../photoSheet/makePhotoSheet.js';
 
 export const tasks = {
   merge: ({ pdfs }, { onProgress }) => mergePdfs(pdfs, onProgress),
@@ -92,6 +98,25 @@ export const tasks = {
 
   // Returns { bytes, pages, lost }.
   repair: ({ bytes }) => repairPdf(bytes),
+
+  qrPages: ({ bytes, options }, { onProgress }) => addQr(bytes, options, onProgress),
+
+  attach: ({ bytes, files }) => attachFiles(bytes, files),
+
+  // Returns { bytes: zip, count }.
+  extractAttachments: async ({ bytes }) => {
+    const files = await extractAttachments(bytes);
+    return { bytes: makeZip(files), count: files.length };
+  },
+
+  // Returns { bytes, count, replaced }.
+  marks: ({ bytes, marks, mode, replacement }) => applyMarks(bytes, marks, { mode, replacement }),
+
+  // Returns { bytes: zip, parts }.
+  splitGroups: ({ bytes, groups, names }, { onProgress }) => splitByGroups(bytes, groups, names, onProgress),
+
+  // Returns { bytes, count }.
+  photoSheet: ({ photo, size, sheet }) => makePhotoSheet(photo, { size, sheet }),
 
   compress: ({ bytes, maxSide, quality }, { onProgress, callMain }) =>
     compressPdf(
