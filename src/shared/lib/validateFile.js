@@ -17,6 +17,7 @@ const KINDS = {
   docx: { exts: ['docx'], mimes: ['application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/zip'], accept: '.docx' },
   xlsx: { exts: ['xlsx'], mimes: ['application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'application/zip'], accept: '.xlsx' },
   pptx: { exts: ['pptx'], mimes: ['application/vnd.openxmlformats-officedocument.presentationml.presentation', 'application/zip'], accept: '.pptx' },
+  video: { exts: ['mp4', 'webm', 'mov', 'm4v', 'ogv'], mimes: ['video/mp4', 'video/webm', 'video/quicktime', 'video/x-m4v', 'video/ogg'], accept: '.mp4,.webm,.mov,.m4v,.ogv,video/*' },
   zip: {
     exts: ['zip'],
     mimes: ['application/zip', 'application/x-zip-compressed', 'application/x-zip', 'multipart/x-zip'],

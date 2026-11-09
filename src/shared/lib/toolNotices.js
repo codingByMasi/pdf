@@ -12,6 +12,9 @@ export const notices = {
   stamp: 'stamp',
   qrPages: 'rights',
   photoSheet: 'id',
+  imageText: 'rights',
+  imageBlur: 'rights',
+  imageBackground: 'rights',
 };
 
 export function noticeFor(toolId) {

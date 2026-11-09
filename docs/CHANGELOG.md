@@ -1,4 +1,8 @@
 # Changelog
+## Step (l): more image tools
+- Crop, hide parts (blocks or black), remove a plain background, add text or watermark (Hindi works), collage, GIF maker (own encoder, 256 colours), video frame grabber (new "video" file type).
+- Picture styles moved to src/styles/images.css.
+- Checked in Chrome only. The video grabber could not be fully tested here (the test browser refuses local video links), so test it by hand with a real MP4 or WebM. Seeking with the +/- buttons is also unchecked.
 ## Step (k): Office basics
 - Word, Excel and PowerPoint to PDF (text only), PDF to Word, Excel and PowerPoint (rough, text only).
 - The zip reader moved to shared/lib/zipRead.js and now works in older browsers too (pako).

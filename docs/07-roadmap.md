@@ -67,17 +67,17 @@ Every item must work fully in the browser, with no server and no upload.
 ## F. Image tools
 - [x] Resize
 - [x] Compress
-- [ ] Crop
+- [x] Crop
 - [x] Rotate
 - [x] Convert PNG / JPG / WebP
 - [x] Image to a target size (for example 50 KB)
 - [x] Remove EXIF data
-- [ ] Background remover (colour-based, weak)
-- [ ] Add text or watermark
-- [ ] Blur or hide parts
-- [ ] Collage / combine images
+- [x] Background remover (colour-based, weak)
+- [x] Add text or watermark
+- [x] Blur or hide parts
+- [x] Collage / combine images
 - [x] Black and white, or add a border
-- [ ] GIF maker, video frame grabber
+- [x] GIF maker, video frame grabber
 - [x] Favicon maker, image to Base64 (both built)
 - [x] Colour picker from an image
 

@@ -184,11 +184,3 @@
 .legal-note { margin: 0.75rem 0 0; padding: 0.7rem 0.9rem; color: var(--text-soft); font-size: 0.92rem; background: var(--surface); border: 1px solid var(--border); border-left: 4px solid var(--primary); border-radius: 10px; }
 
 /* Picture tools. */
-.image-preview { display: grid; place-items: center; padding: 0.75rem; overflow: hidden; background: var(--stage-bg); border-radius: 10px; }
-.image-preview img { max-width: 100%; height: auto; transition: transform 0.2s; }
-.picker-canvas { display: block; width: 100%; max-width: 40rem; height: auto; margin-inline: auto; cursor: crosshair; border: 1px solid var(--border-strong); border-radius: 10px; }
-.swatch { display: flex; flex-wrap: wrap; align-items: center; gap: 0.75rem; padding: 0.6rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
-.swatch-colour { flex: 0 0 3rem; width: 3rem; height: 3rem; border: 1px solid var(--border-strong); border-radius: 8px; }
-.swatch-text { flex: 1 1 10rem; min-width: 0; overflow-wrap: anywhere; font-size: 0.92rem; }
-.plain-list { margin: 0; padding-left: 1.2rem; }
-@media (prefers-reduced-motion: reduce) { .image-preview img { transition: none; } }

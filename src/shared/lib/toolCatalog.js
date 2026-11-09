@@ -75,6 +75,13 @@ export const tools = [
   { id: 'imageBase64', path: '/image-to-base64', category: 'image', icon: 'code', kind: 'image', multiple: false },
   { id: 'favicon', path: '/favicon-maker', category: 'image', icon: 'star', kind: 'image', multiple: false },
   { id: 'colourPicker', path: '/image-colour-picker', category: 'image', icon: 'pipette', kind: 'image', multiple: false },
+  { id: 'imageCrop', path: '/crop-image', category: 'image', icon: 'crop', kind: 'image', multiple: false },
+  { id: 'imageBlur', path: '/blur-hide-image-parts', category: 'image', icon: 'redact', kind: 'image', multiple: false },
+  { id: 'imageBackground', path: '/remove-image-background', category: 'image', icon: 'layers', kind: 'image', multiple: false },
+  { id: 'imageText', path: '/add-text-to-image', category: 'image', icon: 'text', kind: 'image', multiple: false },
+  { id: 'collage', path: '/photo-collage-maker', category: 'image', icon: 'grid', kind: 'image', multiple: true },
+  { id: 'gifMaker', path: '/gif-maker', category: 'image', icon: 'film', kind: 'image', multiple: true },
+  { id: 'videoFrame', path: '/video-frame-grabber', category: 'image', icon: 'film', kind: 'video', multiple: false },
   { id: 'textToImage', path: '/text-to-image', category: 'image', icon: 'image', kind: 'txt', multiple: false },
 ];
 
