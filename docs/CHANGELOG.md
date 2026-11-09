@@ -1,8 +1,13 @@
 # Changelog
+## Step (o): document makers
+- New group "Make a document": invoice (plain tax percent, no GST advice), resume, letters (leave, resignation, complaint; English or Hindi), visiting cards, certificate, name plate, calendar (year or month, English or Hindi), timetable. Hindi typing (English letters to Hindi) added to the text group.
+- The GST calculator was removed at the owner's request (page, texts, SEO, notice). The invoice keeps only a plain "tax rate" field.
+- The rupee sign now uses the Hindi font (the English font lacks it).
+- ID card maker left out on purpose. Calendar shows no holidays (dates differ by place).
 ## Step (n): calculators
-- New group "Calculators" (7 tools): age, date calculator, EMI, GST, percentage, unit converter, number to words in rupees (English and Hindi).
+- New group "Calculators" (6 tools after the GST calculator was removed at the owner's request): age, date calculator, EMI, percentage, unit converter, number to words in rupees (English and Hindi).
 - Dates are worked on as plain text (no time zone problems). Bigha is left out of the unit converter on purpose (it differs by state).
-- Notes under EMI/GST ("for guidance only") and number to words ("check before writing on a cheque").
+- Notes under EMI ("for guidance only") and number to words ("check before writing on a cheque").
 - EMI checked against a known loan (10 lakh, 9%, 10 years = 12,667.58).
 ## Step (m): text and data tools
 - New group "Text and data tools" (13 tools, no file needed): JSON formatter, CSV/JSON converter, text compare, find and replace, line tools, lorem ipsum, password maker, Base64/URL, Markdown preview, text to speech, word counter, case converter, QR code maker.

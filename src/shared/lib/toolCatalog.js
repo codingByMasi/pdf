@@ -1,5 +1,5 @@
 // THE one list of tools (data only): id, address, category, icon name (see shared/ui/Icon.jsx), file kind. Feeds home, tool pages, search, sitemap.
-export const categories = ['organize', 'edit', 'sign', 'toPdf', 'toImage', 'protect', 'compress', 'scan', 'inspect', 'image', 'text', 'calc'];
+export const categories = ['organize', 'edit', 'sign', 'toPdf', 'toImage', 'protect', 'compress', 'scan', 'inspect', 'image', 'text', 'calc', 'docs'];
 
 // kind: what files the tool takes. multiple: can take many files. format: only for the picture exporters.
 export const tools = [
@@ -99,10 +99,18 @@ export const tools = [
   { id: 'ageCalc', path: '/age-calculator', category: 'calc', icon: 'calendar', kind: 'none', multiple: false },
   { id: 'dateDiff', path: '/date-calculator', category: 'calc', icon: 'calendar', kind: 'none', multiple: false },
   { id: 'emiCalc', path: '/emi-calculator', category: 'calc', icon: 'calculator', kind: 'none', multiple: false },
-  { id: 'gstCalc', path: '/gst-calculator', category: 'calc', icon: 'rupee', kind: 'none', multiple: false },
   { id: 'percentCalc', path: '/percentage-calculator', category: 'calc', icon: 'percent', kind: 'none', multiple: false },
   { id: 'unitConvert', path: '/unit-converter', category: 'calc', icon: 'swap', kind: 'none', multiple: false },
   { id: 'numberWords', path: '/number-to-words-rupees', category: 'calc', icon: 'rupee', kind: 'none', multiple: false },
+  { id: 'invoiceMaker', path: '/invoice-generator', category: 'docs', icon: 'doc', kind: 'none', multiple: false },
+  { id: 'resumeMaker', path: '/resume-maker', category: 'docs', icon: 'person', kind: 'none', multiple: false },
+  { id: 'letterMaker', path: '/letter-maker', category: 'docs', icon: 'file', kind: 'none', multiple: false },
+  { id: 'visitingCard', path: '/visiting-card-maker', category: 'docs', icon: 'frame', kind: 'none', multiple: false },
+  { id: 'certificateMaker', path: '/certificate-maker', category: 'docs', icon: 'star', kind: 'none', multiple: false },
+  { id: 'namePlate', path: '/name-plate-maker', category: 'docs', icon: 'frame', kind: 'none', multiple: false },
+  { id: 'calendarMaker', path: '/calendar-maker', category: 'docs', icon: 'calendar', kind: 'none', multiple: false },
+  { id: 'timetableMaker', path: '/timetable-maker', category: 'docs', icon: 'table', kind: 'none', multiple: false },
+  { id: 'hindiTyping', path: '/hindi-typing', category: 'text', icon: 'text', kind: 'none', multiple: false },
 ];
 
 export function findToolByPath(path) {

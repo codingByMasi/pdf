@@ -1,5 +1,5 @@
 // Tells Hindi (Devanagari) letters apart from everything else, so each piece gets the right font.
-const DEVA = /[ऀ-ॿ꣠-ꣿ᳐-᳿]/;
+const DEVA = /[ऀ-ॿ꣠-ꣿ᳐-᳿₹]/;
 
 export function hasDeva(text) {
   return DEVA.test(text);

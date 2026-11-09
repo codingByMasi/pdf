@@ -23,3 +23,5 @@
 .data-table table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
 .data-table th, .data-table td { padding: 0.5rem 0.7rem; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--border); }
 .data-table th:first-child, .data-table td:first-child { text-align: left; }
+.list-editor { display: grid; gap: 0.75rem; }
+.list-item { display: grid; gap: 0.6rem; margin: 0; padding: 0.75rem; border: 1px solid var(--border); border-radius: 10px; }

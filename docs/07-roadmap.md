@@ -98,19 +98,19 @@ Every item must work fully in the browser, with no server and no upload.
 - [x] Age
 - [x] Date difference
 - [x] EMI / loan
-- [x] GST
+- [-] GST calculator: removed by the owner's choice.
 - [x] Percentage
 - [x] Unit converter
 - [x] Number to words (rupees)
 
 ## I. Document makers (download a PDF)
-- [ ] Invoice / bill maker
-- [ ] Resume maker
-- [ ] Letter and application templates (English and Hindi)
-- [ ] ID card / visiting card maker
-- [ ] Name plate and certificate maker
-- [ ] Timetable / calendar maker
-- [ ] Hindi typing (English letters to Devanagari)
+- [x] Invoice / bill maker
+- [x] Resume maker
+- [x] Letter and application templates (English and Hindi)
+- [x] Visiting card maker (ID card left out on purpose: it could be used to make a fake ID)
+- [x] Name plate and certificate maker
+- [x] Timetable / calendar maker
+- [x] Hindi typing (English letters to Devanagari)
 
 ## J. Audio and video (small files only, limits stated)
 - [ ] Audio trimmer and converter (small files)
