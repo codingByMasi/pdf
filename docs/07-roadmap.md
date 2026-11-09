@@ -95,13 +95,13 @@ Every item must work fully in the browser, with no server and no upload.
 - [ ] QR code maker
 
 ## H. Calculators
-- [ ] Age
-- [ ] Date difference
-- [ ] EMI / loan
-- [ ] GST
-- [ ] Percentage
-- [ ] Unit converter
-- [ ] Number to words (rupees)
+- [x] Age
+- [x] Date difference
+- [x] EMI / loan
+- [x] GST
+- [x] Percentage
+- [x] Unit converter
+- [x] Number to words (rupees)
 
 ## I. Document makers (download a PDF)
 - [ ] Invoice / bill maker

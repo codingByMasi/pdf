@@ -19,3 +19,7 @@
 .md-table table { border-collapse: collapse; }
 .md-table th, .md-table td { padding: 0.35rem 0.6rem; border: 1px solid var(--border-strong); text-align: left; }
 .qr-canvas { max-width: 20rem; cursor: default; image-rendering: pixelated; }
+.data-table { overflow-x: auto; max-width: 100%; border: 1px solid var(--border); border-radius: 10px; }
+.data-table table { width: 100%; border-collapse: collapse; font-size: 0.95rem; }
+.data-table th, .data-table td { padding: 0.5rem 0.7rem; text-align: right; white-space: nowrap; border-bottom: 1px solid var(--border); }
+.data-table th:first-child, .data-table td:first-child { text-align: left; }

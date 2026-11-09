@@ -1,4 +1,9 @@
 # Changelog
+## Step (n): calculators
+- New group "Calculators" (7 tools): age, date calculator, EMI, GST, percentage, unit converter, number to words in rupees (English and Hindi).
+- Dates are worked on as plain text (no time zone problems). Bigha is left out of the unit converter on purpose (it differs by state).
+- Notes under EMI/GST ("for guidance only") and number to words ("check before writing on a cheque").
+- EMI checked against a known loan (10 lakh, 9%, 10 years = 12,667.58).
 ## Step (m): text and data tools
 - New group "Text and data tools" (13 tools, no file needed): JSON formatter, CSV/JSON converter, text compare, find and replace, line tools, lorem ipsum, password maker, Base64/URL, Markdown preview, text to speech, word counter, case converter, QR code maker.
 - New tool type "none" in the catalog for tools that take typed text instead of a file. Styles in src/styles/text.css. Colours for the next groups (calculators, documents, media) are added.

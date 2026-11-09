@@ -95,4 +95,11 @@ export const toolScreens = {
   wordCount: lazy(() => import('./wordCount/WordCountTool.jsx')),
   caseConvert: lazy(() => import('./caseConvert/CaseConvertTool.jsx')),
   qrMaker: lazy(() => import('./qrMaker/QrMakerTool.jsx')),
+  ageCalc: lazy(() => import('./ageCalc/AgeCalcTool.jsx')),
+  dateDiff: lazy(() => import('./dateDiff/DateDiffTool.jsx')),
+  emiCalc: lazy(() => import('./emiCalc/EmiCalcTool.jsx')),
+  gstCalc: lazy(() => import('./gstCalc/GstCalcTool.jsx')),
+  percentCalc: lazy(() => import('./percentCalc/PercentCalcTool.jsx')),
+  unitConvert: lazy(() => import('./unitConvert/UnitConvertTool.jsx')),
+  numberWords: lazy(() => import('./numberWords/NumberWordsTool.jsx')),
 };
