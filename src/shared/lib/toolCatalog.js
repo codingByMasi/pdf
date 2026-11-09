@@ -114,6 +114,11 @@ export const tools = [
   { id: 'audioTrim', path: '/audio-trimmer', category: 'media', icon: 'wave', kind: 'audio', multiple: false },
   { id: 'voiceRecorder', path: '/voice-recorder', category: 'media', icon: 'mic', kind: 'none', multiple: false },
   { id: 'screenRecorder', path: '/screen-recorder', category: 'media', icon: 'screen', kind: 'none', multiple: false },
+  { id: 'scanPack', path: '/scan-pack-pdf', category: 'scan', icon: 'scan', kind: 'image', multiple: true },
+  { id: 'signaturePhoto', path: '/signature-from-photo', category: 'sign', icon: 'sign', kind: 'image', multiple: false },
+  { id: 'dateStamp', path: '/date-name-stamp-pdf', category: 'edit', icon: 'calendar', kind: 'pdf', multiple: false },
+  { id: 'tableExtract', path: '/pdf-table-to-csv', category: 'inspect', icon: 'table', kind: 'pdf', multiple: false },
+  { id: 'metadataClean', path: '/clean-pdf-metadata', category: 'protect', icon: 'trash', kind: 'pdf', multiple: false },
 ];
 
 export function findToolById(id) {

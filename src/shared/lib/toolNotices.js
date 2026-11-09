@@ -24,6 +24,8 @@ export const notices = {
   imageText: 'rights',
   imageBlur: 'rights',
   imageBackground: 'rights',
+  signaturePhoto: 'sign',
+  dateStamp: 'rights',
 };
 
 export function noticeFor(toolId) {

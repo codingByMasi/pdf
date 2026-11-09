@@ -33,8 +33,14 @@ import { extractAttachments } from '../attach/extractAttachments.js';
 import { applyMarks } from '../textMarks/applyMarks.js';
 import { splitByGroups } from '../splitMarks/splitByGroups.js';
 import { makePhotoSheet } from '../photoSheet/makePhotoSheet.js';
+import { addDateStamp } from '../dateStamp/addDateStamp.js';
+import { cleanMetadata } from '../metadataClean/cleanMetadata.js';
 
 export const tasks = {
+  dateStamp: ({ bytes, options }, { onProgress }) => addDateStamp(bytes, options, {}, onProgress),
+
+  cleanMetadata: ({ bytes }) => cleanMetadata(bytes),
+
   merge: ({ pdfs }, { onProgress }) => mergePdfs(pdfs, onProgress),
 
   // pages: [{ index, rotation }] - used by split (range), rotate, delete, extract, organize.
@@ -42,7 +48,7 @@ export const tasks = {
 
   splitToZip: async ({ bytes }, { onProgress }) => makeZip(await splitEveryPage(bytes, onProgress)),
 
-  imagesToPdf: ({ images, pageMode }, { onProgress }) => imagesToPdf(images, { pageMode }, onProgress),
+  imagesToPdf: ({ images, pageMode, margin }, { onProgress }) => imagesToPdf(images, { pageMode, margin }, onProgress),
 
   // Returns { bytes, replaced }.
   watermark: ({ bytes, text }, { onProgress }) => addWatermark(bytes, text, {}, onProgress),

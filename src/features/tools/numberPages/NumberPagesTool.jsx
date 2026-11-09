@@ -18,6 +18,7 @@ export default function NumberPagesTool({ tool }) {
   const [vertical, setVertical] = usePref('numbers.vertical', 'bottom');
   const [horizontal, setHorizontal] = usePref('numbers.horizontal', 'center');
   const [style, setStyle] = usePref('numbers.style', 'simple');
+  const [digits, setDigits] = usePref('numbers.digits', 'latin');
   const [start, setStart] = useState('1');
   const [skipFirst, setSkipFirst] = useState(false);
   const file = selection.items[0]?.file;
@@ -28,7 +29,7 @@ export default function NumberPagesTool({ tool }) {
   function run() {
     job.run(async (onProgress) => {
       const bytes = new Uint8Array(await file.arrayBuffer());
-      const options = { vertical, horizontal, style, start: startNumber, skipFirst };
+      const options = { vertical, horizontal, style, start: startNumber, skipFirst, digits };
       const data = await runTask('numberPages', { bytes, options }, { onProgress });
       return { blob: new Blob([data], { type: 'application/pdf' }), fileName: outputName(file.name, '-numbered') };
     });
@@ -70,6 +71,12 @@ export default function NumberPagesTool({ tool }) {
           { value: 'simple', label: t('numbers.styleSimple') },
           { value: 'total', label: t('numbers.styleTotal') },
         ]}
+      />
+      <ChoiceGroup
+        legend={t('numbers.digitsLabel')}
+        value={digits}
+        onChange={setDigits}
+        options={['latin', 'hindi', 'roman'].map((v) => ({ value: v, label: t(`numbers.digits.${v}`) }))}
       />
       <TextField
         label={t('numbers.startLabel')}

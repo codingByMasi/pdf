@@ -128,3 +128,6 @@
 - Sitemap lists every page in both languages with language links. robots.txt unchanged.
 - Speed: Hindi text loads only when needed (main file 185 KB to 135 KB gzip); the empty box where a tool loads now keeps its height (layout shift 0.26 to 0.02). Lighthouse on a local copy (phone settings): accessibility 100, best practices 100, SEO 100, performance 84 to 85.
 - docs/11-seo-growth.md has the launch checklist.
+
+## Queued tools, batch 1 (PDF tools)
+- Scan Pack (A4, Letter or fit; four margins), Signature from a Photo (paper made see-through, optional black or blue ink, PNG), Date, Time and Name Stamp (English and Hindi), PDF Table to CSV (rough, text PDFs only), PDF Metadata Cleaner, and Hindi or Roman digits in Number Pages.

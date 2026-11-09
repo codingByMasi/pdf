@@ -40,3 +40,15 @@ describe('addNumbers', () => {
     expect((await PDFDocument.load(bytes)).getPageCount()).toBe(3);
   });
 });
+
+import { formatNumber } from './addNumbers.js';
+
+describe('formatNumber', () => {
+  it('writes Hindi digits and Roman numbers', () => {
+    expect(formatNumber(2026, 'hindi')).toBe('२०२६');
+    expect(formatNumber(4, 'roman')).toBe('iv');
+    expect(formatNumber(1994, 'roman')).toBe('mcmxciv');
+    expect(formatNumber(12)).toBe('12');
+    expect(formatNumber(0, 'roman')).toBe('0');
+  });
+});

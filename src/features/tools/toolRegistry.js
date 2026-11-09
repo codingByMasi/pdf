@@ -113,4 +113,9 @@ export const toolScreens = {
   audioTrim: lazy(() => import('./audioTrim/AudioTrimTool.jsx')),
   voiceRecorder: lazy(() => import('./voiceRecorder/VoiceRecorderTool.jsx')),
   screenRecorder: lazy(() => import('./screenRecorder/ScreenRecorderTool.jsx')),
+  scanPack: lazy(() => import('./scanPack/ScanPackTool.jsx')),
+  signaturePhoto: lazy(() => import('./signaturePhoto/SignaturePhotoTool.jsx')),
+  dateStamp: lazy(() => import('./dateStamp/DateStampTool.jsx')),
+  tableExtract: lazy(() => import('./tableExtract/TableExtractTool.jsx')),
+  metadataClean: lazy(() => import('./metadataClean/MetadataCleanTool.jsx')),
 };

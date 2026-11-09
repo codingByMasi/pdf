@@ -2,15 +2,16 @@
 import { createPdf } from '../../../shared/lib/pdfLoad.js';
 import { yieldToUi } from '../../../shared/lib/yieldToUi.js';
 
-const A4 = { width: 595.28, height: 841.89 };
+const SIZES = { a4: { width: 595.28, height: 841.89 }, letter: { width: 612, height: 792 } };
 const MARGIN = 24;
 const MAX_PAGE = 14400;
 
-function pageFor(image, pageMode) {
-  if (pageMode === 'a4') {
+function pageFor(image, pageMode, margin) {
+  const A4 = SIZES[pageMode];
+  if (A4) {
     const landscape = image.width > image.height;
     const page = landscape ? { width: A4.height, height: A4.width } : A4;
-    const scale = Math.min((page.width - 2 * MARGIN) / image.width, (page.height - 2 * MARGIN) / image.height);
+    const scale = Math.min((page.width - 2 * margin) / image.width, (page.height - 2 * margin) / image.height);
     const width = image.width * scale;
     const height = image.height * scale;
     return { page, x: (page.width - width) / 2, y: (page.height - height) / 2, width, height };
@@ -18,11 +19,12 @@ function pageFor(image, pageMode) {
   const shrink = Math.min(1, MAX_PAGE / (Math.max(image.width, image.height) * 0.75));
   const width = image.width * 0.75 * shrink;
   const height = image.height * 0.75 * shrink;
-  return { page: { width, height }, x: 0, y: 0, width, height };
+  return { page: { width: width + 2 * margin, height: height + 2 * margin }, x: margin, y: margin, width, height };
 }
 
 // images: [{ bytes, type: 'jpg' | 'png' }]. Returns the PDF as a Uint8Array.
-export async function imagesToPdf(images, { pageMode = 'fit' } = {}, onProgress) {
+export async function imagesToPdf(images, { pageMode = 'fit', margin } = {}, onProgress) {
+  const edge = Number.isFinite(margin) ? Math.max(0, margin) : pageMode === 'fit' ? 0 : MARGIN;
   const doc = await createPdf();
   for (let i = 0; i < images.length; i += 1) {
     let embedded;
@@ -31,7 +33,7 @@ export async function imagesToPdf(images, { pageMode = 'fit' } = {}, onProgress)
     } catch {
       throw Object.assign(new Error('bad image'), { errorKey: 'error.imageBad' });
     }
-    const place = pageFor(embedded, pageMode);
+    const place = pageFor(embedded, pageMode, edge);
     const page = doc.addPage([place.page.width, place.page.height]);
     page.drawImage(embedded, { x: place.x, y: place.y, width: place.width, height: place.height });
     onProgress?.(((i + 1) / images.length) * 100);

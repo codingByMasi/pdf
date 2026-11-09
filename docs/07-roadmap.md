@@ -123,13 +123,13 @@ Tool favourites and recent tools row, share-a-tool link, several-files queue, bl
 Not built unless the owner asks.
 
 ## L. Later tools (queued after step J)
-- [ ] Scan pack: merge images into a PDF with page size and margin choices
-- [ ] Sign with a photo of your signature (background removed by colour)
-- [ ] Date, time and name stamp on pages
-- [ ] Table extractor: PDF tables to CSV (rough, text PDFs only)
-- [ ] Page numbers in Hindi digits and other styles
+- [x] Scan pack: merge images into a PDF with page size and margin choices
+- [x] Sign with a photo of your signature (background removed by colour)
+- [x] Date, time and name stamp on pages
+- [x] Table extractor: PDF tables to CSV (rough, text PDFs only)
+- [x] Page numbers in Hindi digits and other styles
 - [ ] Saved details (name, address) kept on the device, to copy into forms
-- [ ] Metadata cleaner for PDFs (author, device info)
+- [x] Metadata cleaner for PDFs (author, device info)
 - [ ] Resume checker (length, fonts, simple tips, no AI)
 - [ ] Typing speed test, and typing practice in Hindi
 - [ ] Currency, time zone and BMI calculators (currency rates need the internet: only with a clear note, or fixed manual rate)
