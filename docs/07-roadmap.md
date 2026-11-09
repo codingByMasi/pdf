@@ -38,7 +38,6 @@ Every item must work fully in the browser, with no server and no upload.
 - [x] Remember recent settings (watermark text and similar; never files)
 - [x] Drag to reorder pages
 - [x] Zoom bar in the page editor (Annotate, Edit, Sign, Redact)
-- [ ] Zoom bar in the page editors
 
 ## D. Extra PDF tools
 - [ ] Compress PDF to a target size (for example under 200 KB)
