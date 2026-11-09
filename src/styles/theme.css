@@ -19,6 +19,10 @@
   :root:not([data-theme='light']) .tone-scan { --tone-ink: #ffb77d; --tone-bg: #3a2616; }
   :root:not([data-theme='light']) .tone-inspect { --tone-ink: #a6c1ff; --tone-bg: #1f2d4d; }
   :root:not([data-theme='light']) .tone-image { --tone-ink: #ff9fcf; --tone-bg: #3d1c2e; }
+  :root:not([data-theme='light']) .tone-text { --tone-ink: #c4b0ff; --tone-bg: #2a2050; }
+  :root:not([data-theme='light']) .tone-calc { --tone-ink: #f0d36b; --tone-bg: #3a3013; }
+  :root:not([data-theme='light']) .tone-docs { --tone-ink: #ffab9a; --tone-bg: #40201b; }
+  :root:not([data-theme='light']) .tone-media { --tone-ink: #7fd4ee; --tone-bg: #133540; }
 }
 
 :root[data-theme='dark'] {
@@ -40,3 +44,7 @@
 :root[data-theme='dark'] .tone-scan { --tone-ink: #ffb77d; --tone-bg: #3a2616; }
 :root[data-theme='dark'] .tone-inspect { --tone-ink: #a6c1ff; --tone-bg: #1f2d4d; }
 :root[data-theme='dark'] .tone-image { --tone-ink: #ff9fcf; --tone-bg: #3d1c2e; }
+:root[data-theme='dark'] .tone-text { --tone-ink: #c4b0ff; --tone-bg: #2a2050; }
+:root[data-theme='dark'] .tone-calc { --tone-ink: #f0d36b; --tone-bg: #3a3013; }
+:root[data-theme='dark'] .tone-docs { --tone-ink: #ffab9a; --tone-bg: #40201b; }
+:root[data-theme='dark'] .tone-media { --tone-ink: #7fd4ee; --tone-bg: #133540; }

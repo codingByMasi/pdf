@@ -8,6 +8,7 @@ import './styles/home.css';
 import './styles/tool.css';
 import './styles/components.css';
 import './styles/images.css';
+import './styles/text.css';
 import './styles/editor.css';
 import './styles/theme.css';
 import { applyStoredTheme } from './shared/lib/theme.js';

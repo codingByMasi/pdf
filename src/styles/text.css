@@ -1,0 +1,21 @@
+/* Styles for the text, data and calculator tools: result boxes, counts, compare view, Markdown preview. */
+.output-box, .input-box { display: grid; gap: 0.5rem; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(9rem, 1fr)); gap: 0.6rem; margin: 0; }
+.stat { padding: 0.7rem 0.9rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+.stat dt { color: var(--text-soft); font-size: 0.9rem; }
+.stat dd { margin: 0.15rem 0 0; font-size: 1.6rem; font-weight: 700; overflow-wrap: anywhere; }
+.diff-view { max-height: 28rem; overflow: auto; font-family: ui-monospace, Menlo, Consolas, monospace; font-size: 0.9rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+.diff-line { display: flex; gap: 0.5rem; padding: 0.1rem 0.6rem; }
+.diff-mark { flex: 0 0 1ch; }
+.diff-text { white-space: pre-wrap; overflow-wrap: anywhere; min-width: 0; }
+.diff-add { background: rgba(22, 163, 74, 0.18); }
+.diff-remove { background: rgba(220, 38, 38, 0.18); }
+.md-box { padding: 0.9rem 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; overflow-wrap: anywhere; }
+.md-view > :first-child { margin-top: 0; }
+.md-view pre { overflow: auto; padding: 0.7rem; background: var(--stage-bg); border-radius: 8px; }
+.md-view blockquote { margin: 0.6rem 0; padding-left: 0.9rem; border-left: 4px solid var(--border-strong); color: var(--text-soft); }
+.md-item { margin-block: 0.25rem; }
+.md-table { overflow-x: auto; }
+.md-table table { border-collapse: collapse; }
+.md-table th, .md-table td { padding: 0.35rem 0.6rem; border: 1px solid var(--border-strong); text-align: left; }
+.qr-canvas { max-width: 20rem; cursor: default; image-rendering: pixelated; }

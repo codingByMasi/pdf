@@ -82,16 +82,16 @@ Every item must work fully in the browser, with no server and no upload.
 - [x] Colour picker from an image
 
 ## G. Text and data tools
-- [ ] JSON formatter
-- [ ] CSV to JSON, JSON to CSV
-- [ ] Text diff (compare two texts)
-- [ ] Find and replace, remove duplicate lines, sort lines
-- [ ] Lorem ipsum, password generator
-- [ ] Base64 and URL encode / decode
-- [ ] Markdown preview
-- [ ] Text to speech (browser voice)
-- [ ] Word counter
-- [ ] Case converter
+- [x] JSON formatter
+- [x] CSV to JSON, JSON to CSV
+- [x] Text diff (compare two texts)
+- [x] Find and replace, remove duplicate lines, sort lines
+- [x] Lorem ipsum, password generator
+- [x] Base64 and URL encode / decode
+- [x] Markdown preview
+- [x] Text to speech (browser voice)
+- [x] Word counter
+- [x] Case converter
 - [ ] QR code maker
 
 ## H. Calculators

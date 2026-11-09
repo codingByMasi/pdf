@@ -1,5 +1,5 @@
 // THE one list of tools (data only): id, address, category, icon name (see shared/ui/Icon.jsx), file kind. Feeds home, tool pages, search, sitemap.
-export const categories = ['organize', 'edit', 'sign', 'toPdf', 'toImage', 'protect', 'compress', 'scan', 'inspect', 'image'];
+export const categories = ['organize', 'edit', 'sign', 'toPdf', 'toImage', 'protect', 'compress', 'scan', 'inspect', 'image', 'text'];
 
 // kind: what files the tool takes. multiple: can take many files. format: only for the picture exporters.
 export const tools = [
@@ -83,6 +83,19 @@ export const tools = [
   { id: 'gifMaker', path: '/gif-maker', category: 'image', icon: 'film', kind: 'image', multiple: true },
   { id: 'videoFrame', path: '/video-frame-grabber', category: 'image', icon: 'film', kind: 'video', multiple: false },
   { id: 'textToImage', path: '/text-to-image', category: 'image', icon: 'image', kind: 'txt', multiple: false },
+  { id: 'jsonFormat', path: '/json-formatter', category: 'text', icon: 'code', kind: 'none', multiple: false },
+  { id: 'csvJson', path: '/csv-json-converter', category: 'text', icon: 'table', kind: 'none', multiple: false },
+  { id: 'textDiff', path: '/text-compare', category: 'text', icon: 'compare', kind: 'none', multiple: false },
+  { id: 'textReplace', path: '/find-replace-text', category: 'text', icon: 'replace', kind: 'none', multiple: false },
+  { id: 'lineTools', path: '/text-line-tools', category: 'text', icon: 'reverse', kind: 'none', multiple: false },
+  { id: 'lorem', path: '/lorem-ipsum-generator', category: 'text', icon: 'text', kind: 'none', multiple: false },
+  { id: 'passwordGen', path: '/password-generator', category: 'text', icon: 'lock', kind: 'none', multiple: false },
+  { id: 'encodeText', path: '/base64-url-encode-decode', category: 'text', icon: 'hash', kind: 'none', multiple: false },
+  { id: 'markdownPreview', path: '/markdown-preview', category: 'text', icon: 'book', kind: 'none', multiple: false },
+  { id: 'speech', path: '/text-to-speech', category: 'text', icon: 'speaker', kind: 'none', multiple: false },
+  { id: 'wordCount', path: '/word-counter', category: 'text', icon: 'number', kind: 'none', multiple: false },
+  { id: 'caseConvert', path: '/case-converter', category: 'text', icon: 'text', kind: 'none', multiple: false },
+  { id: 'qrMaker', path: '/qr-code-generator', category: 'text', icon: 'qr', kind: 'none', multiple: false },
 ];
 
 export function findToolByPath(path) {

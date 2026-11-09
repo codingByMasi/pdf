@@ -144,3 +144,7 @@
   .tool-grid { grid-template-columns: repeat(3, 1fr); }
   .tool-card { min-height: 124px; padding: 1.25rem; }
 }
+.tone-text { --tone-ink: #5b3fa6; --tone-bg: #efe9fb; }
+.tone-calc { --tone-ink: #8a6a0a; --tone-bg: #fbf3d6; }
+.tone-docs { --tone-ink: #9a3b2b; --tone-bg: #fde9e4; }
+.tone-media { --tone-ink: #0d6e8c; --tone-bg: #dff3fa; }

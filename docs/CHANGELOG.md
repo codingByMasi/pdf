@@ -1,4 +1,8 @@
 # Changelog
+## Step (m): text and data tools
+- New group "Text and data tools" (13 tools, no file needed): JSON formatter, CSV/JSON converter, text compare, find and replace, line tools, lorem ipsum, password maker, Base64/URL, Markdown preview, text to speech, word counter, case converter, QR code maker.
+- New tool type "none" in the catalog for tools that take typed text instead of a file. Styles in src/styles/text.css. Colours for the next groups (calculators, documents, media) are added.
+- QR codes checked by reading them back with jsQR. Text to speech depends on the voices on the device (not testable here).
 ## Step (l): more image tools
 - Crop, hide parts (blocks or black), remove a plain background, add text or watermark (Hindi works), collage, GIF maker (own encoder, 256 colours), video frame grabber (new "video" file type).
 - Picture styles moved to src/styles/images.css.

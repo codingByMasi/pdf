@@ -63,6 +63,7 @@ const paths = {
   star: <path d="m12 3 2.8 5.9 6.2.8-4.5 4.4 1.1 6.3L12 17.5 6.4 20.4l1.1-6.3L3 9.7l6.2-.8z" />,
   pipette: <><path d="m15 4 5 5-3 3-5-5z" /><path d="m12 7-8 8v5h5l8-8" /></>,
   film: <><rect x="3" y="4" width="18" height="16" rx="2" /><path d="M7 4v16M17 4v16M3 9h4M3 15h4M17 9h4M17 15h4" /></>,
+  speaker: <><path d="M4 9v6h4l5 4V5L8 9z" /><path d="M16 9a4 4 0 0 1 0 6M18.5 6.5a8 8 0 0 1 0 11" /></>,
   grip: <path d="M9 5v.01M15 5v.01M9 12v.01M15 12v.01M9 19v.01M15 19v.01" strokeWidth="3.2" />,
   up: <path d="m6 14 6-6 6 6" />,
   down: <path d="m6 10 6 6 6-6" />,
