@@ -2,20 +2,29 @@
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { config } from '../../config.js';
 import { I18nContext } from './i18nContext.js';
-import { languages, fallbackLanguage } from './languages.js';
+import { languages, fallbackLanguage, hasLanguage, loadLanguage } from './languages.js';
 import { translate } from './translate.js';
+import { languageFromAddress, switchAddressLanguage } from '../lib/router.js';
 
 const STORAGE_KEY = 'language';
 
+// The address decides the language (/hi is Hindi). An English address opens in Hindi only if the visitor chose Hindi before.
 function startLanguage() {
+  if (languageFromAddress() === 'hi') return 'hi';
   try {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved && languages[saved]) return saved;
+    if (localStorage.getItem(STORAGE_KEY) === 'hi' && hasLanguage('hi')) {
+      switchAddressLanguage('hi');
+      return 'hi';
+    }
   } catch {
     // Storage may be blocked; that is fine.
   }
-  const browser = (navigator.language || '').slice(0, 2);
-  return languages[browser] ? browser : config.defaultLang;
+  return config.defaultLang;
+}
+
+// Call before the first render: loads the words of the language the page will open in.
+export async function prepareLanguage() {
+  await loadLanguage(startLanguage());
 }
 
 export function I18nProvider({ children }) {
@@ -25,9 +34,20 @@ export function I18nProvider({ children }) {
     document.documentElement.lang = lang;
   }, [lang]);
 
-  const setLang = useCallback((next) => {
-    if (!languages[next]) return;
+  useEffect(() => {
+    const follow = () => {
+      const next = languageFromAddress();
+      loadLanguage(next).then(() => setLangState(next));
+    };
+    window.addEventListener('popstate', follow);
+    return () => window.removeEventListener('popstate', follow);
+  }, []);
+
+  const setLang = useCallback(async (next) => {
+    if (!hasLanguage(next)) return;
+    await loadLanguage(next);
     setLangState(next);
+    switchAddressLanguage(next);
     try {
       localStorage.setItem(STORAGE_KEY, next);
     } catch {

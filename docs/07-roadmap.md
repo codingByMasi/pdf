@@ -147,5 +147,11 @@ Not built unless the owner asks.
 - [ ] Bengali, Tamil, Marathi, Gujarati, Urdu (right-to-left), Arabic (right-to-left), Spanish
 - Note: a machine translation is not good enough for a public site. Each language needs a native speaker to check it. Until then these stay partial files and fall back to English. Urdu and Arabic also need a right-to-left layout check.
 
+## K2. Search and sharing (done)
+- [x] Hindi addresses, hreflang, canonical, prerender in both languages
+- [x] Structured data, Open Graph and Twitter cards, share pictures
+- [x] 16 guides (English and Hindi), group pages, related tools, share line
+- [x] Speed and accessibility report, docs/11-seo-growth.md
+
 ## Launch (not tools, matters most)
 - [ ] Deploy per docs/05-deploy.md, set siteUrl and contactEmail in src/config.js, have Privacy and Terms reviewed (docs/10-legal.md), test on real phones and in Firefox and Safari.

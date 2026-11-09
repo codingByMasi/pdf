@@ -18,7 +18,7 @@ export default function CalendarMakerTool() {
   const [startDay, setStartDay] = usePref('cal.start', '0');
   const y = Number(year);
   const ok = Number.isInteger(y) && y >= 1900 && y <= 2200;
-  const make = async () => ({ ...(await calendarPdf({ mode, year: y, month, startDay: Number(startDay), accent: style.accent }, tFor(style.docLang))), fileName: mode === 'year' ? `calendar-${y}.pdf` : `calendar-${y}-${month}.pdf` });
+  const make = async () => ({ ...(await calendarPdf({ mode, year: y, month, startDay: Number(startDay), accent: style.accent }, await tFor(style.docLang))), fileName: mode === 'year' ? `calendar-${y}.pdf` : `calendar-${y}-${month}.pdf` });
   return (
     <DocShell toolId="calendarMaker" make={make} canRun={ok}>
       {style.controls}

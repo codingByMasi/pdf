@@ -9,13 +9,13 @@ const data = { seller: 'आशा स्टोर', sellerAddress: 'Delhi', sell
 
 describe('invoicePdf', () => {
   it('makes a one page PDF with no missing letters', async () => {
-    const { bytes, replaced } = await invoicePdf(data, tFor('en'), { loadBytes: loadTestFont });
+    const { bytes, replaced } = await invoicePdf(data, await tFor('en'), { loadBytes: loadTestFont });
     expect((await PDFDocument.load(bytes)).getPageCount()).toBe(1);
     expect(replaced).toBe(0);
   });
   it('works in Hindi and with many items', async () => {
     const many = { ...data, items: Array.from({ length: 60 }, (_, i) => ({ desc: `Item ${i}`, qty: '1', rate: '5' })) };
-    const { bytes, replaced } = await invoicePdf(many, tFor('hi'), { loadBytes: loadTestFont });
+    const { bytes, replaced } = await invoicePdf(many, await tFor('hi'), { loadBytes: loadTestFont });
     expect((await PDFDocument.load(bytes)).getPageCount()).toBeGreaterThan(1);
     expect(replaced).toBe(0);
   });

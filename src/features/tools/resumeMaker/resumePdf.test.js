@@ -9,16 +9,16 @@ const base = { name: 'Asha Verma', title: 'Teacher', phone: '98765 43210', email
 
 describe('resumePdf', () => {
   it('makes one page', async () => {
-    const { bytes, replaced } = await resumePdf(base, tFor('en'), { loadBytes: loadTestFont });
+    const { bytes, replaced } = await resumePdf(base, await tFor('en'), { loadBytes: loadTestFont });
     expect((await PDFDocument.load(bytes)).getPageCount()).toBe(1);
     expect(replaced).toBe(0);
   });
   it('handles Hindi text', async () => {
     const hi = { ...base, name: 'आशा वर्मा', summary: 'मेहनती और ईमानदार।' };
-    expect((await resumePdf(hi, tFor('hi'), { loadBytes: loadTestFont })).replaced).toBe(0);
+    expect((await resumePdf(hi, await tFor('hi'), { loadBytes: loadTestFont })).replaced).toBe(0);
   });
   it('makes more pages for long resumes', async () => {
     const long = { ...base, experience: Array.from({ length: 12 }, (_, i) => ({ role: `Job ${i}`, company: 'Co', period: '', details: 'a\nb\nc\nd\ne' })) };
-    expect((await PDFDocument.load((await resumePdf(long, tFor('en'), { loadBytes: loadTestFont })).bytes)).getPageCount()).toBeGreaterThan(1);
+    expect((await PDFDocument.load((await resumePdf(long, await tFor('en'), { loadBytes: loadTestFont })).bytes)).getPageCount()).toBeGreaterThan(1);
   });
 });

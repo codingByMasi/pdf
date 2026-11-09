@@ -56,3 +56,12 @@ Each extra library needs a written reason here.
 ## pako as a direct dependency (step 5)
 - What: pako (MIT and Zlib), already inside pdf-lib, is now listed in package.json.
 - Why: older browsers have no built-in unzip (DecompressionStream). Office files are zips, and the zip-to-PDF tool needed the same fallback. No new code is shipped; it was already in the bundle.
+
+## Share pictures are made by a helper script that needs Playwright (search and sharing step)
+- What: `scripts/makeShareImages.js` draws 1200x630 pictures for link previews (public/og/<lang>/<tool>.jpg). It is NOT part of `npm run build` and Playwright is NOT in package.json.
+- Why: link previews on WhatsApp, X, Facebook and LinkedIn need a real picture file. Drawing needs a browser. The pictures are committed, so the owner never has to run the script unless tool names change. Run it with a machine that has Playwright (`npm i -g playwright`) and `node scripts/makeShareImages.js`.
+- The pictures are not copied into the offline cache (they are only for social sites).
+
+## Hindi text loads only when needed (speed)
+- What: the Hindi text file is a separate download. English is always in the main file. The page waits for Hindi before it first draws when the address is /hi.
+- Why: it cut the main file from 185 KB to 135 KB (gzip). Document makers load Hindi on demand when a PDF is made in Hindi.

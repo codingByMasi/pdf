@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useI18n } from '../i18n/useI18n.js';
 import { makeDownloadUrl, freeDownloadUrl } from '../lib/downloadUrl.js';
 import { Icon } from './Icon.jsx';
+import { ShareLine } from './ShareLine.jsx';
 
 export function DownloadButton({ blob, fileName, onStartOver }) {
   const { t } = useI18n();
@@ -26,6 +27,7 @@ export function DownloadButton({ blob, fileName, onStartOver }) {
       {onStartOver ? (
         <button type="button" className="text-button" onClick={onStartOver}>{t('download.startOver')}</button>
       ) : null}
+      <ShareLine title={document.title.split(' | ')[0]} />
     </div>
   );
 }

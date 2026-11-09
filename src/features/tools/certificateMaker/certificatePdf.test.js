@@ -10,7 +10,7 @@ const d = { kind: 'appreciation', title: '', name: 'Ravi Kumar', reason: 'helpin
 describe('certificatePdf', () => {
   it.each(['en', 'hi'])('makes all kinds in %s', async (lang) => {
     for (const kind of KINDS) {
-      const { bytes, replaced } = await certificatePdf({ ...d, kind, name: lang === 'hi' ? 'रवि कुमार' : d.name }, tFor(lang), { loadBytes: loadTestFont });
+      const { bytes, replaced } = await certificatePdf({ ...d, kind, name: lang === 'hi' ? 'रवि कुमार' : d.name }, await tFor(lang), { loadBytes: loadTestFont });
       const page = (await PDFDocument.load(bytes)).getPage(0);
       expect(page.getWidth()).toBeGreaterThan(page.getHeight());
       expect(replaced, kind).toBe(0);

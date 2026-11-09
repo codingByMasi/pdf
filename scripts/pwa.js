@@ -6,6 +6,8 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { config } from '../src/config.js';
 
 const SKIP = new Set(['sw.js', '_headers', 'robots.txt', 'sitemap.xml']);
+// Share pictures are for social sites, not for offline use.
+const isShare = (f) => f.startsWith('/og/');
 
 export function buildManifest(name) {
   return {
@@ -70,7 +72,7 @@ function listFiles(dir) {
 
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const dist = join(dirname(fileURLToPath(import.meta.url)), '..', 'dist');
-  const files = listFiles(dist).map((f) => `/${relative(dist, f).split('\\').join('/')}`).filter((f) => !SKIP.has(f.slice(1))).sort();
+  const files = listFiles(dist).map((f) => `/${relative(dist, f).split('\\').join('/')}`).filter((f) => !SKIP.has(f.slice(1)) && !isShare(f)).sort();
   const hash = createHash('sha256');
   for (const f of files) hash.update(f).update(String(statSync(join(dist, f)).size));
   writeFileSync(join(dist, 'manifest.webmanifest'), JSON.stringify(buildManifest(config.siteName), null, 2));

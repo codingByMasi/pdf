@@ -19,7 +19,7 @@ export default function ResumeMakerTool() {
   const [education, setEducation] = useState([{ ...SCHOOL }]);
   const set = (k) => (e) => setF((now) => ({ ...now, [k]: e.target.value }));
   const field = (k, label, extra = {}) => <TextField label={label} value={f[k]} onChange={set(k)} {...extra} />;
-  const make = async () => ({ ...(await resumePdf({ ...f, experience, education, accent: style.accent }, tFor(style.docLang))), fileName: 'resume.pdf' });
+  const make = async () => ({ ...(await resumePdf({ ...f, experience, education, accent: style.accent }, await tFor(style.docLang))), fileName: 'resume.pdf' });
   return (
     <DocShell toolId="resumeMaker" make={make} canRun={f.name.trim() !== ''}>
       {style.controls}

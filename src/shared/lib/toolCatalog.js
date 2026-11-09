@@ -116,6 +116,10 @@ export const tools = [
   { id: 'screenRecorder', path: '/screen-recorder', category: 'media', icon: 'screen', kind: 'none', multiple: false },
 ];
 
+export function findToolById(id) {
+  return tools.find((tool) => tool.id === id);
+}
+
 export function findToolByPath(path) {
   return tools.find((tool) => tool.path === path);
 }

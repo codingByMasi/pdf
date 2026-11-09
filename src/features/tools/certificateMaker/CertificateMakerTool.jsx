@@ -17,7 +17,7 @@ export default function CertificateMakerTool() {
   const [f, setF] = useState({ title: '', name: '', reason: '', org: '', date: todayText(), signer: '', signerTitle: '' });
   const set = (k) => (e) => setF((now) => ({ ...now, [k]: e.target.value }));
   const field = (k, label, extra = {}) => <TextField label={label} value={f[k]} onChange={set(k)} {...extra} />;
-  const make = async () => ({ ...(await certificatePdf({ ...f, kind, accent: style.accent }, tFor(style.docLang))), fileName: 'certificate.pdf' });
+  const make = async () => ({ ...(await certificatePdf({ ...f, kind, accent: style.accent }, await tFor(style.docLang))), fileName: 'certificate.pdf' });
   return (
     <DocShell toolId="certificateMaker" make={make} canRun={f.name.trim() !== ''}>
       {style.controls}

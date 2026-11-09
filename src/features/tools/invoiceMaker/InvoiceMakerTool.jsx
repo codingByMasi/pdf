@@ -21,7 +21,7 @@ export default function InvoiceMakerTool() {
   const set = (k) => (e) => setF((now) => ({ ...now, [k]: e.target.value }));
   const field = (k, label, extra = {}) => <TextField label={label} value={f[k]} onChange={set(k)} {...extra} />;
   const make = async () => {
-    const out = await invoicePdf({ ...f, items, gst, accent: style.accent }, tFor(style.docLang));
+    const out = await invoicePdf({ ...f, items, gst, accent: style.accent }, await tFor(style.docLang));
     return { ...out, fileName: `invoice-${(f.number || '1').replace(/[^\w-]+/g, '') || '1'}.pdf` };
   };
   const ready = f.seller.trim() && f.buyer.trim() && items.some((i) => i.desc.trim() && Number(i.rate) > 0);

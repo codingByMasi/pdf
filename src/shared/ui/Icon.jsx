@@ -27,6 +27,8 @@ const paths = {
   shield: <><path d="M12 3 4.5 6v5c0 5 3.2 8.5 7.5 10 4.3-1.5 7.5-5 7.5-10V6z" /><path d="m9 12 2 2 4-4" /></>,
   file: <path d="M6 2h8l4 4v16H6zM14 2v5h5M9 12h6M9 16h6" />,
   close: <path d="m6 6 12 12M18 6 6 18" />,
+  share: <path d="M12 3v12M8 7l4-4 4 4M5 12v8h14v-8" />,
+  link: <path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" />,
   arrow: <path d="m9 18 6-6-6-6" />,
   check: <path d="m5 12 4 4L19 6" />,
   globe: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" /></>,

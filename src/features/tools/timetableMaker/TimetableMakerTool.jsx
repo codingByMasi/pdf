@@ -24,7 +24,7 @@ export default function TimetableMakerTool() {
       title, days: d, periods: p, accent: style.accent,
       cells: Array.from({ length: d }, (_, r) => Array.from({ length: p }, (__, c) => cells[`${r}-${c}`] ?? '')),
       times: Array.from({ length: p }, (_, c) => times[c] ?? ''),
-    }, tFor(style.docLang))),
+    }, await tFor(style.docLang))),
     fileName: 'timetable.pdf',
   });
   return (

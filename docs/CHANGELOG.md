@@ -119,3 +119,12 @@
 ## Brief v2, step (e) - Compress and Scanner
 - Compress PDF: new "Strongest" choice that turns pages into small pictures (much smaller, text can no longer be selected). The two normal choices only shrink JPG pictures.
 - PDF Scanner: take a photo (phone camera through the file chooser) or choose photos; turn left or right and cut the edges of each page; black and white, grey or colour look; A4 or photo-size pages; reorder and remove pages.
+
+## Search and sharing step
+- Hindi pages have their own addresses: /hi, /hi/merge-pdf and so on. Both languages are prerendered, with canonical links, hreflang (en, hi, x-default), Open Graph and Twitter cards, and a share picture for every tool.
+- Structured data (JSON-LD) only where the page shows the same content: WebApplication, HowTo, FAQPage and BreadcrumbList on tools; Organization and WebSite on home; Article, HowTo and BreadcrumbList on guides. No ratings or reviews.
+- 16 how-to guides in English and Hindi (/guides), 14 group pages (/tools/<name>), "Related tools" on each tool page, link to the guide when there is one.
+- Share line (Share button where the phone supports it, Copy link) on guides and after a download. Nothing is tracked.
+- Sitemap lists every page in both languages with language links. robots.txt unchanged.
+- Speed: Hindi text loads only when needed (main file 185 KB to 135 KB gzip); the empty box where a tool loads now keeps its height (layout shift 0.26 to 0.02). Lighthouse on a local copy (phone settings): accessibility 100, best practices 100, SEO 100, performance 84 to 85.
+- docs/11-seo-growth.md has the launch checklist.

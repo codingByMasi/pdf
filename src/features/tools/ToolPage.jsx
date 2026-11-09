@@ -10,12 +10,13 @@ import { noticeFor } from '../../shared/lib/toolNotices.js';
 import { toolScreens } from './toolRegistry.js';
 import { HowToSteps } from './HowToSteps.jsx';
 import { FaqList } from './FaqList.jsx';
+import { RelatedTools } from './RelatedTools.jsx';
 
 export function ToolPage({ tool }) {
   const { t } = useI18n();
   const name = t(`tool.${tool.id}.name`);
   const Screen = toolScreens[tool.id];
-  usePageMeta({ title: t(`tool.${tool.id}.seoTitle`), description: t(`tool.${tool.id}.seoDesc`), path: tool.path });
+  usePageMeta({ title: t(`tool.${tool.id}.seoTitle`), description: t(`tool.${tool.id}.seoDesc`), path: tool.path, image: tool.id });
   return (
     <div className="tool-page">
       <nav className="breadcrumb" aria-label={t('tool.backHome')}>
@@ -30,13 +31,14 @@ export function ToolPage({ tool }) {
           <p>{t(`tool.${tool.id}.desc`)}</p>
         </div>
       </section>
-      <Suspense fallback={<StatusMessage kind="info">{t('tool.loading')}</StatusMessage>}>
+      <Suspense fallback={<div className="screen-loading"><StatusMessage kind="info">{t('tool.loading')}</StatusMessage></div>}>
         <Screen tool={tool} />
       </Suspense>
       {noticeFor(tool.id) ? <p className="legal-note">{t(noticeFor(tool.id))}</p> : null}
       <TrustRow />
       <HowToSteps toolId={tool.id} />
       <FaqList toolId={tool.id} />
+      <RelatedTools tool={tool} />
     </div>
   );
 }

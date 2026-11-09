@@ -14,7 +14,7 @@ function listFiles(dir) {
 }
 
 const files = [...listFiles(root), ...listFiles(scriptsRoot)].filter((f) => /\.(js|jsx|css)$/.test(f));
-const isText = (f) => /shared\/i18n\/(en|hi)\.js$/.test(f);
+const isText = (f) => /(shared\/i18n\/(en|hi)|guides\/guideText(En|Hi))\.js$/.test(f);
 const rel = (f) => (f.startsWith(scriptsRoot) ? relative(scriptsRoot, f) : relative(root, f));
 
 describe('project rules', () => {

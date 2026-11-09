@@ -21,6 +21,7 @@ export function Footer() {
           <p>{t('footer.tagline')}</p>
         </div>
         <nav className="footer-links" aria-label={t('nav.footerLabel')}>
+          <Link to="/guides">{t('guides.title')}</Link>
           {pages.map((page) => (
             <Link key={page.id} to={page.path}>{t(`${page.id}.title`)}</Link>
           ))}

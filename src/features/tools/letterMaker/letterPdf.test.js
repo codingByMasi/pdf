@@ -10,14 +10,14 @@ const base = { name: 'Asha Verma', address: 'Jaipur', date: '15-03-2024', to: 'T
 describe('letterPdf', () => {
   it.each(['en', 'hi'])('makes every template in %s', async (lang) => {
     for (const template of TEMPLATES) {
-      const t = tFor(lang);
+      const t = await tFor(lang);
       const { bytes, replaced } = await letterPdf({ ...base, template }, t, { loadBytes: loadTestFont });
       expect((await PDFDocument.load(bytes)).getPageCount()).toBe(1);
       expect(replaced, template).toBe(0);
       expect(letterParts({ ...base, template }, t).body, template).not.toMatch(/\{\w+\}/);
     }
   });
-  it('fills blanks with dots when details are missing', () => {
-    expect(letterParts({ ...base, template: 'leaveOffice', f3: '' }, tFor('en')).body).toContain('………');
+  it('fills blanks with dots when details are missing', async () => {
+    expect(letterParts({ ...base, template: 'leaveOffice', f3: '' }, await tFor('en')).body).toContain('………');
   });
 });

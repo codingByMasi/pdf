@@ -18,7 +18,7 @@ export default function LetterMakerTool() {
   const [template, setTemplate] = usePref('letter.template', 'leaveOffice');
   const [f, setF] = useState({ name: '', address: '', date: todayText(), to: '', f1: '', f2: '', f3: '' });
   const set = (k) => (e) => setF((now) => ({ ...now, [k]: e.target.value }));
-  const make = async () => ({ ...(await letterPdf({ ...f, template, date: dmy(f.date) }, tFor(style.docLang))), fileName: 'letter.pdf' });
+  const make = async () => ({ ...(await letterPdf({ ...f, template, date: dmy(f.date) }, await tFor(style.docLang))), fileName: 'letter.pdf' });
   return (
     <DocShell toolId="letterMaker" make={make} canRun={f.name.trim() !== '' && f.to.trim() !== ''}>
       {style.controls}

@@ -27,3 +27,25 @@
 .list-item { display: grid; gap: 0.6rem; margin: 0; padding: 0.75rem; border: 1px solid var(--border); border-radius: 10px; }
 .audio-player { width: 100%; max-width: 32rem; }
 .rec-clock { margin: 0; font-size: 1.6rem; font-weight: 700; font-variant-numeric: tabular-nums; color: #b91c1c; }
+
+/* Guides, group pages, related tools and the share line */
+.guide-list { list-style: none; margin: 0 auto; padding: 0; display: grid; gap: 0.75rem; max-width: 760px; }
+.guide-card { display: block; padding: 1rem 1.1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 14px; text-decoration: none; color: inherit; min-height: 52px; }
+.guide-card:hover { border-color: var(--primary); }
+.guide-card-title { display: block; font-weight: 700; }
+.guide-card-desc { display: block; color: var(--muted); margin-top: 0.25rem; }
+.guide-steps, .guide-tips { padding-left: 1.3rem; color: var(--text); }
+.guide-steps li, .guide-tips li { margin: 0.6rem 0; }
+.guide-open { margin-top: 1rem; }
+.guide-date { color: var(--muted); font-size: 0.9rem; }
+.crumb-current { overflow-wrap: anywhere; }
+.hub-heading { margin: 2rem 0 1rem; font-size: 1.35rem; }
+.hub-privacy, .related-hub, .related-guide { margin-top: 1.5rem; }
+.related-section { margin-top: 2.5rem; }
+.share-line { margin-top: 1.5rem; padding-top: 1rem; border-top: 1px solid var(--border); text-align: center; }
+.share-line p { margin: 0 0 0.75rem; color: var(--muted); }
+.share-buttons { display: flex; gap: 0.6rem; justify-content: center; flex-wrap: wrap; }
+.share-status { display: block; min-height: 1.4em; margin-top: 0.5rem; font-size: 0.9rem; }
+.related-hub a, .related-guide a { display: inline-flex; align-items: center; min-height: 52px; }
+
+.screen-loading { min-height: 22rem; }
