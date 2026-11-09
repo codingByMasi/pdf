@@ -65,6 +65,16 @@ export const tools = [
   { id: 'pdfToWord', path: '/pdf-to-word', category: 'inspect', icon: 'doc', kind: 'pdf', multiple: false, format: 'docx' },
   { id: 'pdfToExcel', path: '/pdf-to-excel', category: 'inspect', icon: 'sheet', kind: 'pdf', multiple: false, format: 'xlsx' },
   { id: 'pdfToPowerpoint', path: '/pdf-to-powerpoint', category: 'inspect', icon: 'slides', kind: 'pdf', multiple: false, format: 'pptx' },
+  { id: 'imageResize', path: '/resize-image', category: 'image', icon: 'resize', kind: 'image', multiple: false },
+  { id: 'imageCompress', path: '/compress-image', category: 'image', icon: 'compress', kind: 'image', multiple: false },
+  { id: 'imageConvert', path: '/convert-image', category: 'image', icon: 'swap', kind: 'image', multiple: false },
+  { id: 'imageTarget', path: '/compress-image-to-size', category: 'image', icon: 'target', kind: 'image', multiple: false },
+  { id: 'imageRotate', path: '/rotate-flip-image', category: 'image', icon: 'rotate', kind: 'image', multiple: false },
+  { id: 'imageExif', path: '/remove-photo-exif', category: 'image', icon: 'shield', kind: 'image', multiple: false },
+  { id: 'imageEffects', path: '/image-black-white-border', category: 'image', icon: 'palette', kind: 'image', multiple: false },
+  { id: 'imageBase64', path: '/image-to-base64', category: 'image', icon: 'code', kind: 'image', multiple: false },
+  { id: 'favicon', path: '/favicon-maker', category: 'image', icon: 'star', kind: 'image', multiple: false },
+  { id: 'colourPicker', path: '/image-colour-picker', category: 'image', icon: 'pipette', kind: 'image', multiple: false },
   { id: 'textToImage', path: '/text-to-image', category: 'image', icon: 'image', kind: 'txt', multiple: false },
 ];
 

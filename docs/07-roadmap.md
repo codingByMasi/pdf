@@ -65,21 +65,21 @@ Every item must work fully in the browser, with no server and no upload.
 - [x] PDF to PowerPoint (rough, text only)
 
 ## F. Image tools
-- [ ] Resize
-- [ ] Compress
+- [x] Resize
+- [x] Compress
 - [ ] Crop
-- [ ] Rotate
-- [ ] Convert PNG / JPG / WebP
-- [ ] Image to a target size (for example 50 KB)
-- [ ] Remove EXIF data
+- [x] Rotate
+- [x] Convert PNG / JPG / WebP
+- [x] Image to a target size (for example 50 KB)
+- [x] Remove EXIF data
 - [ ] Background remover (colour-based, weak)
 - [ ] Add text or watermark
 - [ ] Blur or hide parts
 - [ ] Collage / combine images
-- [ ] Black and white, or add a border
+- [x] Black and white, or add a border
 - [ ] GIF maker, video frame grabber
-- [ ] Favicon maker, image to Base64
-- [ ] Colour picker from an image
+- [x] Favicon maker, image to Base64 (both built)
+- [x] Colour picker from an image
 
 ## G. Text and data tools
 - [ ] JSON formatter
@@ -121,3 +121,31 @@ Every item must work fully in the browser, with no server and no upload.
 Tool favourites and recent tools row, share-a-tool link, several-files queue, blog and guides, more languages
 (Spanish, Arabic, Bengali, Tamil, French), keyboard shortcuts and paste-a-file, visit counts without cookies.
 Not built unless the owner asks.
+
+## L. Later tools (queued after step J)
+- [ ] Scan pack: merge images into a PDF with page size and margin choices
+- [ ] Sign with a photo of your signature (background removed by colour)
+- [ ] Date, time and name stamp on pages
+- [ ] Table extractor: PDF tables to CSV (rough, text PDFs only)
+- [ ] Page numbers in Hindi digits and other styles
+- [ ] Saved details (name, address) kept on the device, to copy into forms
+- [ ] Metadata cleaner for PDFs (author, device info)
+- [ ] Resume checker (length, fonts, simple tips, no AI)
+- [ ] Typing speed test, and typing practice in Hindi
+- [ ] Currency, time zone and BMI calculators (currency rates need the internet: only with a clear note, or fixed manual rate)
+- [ ] Hash / checksum tool (SHA-256 and others) to check a file was not changed
+- [ ] Barcode maker (Code128, EAN) and QR reader from a photo
+- [ ] Developer tools: colour palette and gradient maker, CSS minifier, regex tester
+
+## M. Site items (queued after step J)
+- [ ] "My recent tools" row and favourites on the home page, stored on the device
+- [ ] Keyboard shortcuts, and paste a file from the clipboard
+- [ ] Help page that explains common errors in plain words
+- [ ] Hindi guides
+
+## N. More languages (queued last)
+- [ ] Bengali, Tamil, Marathi, Gujarati, Urdu (right-to-left), Arabic (right-to-left), Spanish
+- Note: a machine translation is not good enough for a public site. Each language needs a native speaker to check it. Until then these stay partial files and fall back to English. Urdu and Arabic also need a right-to-left layout check.
+
+## Launch (not tools, matters most)
+- [ ] Deploy per docs/05-deploy.md, set siteUrl and contactEmail in src/config.js, have Privacy and Terms reviewed (docs/10-legal.md), test on real phones and in Firefox and Safari.
