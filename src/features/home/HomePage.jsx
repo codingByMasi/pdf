@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useI18n } from '../../shared/i18n/useI18n.js';
 import { usePageMeta } from '../../shared/lib/usePageMeta.js';
 import { searchTools } from '../../shared/lib/searchTools.js';
-import { groupByCategory, tools } from '../../shared/lib/toolCatalog.js';
+import { categories, groupByCategory, tools } from '../../shared/lib/toolCatalog.js';
 import { Icon } from '../../shared/ui/Icon.jsx';
 import { TrustRow } from '../../shared/ui/TrustRow.jsx';
 import { ToolSearch } from './ToolSearch.jsx';
@@ -35,7 +35,7 @@ export function HomePage() {
       <section id="tools" className="tools-section" aria-labelledby="tools-heading">
         <div className="section-heading">
           <div>
-            <p className="kicker">{t('home.kicker', { count: tools.length })}</p>
+            <p className="kicker">{t('home.kicker', { count: tools.length, groups: categories.length })}</p>
             <h2 id="tools-heading">{t('home.allTools')}</h2>
           </div>
           <p>{t('home.toolsText')}</p>

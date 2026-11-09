@@ -17,6 +17,11 @@ import { rasterPagesToPdf } from '../flatten/rasterPagesToPdf.js';
 import { csvToPdf } from '../csvToPdf/csvToPdf.js';
 import { htmlToPdf } from '../htmlToPdf/htmlToPdf.js';
 import { textToPdf } from '../txtToPdf/textToPdf.js';
+import { splitBySize } from '../splitSize/splitBySize.js';
+import { writeInfo } from '../pdfInfo/pdfInfo.js';
+import { addHeaderFooter } from '../headerFooter/addHeaderFooter.js';
+import { addBookmarks } from '../bookmarks/addBookmarks.js';
+import { nUp, resizePages } from '../nUp/sheetPages.js';
 
 export const tasks = {
   merge: ({ pdfs }, { onProgress }) => mergePdfs(pdfs, onProgress),
@@ -55,6 +60,21 @@ export const tasks = {
   csvToPdf: ({ text }, { onProgress }) => csvToPdf(text, {}, onProgress),
 
   htmlToPdf: ({ blocks }, { onProgress }) => htmlToPdf(blocks, {}, onProgress),
+
+  // Returns { bytes: zip, parts, tooBig }.
+  splitBySize: ({ bytes, maxBytes }, { onProgress }) => splitBySize(bytes, maxBytes, onProgress),
+
+  writeInfo: ({ bytes, values, clearAll }) => writeInfo(bytes, values, { clearAll }),
+
+  // Returns { bytes, replaced }.
+  headerFooter: ({ bytes, options }, { onProgress }) => addHeaderFooter(bytes, options, {}, onProgress),
+
+  bookmarks: ({ bytes, items }) => addBookmarks(bytes, items),
+
+  nUp: ({ bytes, perSheet, paper }, { onProgress }) => nUp(bytes, { perSheet, paper }, onProgress),
+
+  // Returns { bytes, turned }.
+  resizePages: ({ bytes, paper }, { onProgress }) => resizePages(bytes, { paper }, onProgress),
 
   compress: ({ bytes, maxSide, quality }, { onProgress, callMain }) =>
     compressPdf(

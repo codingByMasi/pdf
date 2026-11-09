@@ -13,6 +13,8 @@ The user is not deeply technical. Explain decisions in short, plain words. Be ho
 - The site name "PDF Tools" lives in ONE place only: src/config.js.
 
 ## The 25 tools (all browser-only, all free)
+More tools and features were asked for later. The master checklist with status is docs/07-roadmap.md. Keep it up to date: tick items off when a step is pushed.
+
 - Organize: 1 Merge PDF, 2 Split PDF (page ranges or every page), 3 Rotate PDF, 4 Delete PDF Pages, 5 Extract PDF Pages, 6 Organize PDF (reorder with thumbnails).
 - Edit: 7 Number Pages, 8 Crop PDF, 9 Watermark PDF, 10 Redact PDF (basic: black boxes burned into the page so the hidden text is truly gone), 11 PDF Reader, 12 PDF Annotator (draw, highlight, add text), 13 PDF Form Filler, 14 Edit PDF (add text, images, shapes on top; it cannot rewrite the original text, and the page says so).
 - Fill & Sign: 15 Sign PDF (draw, type or upload a signature, place it on the page).

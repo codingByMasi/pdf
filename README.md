@@ -16,3 +16,5 @@ See the `docs/` folder. Project rules are in `CLAUDE.md`.
 
 ## Before launch
 Change `siteName`, `siteUrl` and `contactEmail` in `src/config.js`. Then follow `docs/05-deploy.md`.
+
+Master list of every tool and feature asked for, with status: [docs/07-roadmap.md](docs/07-roadmap.md)

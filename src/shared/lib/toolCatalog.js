@@ -1,5 +1,5 @@
 // THE one list of tools (data only): id, address, category, icon name (see shared/ui/Icon.jsx), file kind. Feeds home, tool pages, search, sitemap.
-export const categories = ['organize', 'edit', 'sign', 'toPdf', 'toImage', 'protect', 'compress', 'scan'];
+export const categories = ['organize', 'edit', 'sign', 'toPdf', 'toImage', 'protect', 'compress', 'scan', 'inspect'];
 
 // kind: what files the tool takes. multiple: can take many files. format: only for the picture exporters.
 export const tools = [
@@ -28,6 +28,17 @@ export const tools = [
   { id: 'flatten', path: '/flatten-pdf', category: 'protect', icon: 'layers', kind: 'pdf', multiple: false },
   { id: 'compress', path: '/compress-pdf', category: 'compress', icon: 'compress', kind: 'pdf', multiple: false },
   { id: 'scanner', path: '/pdf-scanner', category: 'scan', icon: 'scan', kind: 'image', multiple: true },
+  { id: 'reverse', path: '/reverse-pdf-pages', category: 'organize', icon: 'reverse', kind: 'pdf', multiple: false },
+  { id: 'duplicate', path: '/duplicate-pdf-pages', category: 'organize', icon: 'copy', kind: 'pdf', multiple: false },
+  { id: 'splitSize', path: '/split-pdf-by-size', category: 'organize', icon: 'split', kind: 'pdf', multiple: false },
+  { id: 'nUp', path: '/pdf-pages-per-sheet', category: 'organize', icon: 'nup', kind: 'pdf', multiple: false },
+  { id: 'resize', path: '/resize-pdf-pages', category: 'organize', icon: 'resize', kind: 'pdf', multiple: false },
+  { id: 'pdfInfo', path: '/edit-pdf-info', category: 'edit', icon: 'info', kind: 'pdf', multiple: false },
+  { id: 'headerFooter', path: '/add-header-footer-pdf', category: 'edit', icon: 'header', kind: 'pdf', multiple: false },
+  { id: 'bookmarks', path: '/add-pdf-bookmarks', category: 'edit', icon: 'bookmark', kind: 'pdf', multiple: false },
+  { id: 'compare', path: '/compare-pdf', category: 'inspect', icon: 'compare', kind: 'pdf', multiple: true },
+  { id: 'extractImages', path: '/extract-pdf-images', category: 'inspect', icon: 'image', kind: 'pdf', multiple: false },
+  { id: 'pdfToText', path: '/pdf-to-text', category: 'inspect', icon: 'text', kind: 'pdf', multiple: false },
 ];
 
 export function findToolByPath(path) {

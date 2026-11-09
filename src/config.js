@@ -1,6 +1,6 @@
 // Site-wide settings: the site name, file limits, and the ads on/off switch.
 export const config = {
-  siteName: 'ClearPDF',
+  siteName: 'PDF Shortener',
   // CHANGE THESE two when you have your real web address and email.
   siteUrl: 'https://example.com',
   contactEmail: 'hello@example.com',

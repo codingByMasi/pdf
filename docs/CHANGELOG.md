@@ -1,4 +1,8 @@
 # Changelog
+## Step (g): 11 more PDF tools
+- Reverse, duplicate, split by size, PDF info, header and footer, bookmarks, pages per sheet, resize to A4/Letter, compare, extract images, PDF to text.
+- New group "Check and extract". Site name is now PDF Shortener (set in src/config.js only).
+
 ## Design port, part 2
 - Language switch is now a two-part EN | हिन्दी control.
 - Annotate, Edit, Sign and Redact editors sit in a card with a page strip (thumbnails), tool chips and a dotted stage.

@@ -42,3 +42,8 @@ Not built, on purpose (need a server or a paid service): PDF to Word/Excel/PPT, 
 ## Known weaker points (be honest with users)
 - Compress only shrinks JPG pictures; text-only PDFs barely change.
 - Very large PDFs may still be slow or fail on older phones, even with the worker.
+
+## Added later (step g)
+Reverse, Duplicate, Split by size, PDF info, Header and footer, Bookmarks, Pages per sheet, Resize to A4/Letter,
+Compare (words only), Extract images, PDF to text. Limits: Resize and Pages per sheet drop links and form boxes;
+Compare ignores pictures and layout; PDF to text cannot read scanned PDFs. See docs/07-roadmap.md for the full list.
