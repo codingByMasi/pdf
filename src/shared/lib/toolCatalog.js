@@ -1,5 +1,5 @@
 // THE one list of tools (data only): id, address, category, icon name (see shared/ui/Icon.jsx), file kind. Feeds home, tool pages, search, sitemap.
-export const categories = ['organize', 'edit', 'sign', 'toPdf', 'toImage', 'protect', 'compress', 'scan', 'inspect'];
+export const categories = ['organize', 'edit', 'sign', 'toPdf', 'toImage', 'protect', 'compress', 'scan', 'inspect', 'image'];
 
 // kind: what files the tool takes. multiple: can take many files. format: only for the picture exporters.
 export const tools = [
@@ -39,6 +39,11 @@ export const tools = [
   { id: 'compare', path: '/compare-pdf', category: 'inspect', icon: 'compare', kind: 'pdf', multiple: true },
   { id: 'extractImages', path: '/extract-pdf-images', category: 'inspect', icon: 'image', kind: 'pdf', multiple: false },
   { id: 'pdfToText', path: '/pdf-to-text', category: 'inspect', icon: 'text', kind: 'pdf', multiple: false },
+  { id: 'markdownToPdf', path: '/markdown-to-pdf', category: 'toPdf', icon: 'hash', kind: 'md', multiple: false },
+  { id: 'longImageToPdf', path: '/long-image-to-pdf', category: 'toPdf', icon: 'image', kind: 'image', multiple: false },
+  { id: 'pdfToHtml', path: '/pdf-to-html', category: 'inspect', icon: 'code', kind: 'pdf', multiple: false, format: 'html' },
+  { id: 'pdfToMarkdown', path: '/pdf-to-markdown', category: 'inspect', icon: 'hash', kind: 'pdf', multiple: false, format: 'md' },
+  { id: 'textToImage', path: '/text-to-image', category: 'image', icon: 'image', kind: 'txt', multiple: false },
 ];
 
 export function findToolByPath(path) {

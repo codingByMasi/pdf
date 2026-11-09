@@ -9,8 +9,8 @@ import { useFileSelection } from '../useFileSelection.js';
 import { runTask } from '../worker/runTask.js';
 import { useState } from 'react';
 
-// prepare(text) returns { task, payload, noteKey? } for runTask.
-export default function TextConvertScreen({ tool, prepare }) {
+// prepare(text) returns { task, payload, noteKey? } for runTask, or { result } when the screen makes the file itself.
+export default function TextConvertScreen({ tool, prepare, children }) {
   const { t } = useI18n();
   const selection = useFileSelection(tool);
   const job = usePdfJob();
@@ -20,7 +20,9 @@ export default function TextConvertScreen({ tool, prepare }) {
   function run() {
     job.run(async (onProgress) => {
       const text = file ? decodeText(new Uint8Array(await file.arrayBuffer())) : pasted;
-      const { task, payload, noteKey } = await prepare(text);
+      const prepared = await prepare(text);
+      if (prepared.result) return prepared.result;
+      const { task, payload, noteKey } = prepared;
       const result = await runTask(task, payload, { onProgress });
       const note = noteKey ? { noteKey } : result.replaced > 0 ? { noteKey: 'note.replaced', noteVars: { count: result.replaced } } : {};
       return {
@@ -48,6 +50,7 @@ export default function TextConvertScreen({ tool, prepare }) {
           onChange={(event) => setPasted(event.target.value)}
         />
       )}
+      {children}
     </ToolWorkspace>
   );
 }

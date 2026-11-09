@@ -40,6 +40,7 @@ const paths = {
   header: <path d="M4 4h16M4 9h8M4 20h16M4 15h8" />,
   bookmark: <path d="M7 3h10v18l-5-4-5 4z" />,
   compare: <><rect x="3" y="4" width="8" height="16" rx="1" /><rect x="13" y="4" width="8" height="16" rx="1" /><path d="M6 9h2M6 13h2M16 9h2M16 13h2" /></>,
+  hash: <path d="M9 4 7 20M17 4l-2 16M4 9h16M3 15h16" />,
   up: <path d="m6 14 6-6 6 6" />,
   down: <path d="m6 10 6 6 6-6" />,
 };

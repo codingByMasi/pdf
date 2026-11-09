@@ -1,4 +1,8 @@
 # Changelog
+## Step (h): more converts
+- Markdown to PDF, long image to PDF, PDF to HTML, PDF to Markdown, text to image (new group Image tools).
+- Pictures: WebP now works everywhere; HEIC only where the browser opens it (Safari).
+
 ## Step (g): 11 more PDF tools
 - Reverse, duplicate, split by size, PDF info, header and footer, bookmarks, pages per sheet, resize to A4/Letter, compare, extract images, PDF to text.
 - New group "Check and extract". Site name is now PDF Shortener (set in src/config.js only).

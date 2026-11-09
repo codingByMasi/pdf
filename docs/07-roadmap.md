@@ -26,11 +26,11 @@ Every item must work fully in the browser, with no server and no upload.
 - [x] PDF to text (also covers "extract text")
 
 ## B. More converts (step 2)
-- [ ] Markdown to PDF
-- [ ] Image to PDF for WebP
-- [ ] Image to PDF for HEIC (only in browsers that can open HEIC, such as Safari)
-- [ ] PDF to HTML / Markdown
-- [ ] Text to image, long image to PDF
+- [x] Markdown to PDF
+- [x] Image to PDF for WebP
+- [x] Image to PDF for HEIC (only in browsers that can open HEIC, such as Safari)
+- [x] PDF to HTML / Markdown
+- [x] Text to image, long image to PDF
 
 ## C. Site polish (step 3)
 - [ ] Install as an app, works offline

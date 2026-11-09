@@ -2,10 +2,11 @@
 const KINDS = {
   pdf: { exts: ['pdf'], mimes: ['application/pdf'], accept: '.pdf,application/pdf' },
   image: {
-    exts: ['jpg', 'jpeg', 'png'],
-    mimes: ['image/jpeg', 'image/png'],
-    accept: '.jpg,.jpeg,.png,image/jpeg,image/png',
+    exts: ['jpg', 'jpeg', 'png', 'webp', 'heic', 'heif'],
+    mimes: ['image/jpeg', 'image/png', 'image/webp', 'image/heic', 'image/heif'],
+    accept: '.jpg,.jpeg,.png,.webp,.heic,.heif,image/jpeg,image/png,image/webp,image/heic,image/heif',
   },
+  md: { exts: ['md', 'markdown', 'txt'], mimes: ['text/markdown', 'text/x-markdown', 'text/plain'], accept: '.md,.markdown,.txt,text/markdown,text/plain' },
   txt: { exts: ['txt', 'text'], mimes: ['text/plain'], accept: '.txt,.text,text/plain' },
   csv: {
     exts: ['csv', 'tsv'],

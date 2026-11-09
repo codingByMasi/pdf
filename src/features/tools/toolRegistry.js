@@ -37,5 +37,10 @@ export const toolScreens = {
   resize: lazy(() => import('./resize/ResizeTool.jsx')),
   compare: lazy(() => import('./compare/CompareTool.jsx')),
   extractImages: lazy(() => import('./extractImages/ExtractImagesTool.jsx')),
+  markdownToPdf: lazy(() => import('./markdownToPdf/MarkdownToPdfTool.jsx')),
+  pdfToHtml: lazy(() => import('./pdfToHtml/PdfToHtmlTool.jsx')),
+  pdfToMarkdown: lazy(() => import('./pdfToHtml/PdfToHtmlTool.jsx')),
+  textToImage: lazy(() => import('./textToImage/TextToImageTool.jsx')),
+  longImageToPdf: lazy(() => import('./longImageToPdf/LongImageToPdfTool.jsx')),
   pdfToText: lazy(() => import('./pdfToText/PdfToTextTool.jsx')),
 };
