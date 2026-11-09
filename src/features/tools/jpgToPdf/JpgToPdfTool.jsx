@@ -1,5 +1,5 @@
 // JPG to PDF screen: add photos, put them in order, choose the page size, make a PDF.
-import { useState } from 'react';
+import { usePref } from '../../../shared/lib/usePref.js';
 import { useI18n } from '../../../shared/i18n/useI18n.js';
 import { usePdfJob } from '../../../shared/lib/usePdfJob.js';
 import { ChoiceGroup } from '../../../shared/ui/ChoiceGroup.jsx';
@@ -12,7 +12,7 @@ export default function JpgToPdfTool({ tool }) {
   const { t } = useI18n();
   const selection = useFileSelection(tool);
   const job = usePdfJob();
-  const [pageMode, setPageMode] = useState('fit');
+  const [pageMode, setPageMode] = usePref('jpg.pageMode', 'fit');
   const { items } = selection;
 
   function run() {

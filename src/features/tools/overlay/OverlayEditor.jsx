@@ -4,6 +4,7 @@ import { useI18n } from '../../../shared/i18n/useI18n.js';
 import { usePdfViewer } from '../../../shared/lib/usePdfViewer.js';
 import { Button } from '../../../shared/ui/Button.jsx';
 import { ChoiceGroup } from '../../../shared/ui/ChoiceGroup.jsx';
+import { ZoomBar } from '../../../shared/ui/ZoomBar.jsx';
 import { PageRail } from '../../../shared/ui/PageRail.jsx';
 import { StatusMessage } from '../../../shared/ui/StatusMessage.jsx';
 import { prepareImage } from '../jpgToPdf/prepareImage.js';
@@ -26,6 +27,7 @@ export function OverlayEditor({ file, overlay, tools, addText = false, addPictur
   const [colors, setColors] = useState(DEFAULT_COLOR);
   const [widthName, setWidthName] = useState('medium');
   const [selectedId, setSelectedId] = useState(null);
+  const [zoom, setZoom] = useState(100);
   const [pictureError, setPictureError] = useState('');
   const picker = useRef(null);
   const { page, size } = viewer;
@@ -74,11 +76,13 @@ export function OverlayEditor({ file, overlay, tools, addText = false, addPictur
       <PageRail file={file} current={page} onSelect={(n) => { viewer.setPage(n); setSelectedId(null); }} />
       <div className="editor-main">
       <PageNav page={page} numPages={viewer.numPages} onChange={(n) => { viewer.setPage(n); setSelectedId(null); }} />
-      <div className="editor-stage">
+      <ZoomBar zoom={zoom} onChange={setZoom} />
+      <div className={`editor-stage${zoom > 100 ? ' is-zoomed' : ''}`}>
       {size ? (
         <PageOverlay
           url={viewer.url}
           size={size}
+          zoom={zoom}
           alt={t('viewer.pageAlt', { page: page + 1 })}
           items={items}
           mode={mode}

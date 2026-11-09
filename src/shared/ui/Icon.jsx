@@ -41,6 +41,9 @@ const paths = {
   bookmark: <path d="M7 3h10v18l-5-4-5 4z" />,
   compare: <><rect x="3" y="4" width="8" height="16" rx="1" /><rect x="13" y="4" width="8" height="16" rx="1" /><path d="M6 9h2M6 13h2M16 9h2M16 13h2" /></>,
   hash: <path d="M9 4 7 20M17 4l-2 16M4 9h16M3 15h16" />,
+  sun: <><circle cx="12" cy="12" r="4" /><path d="M12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6l1.4 1.4M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4" /></>,
+  moon: <path d="M20 14.5A8 8 0 0 1 9.5 4 8 8 0 1 0 20 14.5Z" />,
+  grip: <path d="M9 5v.01M15 5v.01M9 12v.01M15 12v.01M9 19v.01M15 19v.01" strokeWidth="3.2" />,
   up: <path d="m6 14 6-6 6 6" />,
   down: <path d="m6 10 6 6 6-6" />,
 };

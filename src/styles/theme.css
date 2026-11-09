@@ -1,0 +1,42 @@
+/* Dark colours. Used when the device prefers dark, or when the visitor picks dark. A visitor's choice of light wins. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #0f1623; --surface: #172033; --text: #e8eef9; --muted: #a9b6ca; --primary: #7ba3ff; --primary-dark: #a6c1ff;
+    --pale: #1f2d4d; --mint: #17382f; --mint-ink: #6fd9b5; --border: #2b3750; --field-border: #71809a;
+    --error-bg: #3a1c20; --error-text: #ffb4ba; --info-bg: #1b2a4a; --info-text: #c4d6ff; --shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
+    --on-primary: #0b1630; --danger: #ff8d94; --hero-bg: #131d31; --soft: #131d31; --editor-bg: #121a2b; --rail-bg: #0f1727;
+    --stage-bg: #0c1322; --rail-sel: #25365c; --chip-bg: #25314a; --hover: #202c44; --track: #2b3750; --text-soft: #c4cfe0;
+    --border-strong: #3a4963; --dash: #55689a; --dot: #2b3a5c; --ghost: #25314a; --mini-bg: #3a1f25; --mini-ink: #ff9aa6;
+    --header-bg: rgba(15, 22, 35, 0.92); --orb-one: rgba(23, 70, 58, 0.45); --orb-two: rgba(36, 54, 110, 0.5); color-scheme: dark;
+  }
+  :root:not([data-theme='light']) .tone-organize { --tone-ink: #9dbcff; --tone-bg: #1d2b4a; }
+  :root:not([data-theme='light']) .tone-edit { --tone-ink: #ffc27d; --tone-bg: #3a2a16; }
+  :root:not([data-theme='light']) .tone-sign { --tone-ink: #d9a8ff; --tone-bg: #2f2042; }
+  :root:not([data-theme='light']) .tone-toPdf { --tone-ink: #ff9fab; --tone-bg: #3d1e24; }
+  :root:not([data-theme='light']) .tone-toImage { --tone-ink: #6fe0d4; --tone-bg: #14332f; }
+  :root:not([data-theme='light']) .tone-protect { --tone-ink: #b5d9a2; --tone-bg: #22301c; }
+  :root:not([data-theme='light']) .tone-compress { --tone-ink: #6fd9b5; --tone-bg: #17382f; }
+  :root:not([data-theme='light']) .tone-scan { --tone-ink: #ffb77d; --tone-bg: #3a2616; }
+  :root:not([data-theme='light']) .tone-inspect { --tone-ink: #a6c1ff; --tone-bg: #1f2d4d; }
+  :root:not([data-theme='light']) .tone-image { --tone-ink: #ff9fcf; --tone-bg: #3d1c2e; }
+}
+
+:root[data-theme='dark'] {
+  --bg: #0f1623; --surface: #172033; --text: #e8eef9; --muted: #a9b6ca; --primary: #7ba3ff; --primary-dark: #a6c1ff;
+  --pale: #1f2d4d; --mint: #17382f; --mint-ink: #6fd9b5; --border: #2b3750; --field-border: #71809a;
+  --error-bg: #3a1c20; --error-text: #ffb4ba; --info-bg: #1b2a4a; --info-text: #c4d6ff; --shadow: 0 15px 50px rgba(0, 0, 0, 0.45);
+  --on-primary: #0b1630; --danger: #ff8d94; --hero-bg: #131d31; --soft: #131d31; --editor-bg: #121a2b; --rail-bg: #0f1727;
+  --stage-bg: #0c1322; --rail-sel: #25365c; --chip-bg: #25314a; --hover: #202c44; --track: #2b3750; --text-soft: #c4cfe0;
+  --border-strong: #3a4963; --dash: #55689a; --dot: #2b3a5c; --ghost: #25314a; --mini-bg: #3a1f25; --mini-ink: #ff9aa6;
+  --header-bg: rgba(15, 22, 35, 0.92); --orb-one: rgba(23, 70, 58, 0.45); --orb-two: rgba(36, 54, 110, 0.5); color-scheme: dark;
+}
+:root[data-theme='dark'] .tone-organize { --tone-ink: #9dbcff; --tone-bg: #1d2b4a; }
+:root[data-theme='dark'] .tone-edit { --tone-ink: #ffc27d; --tone-bg: #3a2a16; }
+:root[data-theme='dark'] .tone-sign { --tone-ink: #d9a8ff; --tone-bg: #2f2042; }
+:root[data-theme='dark'] .tone-toPdf { --tone-ink: #ff9fab; --tone-bg: #3d1e24; }
+:root[data-theme='dark'] .tone-toImage { --tone-ink: #6fe0d4; --tone-bg: #14332f; }
+:root[data-theme='dark'] .tone-protect { --tone-ink: #b5d9a2; --tone-bg: #22301c; }
+:root[data-theme='dark'] .tone-compress { --tone-ink: #6fd9b5; --tone-bg: #17382f; }
+:root[data-theme='dark'] .tone-scan { --tone-ink: #ffb77d; --tone-bg: #3a2616; }
+:root[data-theme='dark'] .tone-inspect { --tone-ink: #a6c1ff; --tone-bg: #1f2d4d; }
+:root[data-theme='dark'] .tone-image { --tone-ink: #ff9fcf; --tone-bg: #3d1c2e; }

@@ -1,13 +1,17 @@
 // Dark bottom bar: logo, short line, page links, copyright and the ad slot (hidden while ads are off).
+import { useState } from 'react';
 import { config } from '../config.js';
 import { useI18n } from '../shared/i18n/useI18n.js';
+import { clearPrefs } from '../shared/lib/usePref.js';
 import { AdSlot } from '../shared/ui/AdSlot.jsx';
+import { InstallButton } from '../shared/ui/InstallButton.jsx';
 import { Link } from '../shared/ui/Link.jsx';
 import { pages } from '../features/pages/pageList.js';
 import { BrandName } from './BrandName.jsx';
 
 export function Footer() {
   const { t } = useI18n();
+  const [forgot, setForgot] = useState(false);
   return (
     <footer className="site-footer">
       <div className="footer-inner">
@@ -22,6 +26,11 @@ export function Footer() {
           ))}
         </nav>
         <p className="footer-privacy">{t('home.privacy')}</p>
+        <p className="footer-forget">
+          <button type="button" className="forget-button" onClick={() => { clearPrefs(); setForgot(true); }}>{t('settings.forget')}</button>
+          <InstallButton className="forget-button" />
+          <span role="status">{forgot ? t('settings.forgotten') : ''}</span>
+        </p>
         <small>{t('footer.copy', { year: new Date().getFullYear(), site: config.siteName })}</small>
       </div>
     </footer>

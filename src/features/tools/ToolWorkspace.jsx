@@ -28,6 +28,7 @@ export function ToolWorkspace({ tool, selection, job, reorderable, hasFiles = tr
         disabled={job.busy}
         onRemove={selection.removeItem}
         onMove={reorderable ? selection.moveItem : undefined}
+        onMoveTo={reorderable ? selection.moveItemTo : undefined}
       />
       {hasFiles ? children : null}
       {action && hasFiles ? (

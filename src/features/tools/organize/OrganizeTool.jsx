@@ -46,6 +46,7 @@ export default function OrganizeTool({ tool }) {
         allowRemove
         onTurn={pages.turn}
         onMove={pages.move}
+        onMoveTo={pages.moveTo}
         onRemove={pages.remove}
       />
     </ToolWorkspace>

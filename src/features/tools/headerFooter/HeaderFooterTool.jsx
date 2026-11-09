@@ -1,5 +1,6 @@
 // Header and Footer screen: type a header and/or footer, pick where it sits, and add it to every page.
 import { useState } from 'react';
+import { usePref } from '../../../shared/lib/usePref.js';
 import { useI18n } from '../../../shared/i18n/useI18n.js';
 import { ChoiceGroup } from '../../../shared/ui/ChoiceGroup.jsx';
 import { TextField } from '../../../shared/ui/TextField.jsx';
@@ -7,9 +8,9 @@ import SimplePdfTool from '../simple/SimplePdfTool.jsx';
 
 export default function HeaderFooterTool({ tool }) {
   const { t } = useI18n();
-  const [header, setHeader] = useState('');
-  const [footer, setFooter] = useState('');
-  const [align, setAlign] = useState('center');
+  const [header, setHeader] = usePref('hf.header', '');
+  const [footer, setFooter] = usePref('hf.footer', '');
+  const [align, setAlign] = usePref('hf.align', 'center');
   const [skipFirst, setSkipFirst] = useState(false);
   const prepare = () => ({ task: 'headerFooter', payload: { options: { header, footer, align, skipFirst } } });
   const note = (r) => (r.replaced > 0 ? { noteKey: 'note.replaced', noteVars: { count: r.replaced } } : null);

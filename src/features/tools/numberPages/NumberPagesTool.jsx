@@ -1,5 +1,6 @@
 // Number Pages screen: choose where the numbers go and how they look, then save a numbered PDF.
 import { useState } from 'react';
+import { usePref } from '../../../shared/lib/usePref.js';
 import { useI18n } from '../../../shared/i18n/useI18n.js';
 import { outputName } from '../../../shared/lib/outputName.js';
 import { usePdfInfo } from '../../../shared/lib/usePdfInfo.js';
@@ -14,9 +15,9 @@ export default function NumberPagesTool({ tool }) {
   const { t } = useI18n();
   const selection = useFileSelection(tool);
   const job = usePdfJob();
-  const [vertical, setVertical] = useState('bottom');
-  const [horizontal, setHorizontal] = useState('center');
-  const [style, setStyle] = useState('simple');
+  const [vertical, setVertical] = usePref('numbers.vertical', 'bottom');
+  const [horizontal, setHorizontal] = usePref('numbers.horizontal', 'center');
+  const [style, setStyle] = usePref('numbers.style', 'simple');
   const [start, setStart] = useState('1');
   const [skipFirst, setSkipFirst] = useState(false);
   const file = selection.items[0]?.file;

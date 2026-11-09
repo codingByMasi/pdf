@@ -1,4 +1,10 @@
 # Changelog
+## Step (i): site polish
+- Dark mode (follows the device, with a switch). Install as an app and work offline (service worker written at build time).
+- The site remembers recent options on this device only; a footer button forgets them.
+- Drag to reorder pages and files (arrow buttons stay for keyboard). Zoom bar in the page editors.
+- Limits: Firefox desktop cannot install the site as an app; iPhone uses Add to Home Screen. Zoom only scales the editor view.
+
 ## Step (h): more converts
 - Markdown to PDF, long image to PDF, PDF to HTML, PDF to Markdown, text to image (new group Image tools).
 - Pictures: WebP now works everywhere; HEIC only where the browser opens it (Safari).

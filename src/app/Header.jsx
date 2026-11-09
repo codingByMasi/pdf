@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { useI18n } from '../shared/i18n/useI18n.js';
 import { Icon } from '../shared/ui/Icon.jsx';
+import { ThemeSwitch } from '../shared/ui/ThemeSwitch.jsx';
 import { Link } from '../shared/ui/Link.jsx';
 import { BrandName } from './BrandName.jsx';
 import { LanguageSwitch } from './LanguageSwitch.jsx';
@@ -27,8 +28,10 @@ export function Header() {
               {t(item.key)}
             </Link>
           ))}
+          <ThemeSwitch className="theme-in-menu" />
         </nav>
         <div className="header-actions">
+          <ThemeSwitch className="theme-in-bar" />
           <LanguageSwitch />
           <button
             type="button"

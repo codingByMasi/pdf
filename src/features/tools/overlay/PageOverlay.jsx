@@ -6,7 +6,7 @@ import { OverlayItem } from './OverlayItem.jsx';
 const MIN_BOX = 0.006;
 
 // mode: 'select' | 'pen' | 'box'. brush: { kind, color, width } where kind is highlight, redact, rect, ellipse or line.
-export function PageOverlay({ url, size, alt, items, mode, brush, selectedId, onSelect, onAdd, onReplace, onDragStart }) {
+export function PageOverlay({ zoom = 100, url, size, alt, items, mode, brush, selectedId, onSelect, onAdd, onReplace, onDragStart }) {
   const svgRef = useRef(null);
   const [draft, setDraft] = useState(null);
   const drag = useRef(null);
@@ -71,7 +71,7 @@ export function PageOverlay({ url, size, alt, items, mode, brush, selectedId, on
   const sel = selected ? boundsOf(selected) : null;
 
   return (
-    <div className={`overlay-wrap overlay-${mode}`} style={{ aspectRatio: `${size.width} / ${size.height}` }}>
+    <div className={`overlay-wrap overlay-${mode}`} style={{ ...(zoom > 100 ? { width: `${zoom}%` } : zoom < 100 ? { maxWidth: `${(40 * zoom) / 100}rem` } : {}), aspectRatio: `${size.width} / ${size.height}` }}>
       {url ? <img className="overlay-image" src={url} alt={alt} draggable="false" /> : null}
       <svg
         ref={svgRef}

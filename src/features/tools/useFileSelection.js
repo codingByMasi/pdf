@@ -1,6 +1,7 @@
 // Keeps the list of files a person added, checks each one, and lets them remove or reorder.
 import { useState } from 'react';
 import { config } from '../../config.js';
+import { reorder } from '../../shared/lib/reorder.js';
 import { validateFile } from '../../shared/lib/validateFile.js';
 
 let nextId = 1;
@@ -45,10 +46,14 @@ export function useFileSelection(tool) {
     });
   }
 
+  function moveItemTo(from, to) {
+    setItems((list) => reorder(list, from, to));
+  }
+
   function clear() {
     setErrorKey('');
     setItems([]);
   }
 
-  return { items, errorKey, addFiles, removeItem, moveItem, clear };
+  return { items, errorKey, addFiles, removeItem, moveItem, moveItemTo, clear };
 }

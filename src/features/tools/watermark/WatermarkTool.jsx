@@ -1,5 +1,5 @@
 // Watermark screen: type the words, press the button, get a PDF with a slanted mark on every page.
-import { useState } from 'react';
+import { usePref } from '../../../shared/lib/usePref.js';
 import { useI18n } from '../../../shared/i18n/useI18n.js';
 import { outputName } from '../../../shared/lib/outputName.js';
 import { usePdfInfo } from '../../../shared/lib/usePdfInfo.js';
@@ -13,7 +13,7 @@ export default function WatermarkTool({ tool }) {
   const { t } = useI18n();
   const selection = useFileSelection(tool);
   const job = usePdfJob();
-  const [text, setText] = useState('');
+  const [text, setText] = usePref('watermark.text', '');
   const file = selection.items[0]?.file;
   const info = usePdfInfo(file);
 

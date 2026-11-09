@@ -1,5 +1,5 @@
 // Text to Image screen: type or paste text and save it as a PNG picture (good for sharing a quote or note).
-import { useState } from 'react';
+import { usePref } from '../../../shared/lib/usePref.js';
 import { useI18n } from '../../../shared/i18n/useI18n.js';
 import { ChoiceGroup } from '../../../shared/ui/ChoiceGroup.jsx';
 import TextConvertScreen from '../textConvert/TextConvertScreen.jsx';
@@ -9,8 +9,8 @@ const WIDTHS = { small: 720, medium: 1080, large: 1600 };
 
 export default function TextToImageTool({ tool }) {
   const { t } = useI18n();
-  const [theme, setTheme] = useState('white');
-  const [width, setWidth] = useState('medium');
+  const [theme, setTheme] = usePref('textimage.theme', 'white');
+  const [width, setWidth] = usePref('textimage.width', 'medium');
 
   const prepare = async (text) => {
     const { canvas, cut } = renderTextImage(text, { width: WIDTHS[width], size: Math.round(WIDTHS[width] / 27), theme });

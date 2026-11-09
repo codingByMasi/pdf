@@ -33,10 +33,11 @@ Every item must work fully in the browser, with no server and no upload.
 - [x] Text to image, long image to PDF
 
 ## C. Site polish (step 3)
-- [ ] Install as an app, works offline
-- [ ] Dark mode
-- [ ] Remember recent settings (watermark text and similar; never files)
-- [ ] Drag to reorder pages
+- [x] Install as an app, works offline
+- [x] Dark mode
+- [x] Remember recent settings (watermark text and similar; never files)
+- [x] Drag to reorder pages
+- [x] Zoom bar in the page editor (Annotate, Edit, Sign, Redact)
 - [ ] Zoom bar in the page editors
 
 ## D. Extra PDF tools

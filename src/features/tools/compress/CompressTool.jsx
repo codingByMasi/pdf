@@ -1,5 +1,5 @@
 // Compress screen: choose how small, shrink the PDF, and show the before and after size.
-import { useState } from 'react';
+import { usePref } from '../../../shared/lib/usePref.js';
 import { useI18n } from '../../../shared/i18n/useI18n.js';
 import { formatSize } from '../../../shared/lib/formatSize.js';
 import { outputName } from '../../../shared/lib/outputName.js';
@@ -19,7 +19,7 @@ export default function CompressTool({ tool }) {
   const { t } = useI18n();
   const selection = useFileSelection(tool);
   const job = usePdfJob();
-  const [level, setLevel] = useState('balanced');
+  const [level, setLevel] = usePref('compress.level', 'balanced');
   const file = selection.items[0]?.file;
   const info = usePdfInfo(file);
 
