@@ -22,6 +22,11 @@ import { writeInfo } from '../pdfInfo/pdfInfo.js';
 import { addHeaderFooter } from '../headerFooter/addHeaderFooter.js';
 import { addBookmarks } from '../bookmarks/addBookmarks.js';
 import { nUp, resizePages } from '../nUp/sheetPages.js';
+import { addBorders } from '../pageBorders/addBorders.js';
+import { addBackground } from '../background/addBackground.js';
+import { addStamp } from '../stamp/addStamp.js';
+import { makeBooklet } from '../booklet/makeBooklet.js';
+import { repairPdf } from '../repair/repairPdf.js';
 
 export const tasks = {
   merge: ({ pdfs }, { onProgress }) => mergePdfs(pdfs, onProgress),
@@ -75,6 +80,18 @@ export const tasks = {
 
   // Returns { bytes, turned }.
   resizePages: ({ bytes, paper }, { onProgress }) => resizePages(bytes, { paper }, onProgress),
+
+  pageBorders: ({ bytes, options }, { onProgress }) => addBorders(bytes, options, onProgress),
+
+  background: ({ bytes, name }, { onProgress }) => addBackground(bytes, name, onProgress),
+
+  // Returns { bytes, replaced }.
+  stamp: ({ bytes, options }, { onProgress }) => addStamp(bytes, options, {}, onProgress),
+
+  booklet: ({ bytes, paper }, { onProgress }) => makeBooklet(bytes, { paper }, onProgress),
+
+  // Returns { bytes, pages, lost }.
+  repair: ({ bytes }) => repairPdf(bytes),
 
   compress: ({ bytes, maxSide, quality }, { onProgress, callMain }) =>
     compressPdf(

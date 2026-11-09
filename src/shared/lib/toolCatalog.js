@@ -43,6 +43,14 @@ export const tools = [
   { id: 'longImageToPdf', path: '/long-image-to-pdf', category: 'toPdf', icon: 'image', kind: 'image', multiple: false },
   { id: 'pdfToHtml', path: '/pdf-to-html', category: 'inspect', icon: 'code', kind: 'pdf', multiple: false, format: 'html' },
   { id: 'pdfToMarkdown', path: '/pdf-to-markdown', category: 'inspect', icon: 'hash', kind: 'pdf', multiple: false, format: 'md' },
+  { id: 'grayscale', path: '/pdf-to-grayscale', category: 'edit', icon: 'gray', kind: 'pdf', multiple: false },
+  { id: 'removeBlank', path: '/remove-blank-pages', category: 'organize', icon: 'blank', kind: 'pdf', multiple: false },
+  { id: 'pageBorders', path: '/add-margins-borders-pdf', category: 'edit', icon: 'frame', kind: 'pdf', multiple: false },
+  { id: 'background', path: '/pdf-background-colour', category: 'edit', icon: 'palette', kind: 'pdf', multiple: false },
+  { id: 'stamp', path: '/stamp-pdf', category: 'edit', icon: 'stamp', kind: 'pdf', multiple: false },
+  { id: 'booklet', path: '/pdf-booklet', category: 'organize', icon: 'book', kind: 'pdf', multiple: false },
+  { id: 'compressTarget', path: '/compress-pdf-to-size', category: 'compress', icon: 'target', kind: 'pdf', multiple: false },
+  { id: 'repair', path: '/repair-pdf', category: 'protect', icon: 'wrench', kind: 'pdf', multiple: false },
   { id: 'textToImage', path: '/text-to-image', category: 'image', icon: 'image', kind: 'txt', multiple: false },
 ];
 

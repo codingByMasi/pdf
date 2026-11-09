@@ -2,6 +2,7 @@
 import { createPdf } from '../../../shared/lib/pdfLoad.js';
 import { loadPdf } from '../../../shared/lib/pdfLoad.js';
 import { PAPER, fitInBox } from '../../../shared/lib/pageSizes.js';
+import { drawEmbedded, embedOrEmpty } from '../../../shared/lib/embedPage.js';
 import { yieldToUi } from '../../../shared/lib/yieldToUi.js';
 
 const MARGIN = 14;
@@ -10,7 +11,7 @@ async function embedAll(source, output) {
   const pages = source.getPages();
   const embedded = [];
   for (let i = 0; i < pages.length; i += 1) {
-    embedded.push(...(await output.embedPages([pages[i]])));
+    embedded.push(await embedOrEmpty(output, pages[i]));
     if (i % 10 === 9) await yieldToUi();
   }
   return embedded;
@@ -18,7 +19,7 @@ async function embedAll(source, output) {
 
 function drawFitted(sheet, embedded, box) {
   const { x, y, scale } = fitInBox(embedded.width, embedded.height, box);
-  sheet.drawPage(embedded, { x, y, width: embedded.width * scale, height: embedded.height * scale });
+  drawEmbedded(sheet, embedded, { x, y, width: embedded.width * scale, height: embedded.height * scale });
 }
 
 // perSheet: 2 (side by side, landscape sheet) or 4 (2 x 2, portrait sheet). paper: 'a4' | 'letter'.

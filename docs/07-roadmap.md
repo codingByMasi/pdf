@@ -40,20 +40,20 @@ Every item must work fully in the browser, with no server and no upload.
 - [x] Zoom bar in the page editor (Annotate, Edit, Sign, Redact)
 
 ## D. Extra PDF tools
-- [ ] Compress PDF to a target size (for example under 200 KB)
+- [x] Compress PDF to a target size (for example under 200 KB)
 - [ ] Passport / ID photo sheet maker
-- [ ] Remove blank pages
+- [x] Remove blank pages
 - [ ] Split by bookmarks or by blank page
-- [ ] Booklet printing
-- [ ] Grayscale or black and white PDF
-- [ ] Page borders, margins, blank page insert
-- [ ] Background colour or image, and stamps (Approved, Draft)
+- [x] Booklet printing
+- [x] Grayscale or black and white PDF
+- [x] Page borders, margins, blank page insert
+- [x] Background colour or image, and stamps (Approved, Draft)
 - [ ] QR code or barcode on pages
 - [ ] Attach files to a PDF, extract attachments
 - [ ] Highlight search results
-- [ ] Basic repair
+- [x] Basic repair
 - [ ] PDF info viewer (size, pages, fonts, version)
-- [ ] Fast web view (linearize), basic PDF/A
+- [-] Fast web view (linearize), basic PDF/A (not possible to do honestly in the browser: no safe linearizer, and real PDF/A needs checking tools)
 - [ ] Find and replace words (hide and retype overlay)
 
 ## E. Office files (basic only, limits stated on each page)
