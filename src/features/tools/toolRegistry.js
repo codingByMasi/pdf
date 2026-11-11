@@ -125,4 +125,9 @@ export const toolScreens = {
   savedDetails: lazy(() => import('./savedDetails/SavedDetailsTool.jsx')),
   resumeCheck: lazy(() => import('./resumeCheck/ResumeCheckTool.jsx')),
   typingTest: lazy(() => import('./typingTest/TypingTestTool.jsx')),
+  barcodeMaker: lazy(() => import('./barcodeMaker/BarcodeMakerTool.jsx')),
+  qrReader: lazy(() => import('./qrReader/QrReaderTool.jsx')),
+  colourPalette: lazy(() => import('./colourPalette/ColourPaletteTool.jsx')),
+  cssMinify: lazy(() => import('./cssMinify/CssMinifyTool.jsx')),
+  regexTest: lazy(() => import('./regexTest/RegexTestTool.jsx')),
 };

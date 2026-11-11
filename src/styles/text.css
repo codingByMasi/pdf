@@ -63,3 +63,10 @@
 .file-pick { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
 .file-pick-name { overflow-wrap: anywhere; }
 .zone-select { width: 100%; min-height: 52px; padding: 0.5rem 0.75rem; border: 1px solid var(--dash); border-radius: 10px; background: var(--surface); color: inherit; }
+.barcode-canvas { max-width: 100%; height: auto; background: #fff; }
+.qr-result { white-space: pre-wrap; overflow-wrap: anywhere; padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 10px; }
+.swatch-row { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.swatch-chip { min-width: 96px; min-height: 64px; border: 1px solid var(--border); border-radius: 10px; cursor: pointer; display: flex; align-items: flex-end; justify-content: center; padding: 0.25rem; }
+.swatch-chip span { background: rgba(255,255,255,.85); color: #111; font-family: monospace; padding: 0 0.35rem; border-radius: 4px; font-size: 0.85rem; }
+.gradient-box { height: 96px; border-radius: 12px; border: 1px solid var(--border); }
+.match-list { padding-left: 1.3rem; } .match-list code { overflow-wrap: anywhere; }

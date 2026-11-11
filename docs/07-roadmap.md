@@ -92,7 +92,7 @@ Every item must work fully in the browser, with no server and no upload.
 - [x] Text to speech (browser voice)
 - [x] Word counter
 - [x] Case converter
-- [ ] QR code maker
+- [x] QR code maker
 
 ## H. Calculators
 - [x] Age
@@ -134,8 +134,8 @@ Not built unless the owner asks.
 - [x] Typing speed test, and typing practice in Hindi
 - [x] Currency, time zone and BMI calculators (currency rates need the internet: only with a clear note, or fixed manual rate)
 - [x] Hash / checksum tool (SHA-256 and others) to check a file was not changed
-- [ ] Barcode maker (Code128, EAN) and QR reader from a photo
-- [ ] Developer tools: colour palette and gradient maker, CSS minifier, regex tester
+- [x] Barcode maker (Code128, EAN) and QR reader from a photo
+- [x] Developer tools: colour palette and gradient maker, CSS minifier, regex tester
 
 ## M. Site items (queued after step J)
 - [ ] "My recent tools" row and favourites on the home page, stored on the device

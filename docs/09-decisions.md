@@ -65,3 +65,7 @@ Each extra library needs a written reason here.
 ## Hindi text loads only when needed (speed)
 - What: the Hindi text file is a separate download. English is always in the main file. The page waits for Hindi before it first draws when the address is /hi.
 - Why: it cut the main file from 185 KB to 135 KB (gzip). Document makers load Hindi on demand when a PDF is made in Hindi.
+
+## jsQR as a direct dependency (QR Reader)
+- What: `jsqr` (Apache-2.0) is used only by the QR Reader tool and loads only when that tool is used.
+- Why: reading a QR code from a picture means finding and decoding it from pixels. The built-in browser detector is missing in Firefox and Safari, and writing our own decoder is risky. It runs on the device; no image is sent anywhere.

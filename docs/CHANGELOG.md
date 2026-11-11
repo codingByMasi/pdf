@@ -134,3 +134,6 @@
 
 ## Queued tools, batch 2 (text and calculators)
 - BMI calculator, time zone converter (browser clock data, no internet), currency converter (you type the rate), hash and checksum tool (SHA-1/256/384/512, no MD5), saved details (kept only on this device), resume checker (plain rules, no AI), typing speed test (English and Hindi).
+
+## Queued tools, batch 3
+- Barcode maker (Code 128 and EAN-13, checked with a second decoder), QR reader from a photo (jsQR), colour palette and gradient maker, CSS minifier, regex tester (runs in a worker, stopped after 2 seconds).

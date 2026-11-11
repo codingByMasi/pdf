@@ -126,6 +126,11 @@ export const tools = [
   { id: 'savedDetails', path: '/saved-details', category: 'text', icon: 'form', kind: 'none', multiple: false },
   { id: 'resumeCheck', path: '/resume-checker', category: 'docs', icon: 'doc', kind: 'none', multiple: false },
   { id: 'typingTest', path: '/typing-speed-test', category: 'text', icon: 'text', kind: 'none', multiple: false },
+  { id: 'barcodeMaker', path: '/barcode-maker', category: 'text', icon: 'hash', kind: 'none', multiple: false },
+  { id: 'qrReader', path: '/qr-code-reader', category: 'text', icon: 'scan', kind: 'none', multiple: false },
+  { id: 'colourPalette', path: '/colour-palette-gradient', category: 'text', icon: 'image', kind: 'none', multiple: false },
+  { id: 'cssMinify', path: '/css-minifier', category: 'text', icon: 'code', kind: 'none', multiple: false },
+  { id: 'regexTest', path: '/regex-tester', category: 'text', icon: 'code', kind: 'none', multiple: false },
 ];
 
 export function findToolById(id) {
