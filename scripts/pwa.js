@@ -13,7 +13,7 @@ export function buildManifest(name) {
   return {
     name,
     short_name: name.length > 12 ? name.slice(0, 12) : name,
-    description: 'Free PDF tools that run in your browser. Your files never leave your device.',
+    description: 'Free tools for PDFs, photos and documents that run in your browser. Your files never leave your device.',
     start_url: '/',
     scope: '/',
     display: 'standalone',

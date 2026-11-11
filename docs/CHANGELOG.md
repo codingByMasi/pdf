@@ -142,3 +142,6 @@
 - Home page rows "Your favourites" and "Used lately" (star button on each tool page), stored on the device and removed by Forget my settings.
 - Press / on the home page to search; paste a copied file with Ctrl+V or Cmd+V on tool pages.
 - Help page (/help) in English and Hindi. The 16 guides were already in Hindi.
+
+## Copy polish
+- Home headline, subtitle, footer line, app description, privacy and terms descriptions now say PDFs, photos and documents (not PDF only). Group jump buttons on the home page. Share pictures redrawn.

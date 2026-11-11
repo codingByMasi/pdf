@@ -1,6 +1,6 @@
-# ClearPDF
+# PDF Shortener
 
-Free PDF tools (25 of them) that run fully in the browser. Files never leave the user's device. No login, no backend.
+Free tools for PDFs, photos, text and documents (about 130 of them) that run fully in the browser, in English and Hindi. Files never leave the user's device. No login, no backend.
 
 ## Commands
 - `npm install` - install the parts the site needs

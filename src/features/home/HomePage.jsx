@@ -41,6 +41,11 @@ export function HomePage() {
           </div>
           <p>{t('home.toolsText')}</p>
         </div>
+        {query.trim() ? null : (
+          <nav className="category-jump" aria-label={t('home.jump')}>
+            {groupByCategory(tools).map(({ category }) => <a key={category} href={`#group-${category}`}>{t(`category.${category}`)}</a>)}
+          </nav>
+        )}
         {query.trim() ? null : <ToolRows />}
         {found.length === 0 ? <p className="no-results" role="status">{t('search.none')}</p> : null}
         {groupByCategory(found).map(({ category, tools: group }) => (
