@@ -686,7 +686,7 @@ export const en = {
   "licences.s1.h": "Our rule",
   "licences.s1.p": "We only use free software and free fonts that allow use on a public website, also for business. We do not use code under GPL, AGPL or non-commercial licences. The full licence texts are in the file /licences.txt.",
   "licences.s2.h": "Code",
-  "licences.s2.p": "pdf-lib, @pdf-lib/fontkit, @pdf-lib/standard-fonts and @pdf-lib/upng (MIT, by Andrew Dillon and others). pako (MIT and Zlib). PDF.js (Apache 2.0, by Mozilla and contributors). React and React DOM (MIT, Meta and contributors). regenerator-runtime (MIT). tslib (0BSD, Microsoft).",
+  "licences.s2.p": "pdf-lib, @pdf-lib/fontkit, @pdf-lib/standard-fonts and @pdf-lib/upng (MIT, by Andrew Dillon and others). pako (MIT and Zlib). PDF.js (Apache 2.0, by Mozilla and contributors). jsQR (Apache 2.0, by Cosmo Wolfe) for reading QR codes. React and React DOM (MIT, Meta and contributors). regenerator-runtime (MIT). tslib (0BSD, Microsoft).",
   "licences.s3.h": "Fonts",
   "licences.s3.p": "DM Sans and Manrope for the site (SIL Open Font License 1.1, from the Fontsource project). Noto Sans and Noto Sans Devanagari inside the PDFs we create (SIL Open Font License 1.1, Google). These fonts are free to use and embed. We do not sell them on their own.",
   "licences.s4.h": "Our own work",

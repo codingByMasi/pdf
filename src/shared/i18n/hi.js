@@ -686,7 +686,7 @@ export const hi = {
   "licences.s1.h": "हमारा नियम",
   "licences.s1.p": "हम सिर्फ़ ऐसा मुफ़्त सॉफ़्टवेयर और फ़ॉन्ट इस्तेमाल करते हैं जो सार्वजनिक वेबसाइट पर, व्यवसाय के लिए भी, इस्तेमाल करने देते हैं। हम GPL, AGPL या गैर-व्यावसायिक लाइसेंस वाला कोड इस्तेमाल नहीं करते। पूरे लाइसेंस के पाठ /licences.txt फ़ाइल में हैं।",
   "licences.s2.h": "कोड",
-  "licences.s2.p": "pdf-lib, @pdf-lib/fontkit, @pdf-lib/standard-fonts और @pdf-lib/upng (MIT, Andrew Dillon और अन्य)। pako (MIT और Zlib)। PDF.js (Apache 2.0, Mozilla और योगदानकर्ता)। React और React DOM (MIT, Meta और योगदानकर्ता)। regenerator-runtime (MIT)। tslib (0BSD, Microsoft)।",
+  "licences.s2.p": "pdf-lib, @pdf-lib/fontkit, @pdf-lib/standard-fonts और @pdf-lib/upng (MIT, Andrew Dillon और अन्य)। pako (MIT और Zlib)। PDF.js (Apache 2.0, Mozilla और योगदानकर्ता)। QR कोड पढ़ने के लिए jsQR (Apache 2.0, Cosmo Wolfe)। React और React DOM (MIT, Meta और योगदानकर्ता)। regenerator-runtime (MIT)। tslib (0BSD, Microsoft)।",
   "licences.s3.h": "फ़ॉन्ट",
   "licences.s3.p": "साइट के लिए DM Sans और Manrope (SIL Open Font License 1.1, Fontsource प्रोजेक्ट से)। हमारी बनाई PDF के अंदर Noto Sans और Noto Sans Devanagari (SIL Open Font License 1.1, Google)। ये फ़ॉन्ट मुफ़्त में इस्तेमाल और शामिल किए जा सकते हैं। हम इन्हें अलग से नहीं बेचते।",
   "licences.s4.h": "हमारा अपना काम",

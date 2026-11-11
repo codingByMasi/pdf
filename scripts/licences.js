@@ -6,7 +6,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 
 // Only packages whose code or files reach the visitor's browser.
-export const SHIPPED = ['pdf-lib', '@pdf-lib/fontkit', '@pdf-lib/standard-fonts', '@pdf-lib/upng', 'pako', 'pdfjs-dist', 'react', 'react-dom', 'scheduler', 'regenerator-runtime', 'tslib', '@fontsource/dm-sans', '@fontsource/manrope'];
+export const SHIPPED = ['pdf-lib', '@pdf-lib/fontkit', '@pdf-lib/standard-fonts', '@pdf-lib/upng', 'pako', 'jsqr', 'pdfjs-dist', 'react', 'react-dom', 'scheduler', 'regenerator-runtime', 'tslib', '@fontsource/dm-sans', '@fontsource/manrope'];
 
 function licenceFile(dir) {
   const name = readdirSync(dir).find((file) => /^(licen[sc]e|copying)/i.test(file));
