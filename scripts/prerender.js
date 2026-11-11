@@ -8,6 +8,7 @@ import { hi } from '../src/shared/i18n/hi.js';
 import { allRoutes } from './routes.js';
 import { applyToTemplate } from './seoHead.js';
 import { describeNotFound, describeRoute } from './seoPages.js';
+import { footerLinks } from './seoFooter.js';
 import { fileFor, languages } from './seoShared.js';
 
 const dist = join(dirname(fileURLToPath(import.meta.url)), '..', 'dist');
@@ -19,9 +20,10 @@ for (const lang of languages) {
     // "/merge-pdf" becomes merge-pdf.html and "/hi/merge-pdf" becomes hi/merge-pdf.html. Cloudflare Pages serves them without ".html".
     const file = fileFor(lang, route.path);
     mkdirSync(dirname(join(dist, file)), { recursive: true });
-    writeFileSync(join(dist, file), applyToTemplate(template, describeRoute(route, texts[lang], config, lang), route, config, lang));
+    const info = describeRoute(route, texts[lang], config, lang);
+    writeFileSync(join(dist, file), applyToTemplate(template, { ...info, body: info.body + footerLinks(texts[lang], lang) }, route, config, lang));
   }
 }
 // Cloudflare Pages sends this file, with a real "not found" status, for unknown addresses.
-writeFileSync(join(dist, '404.html'), applyToTemplate(template, describeNotFound(en), { path: '/404' }, config));
+writeFileSync(join(dist, '404.html'), applyToTemplate(template, (({ ...i }) => ({ ...i, body: i.body + footerLinks(en, 'en') }))(describeNotFound(en)), { path: '/404' }, config));
 console.log(`Prerendered ${allRoutes().length * languages.length} pages (English and Hindi) and 404.html`);
