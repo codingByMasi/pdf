@@ -13,7 +13,7 @@ const SIDE = 32;
 export async function addDateStamp(bytes, options, { loadBytes } = {}, onProgress) {
   const { name = '', date = '', time = '', position = 'bottomRight', pages: which = 'all', size = 11 } = options;
   const text = [name.trim(), date.trim(), time.trim()].filter(Boolean).join('   ');
-  if (!text) throw Object.assign(new Error('no text'), { errorKey: 'error.stampEmpty' });
+  if (!text) throw Object.assign(new Error('no text'), { errorKey: 'error.dateStampEmpty' });
   const doc = await loadPdf(bytes);
   const book = await createFontBook(doc, { deva: hasDeva(text), loadBytes });
   const list = doc.getPages();

@@ -23,6 +23,6 @@ describe('addDateStamp', () => {
     expect(out.replaced).toBe(0);
   });
   it('refuses an empty stamp', async () => {
-    await expect(addDateStamp(await blank(1), {}, { loadBytes: loadTestFont })).rejects.toMatchObject({ errorKey: 'error.stampEmpty' });
+    await expect(addDateStamp(await blank(1), {}, { loadBytes: loadTestFont })).rejects.toMatchObject({ errorKey: 'error.dateStampEmpty' });
   });
 });

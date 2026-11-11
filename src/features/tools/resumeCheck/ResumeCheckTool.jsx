@@ -44,16 +44,16 @@ export default function ResumeCheckTool() {
 
   return (
     <TextToolShell>
-      <p className="field-hint">{t('resume.hint')}</p>
+      <p className="field-hint">{t('rescheck.hint')}</p>
       <FilePick file={file} accept="application/pdf,.pdf" onPick={pick} />
       {error ? <StatusMessage title={t('error.heading')}>{t(error)}</StatusMessage> : null}
       {result ? (
         <>
-          <p>{t('resume.summary', { words: result.words, pages: result.pages, fonts: result.fonts })}</p>
+          <p>{t('rescheck.summary', { words: result.words, pages: result.pages, fonts: result.fonts })}</p>
           <ul className="check-list">
-            {result.checks.map((c) => <li key={c.id} className={c.ok ? 'check-ok' : 'check-bad'}><strong>{c.ok ? t('resume.ok') : t('resume.fix')}</strong> {t(`resume.tip.${c.id}.${c.ok ? 'ok' : 'bad'}`)}</li>)}
+            {result.checks.map((c) => <li key={c.id} className={c.ok ? 'check-ok' : 'check-bad'}><strong>{c.ok ? t('rescheck.ok') : t('rescheck.fix')}</strong> {t(`rescheck.tip.${c.id}.${c.ok ? 'ok' : 'bad'}`)}</li>)}
           </ul>
-          <p className="field-hint">{t('resume.note')}</p>
+          <p className="field-hint">{t('rescheck.note')}</p>
         </>
       ) : null}
     </TextToolShell>
