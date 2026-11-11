@@ -8,6 +8,8 @@ import { Icon } from '../../shared/ui/Icon.jsx';
 import { TrustRow } from '../../shared/ui/TrustRow.jsx';
 import { ToolSearch } from './ToolSearch.jsx';
 import { ToolCard } from './ToolCard.jsx';
+import { Link } from '../../shared/ui/Link.jsx';
+import { hubForCategory } from '../hubs/hubList.js';
 import { ToolRows } from './ToolRows.jsx';
 
 export function HomePage() {
@@ -51,7 +53,7 @@ export function HomePage() {
         {groupByCategory(found).map(({ category, tools: group }) => (
           <section key={category} className="category" aria-labelledby={`group-${category}`}>
             <div className="category-title">
-              <h3 id={`group-${category}`}>{t(`category.${category}`)}</h3>
+              <h3 id={`group-${category}`}><Link to={hubForCategory(category).path}>{t(`category.${category}`)}</Link></h3>
               <span className="count-badge">{group.length}</span>
             </div>
             <ul className="tool-grid">

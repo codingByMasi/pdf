@@ -21,7 +21,7 @@ export function applyToTemplate(html, info, route, config, lang = 'en') {
     tags.push(`<link rel="canonical" href="${h(url)}" />`, `<meta property="og:url" content="${h(url)}" />`);
     for (const l of languages) tags.push(`<link rel="alternate" hreflang="${l}" href="${h(urlFor(config, l, route.path))}" />`);
     tags.push(`<link rel="alternate" hreflang="x-default" href="${h(urlFor(config, 'en', route.path))}" />`);
-    tags.push(`<meta property="og:image" content="${h(image)}" />`, `<meta name="twitter:image" content="${h(image)}" />`);
+    tags.push(`<meta property="og:image" content="${h(image)}" />`, `<meta property="og:image:width" content="1200" />`, `<meta property="og:image:height" content="630" />`, `<meta property="og:image:alt" content="${h(info.title)}" />`, `<meta name="twitter:image" content="${h(image)}" />`, `<meta name="twitter:image:alt" content="${h(info.title)}" />`);
   }
   if (info.jsonLd) {
     tags.push(`<script type="application/ld+json">${JSON.stringify(info.jsonLd).replace(/</g, '\\u003c')}</script>`);

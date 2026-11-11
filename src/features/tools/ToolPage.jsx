@@ -11,6 +11,7 @@ import { noticeFor } from '../../shared/lib/toolNotices.js';
 import { toolScreens } from './toolRegistry.js';
 import { HowToSteps } from './HowToSteps.jsx';
 import { FaqList } from './FaqList.jsx';
+import { hubForCategory } from '../hubs/hubList.js';
 import { RelatedTools } from './RelatedTools.jsx';
 import { FavouriteButton } from './FavouriteButton.jsx';
 
@@ -24,6 +25,8 @@ export function ToolPage({ tool }) {
     <div className="tool-page">
       <nav className="breadcrumb" aria-label={t('tool.backHome')}>
         <Link to="/" className="breadcrumb-link">{t('nav.homeShort')}</Link>
+        <Icon name="arrow" size={16} />
+        <Link to={hubForCategory(tool.category).path} className="breadcrumb-link">{t(`category.${tool.category}`)}</Link>
         <Icon name="arrow" size={16} />
         <span aria-current="page">{name}</span>
       </nav>

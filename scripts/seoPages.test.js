@@ -54,6 +54,12 @@ for (const lang of ['en', 'hi']) {
       for (const step of merge.info.jsonLd['@graph'][1].step) expect(merge.info.body).toContain(step.text.replace(/&/g, '&amp;'));
       expect(JSON.stringify(merge.info.jsonLd)).not.toMatch(/aggregateRating|review/i);
     });
+    it('puts the tool group in the breadcrumb and a tool list on group pages', () => {
+      const merge = list.find((i) => i.route.id === 'merge').info.jsonLd['@graph'].find((x) => x['@type'] === 'BreadcrumbList');
+      expect(merge.itemListElement).toHaveLength(3);
+      const hub = list.find((i) => i.route.kind === 'hub' && i.route.id === 'organize').info.jsonLd['@graph'][0];
+      expect(hub.mainEntity.itemListElement.length).toBeGreaterThan(3);
+    });
     it('points every tool, guide and group page to a share image name', () => {
       for (const { route, info } of list) expect(info.image, route.path).toBe(route.kind === 'tool' ? route.id : route.kind === 'guide' ? route.tool : 'default');
     });

@@ -8,7 +8,7 @@ export function InfoPage({ page }) {
   const { t } = useI18n();
   const vars = { site: config.siteName };
   const isContact = page.id === 'contact';
-  usePageMeta({ title: t(`${page.id}.title`), description: t(`${page.id}.seoDesc`, vars), path: page.path });
+  usePageMeta({ title: t(`${page.id}.seoTitle`), description: t(`${page.id}.seoDesc`, vars), path: page.path });
   return (
     <article className="info-page">
       <header className="info-hero">

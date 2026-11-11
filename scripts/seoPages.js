@@ -44,14 +44,14 @@ export function describeRoute(route, text, config, lang = 'en') {
       (guide ? `<p>${link(guide.path, t('guides.forTool', { title: guideTexts[lang][guide.slug].title }))}</p>` : '') +
       `<h2>${h(t('related.heading'))}</h2>${list(same.map((x) => `<li>${link(x.path, t(`tool.${x.id}.name`))}</li>`))}` +
       `<p>${link(hubForCategory(tool.category).path, t('related.hub', { category: t(`category.${tool.category}`) }))}</p>`;
-    return out(t(`${p}seoTitle`), t(`${p}seoDesc`), body, toolGraph({ ...base, name: t(`${p}name`), description: t(`${p}seoDesc`) }, steps, faq), route.id);
+    return out(t(`${p}seoTitle`), t(`${p}seoDesc`), body, toolGraph({ ...base, name: t(`${p}name`), description: t(`${p}seoDesc`), parents: [{ name: t(`category.${tool.category}`), url: urlFor(config, lang, hubForCategory(tool.category).path) }] }, steps, faq), route.id);
   }
   if (route.kind === 'hub') {
     const hub = hubs.find((x) => x.category === route.id);
     const name = t(`category.${route.id}`);
     const group = tools.filter((x) => x.category === route.id);
     const body = `<h1>${h(t(`hub.${route.id}.seoTitle`))}</h1><p>${h(t(`hub.${route.id}.intro`))}</p>${list(group.map((x) => `<li>${link(x.path, t(`tool.${x.id}.name`))} - ${h(t(`tool.${x.id}.desc`))}</li>`))}<p>${h(t('hub.privacy'))}</p>`;
-    return out(t(`hub.${route.id}.seoTitle`), t(`hub.${route.id}.seoDesc`), body, listGraph({ ...base, url: urlFor(config, lang, hub.path), name, description: t(`hub.${route.id}.seoDesc`), parents: [] }));
+    return out(t(`hub.${route.id}.seoTitle`), t(`hub.${route.id}.seoDesc`), body, listGraph({ ...base, url: urlFor(config, lang, hub.path), name, description: t(`hub.${route.id}.seoDesc`), parents: [], items: group.map((x) => ({ name: t(`tool.${x.id}.name`), url: urlFor(config, lang, x.path) })) }));
   }
   if (route.kind === 'guides') {
     const body = `<h1>${h(t('guides.title'))}</h1><p>${h(t('guides.intro'))}</p>${list(guides.map((g) => `<li>${link(g.path, guideTexts[lang][g.slug].title)} - ${h(guideTexts[lang][g.slug].desc)}</li>`))}`;
@@ -68,7 +68,7 @@ export function describeRoute(route, text, config, lang = 'en') {
   }
   const p = `${route.id}.`;
   const sections = Array.from({ length: route.sections }, (_, i) => `<h2>${h(t(`${p}s${i + 1}.h`))}</h2><p>${h(t(`${p}s${i + 1}.p`))}</p>`);
-  return out(t(`${p}title`), t(`${p}seoDesc`), `<h1>${h(t(`${p}title`))}</h1><p>${h(t(`${p}intro`))}</p>${sections.join('')}`);
+  return out(t(`${p}seoTitle`), t(`${p}seoDesc`), `<h1>${h(t(`${p}title`))}</h1><p>${h(t(`${p}intro`))}</p>${sections.join('')}`);
 }
 
 // Page shown for unknown addresses. Hidden from search engines.

@@ -145,3 +145,9 @@
 
 ## Copy polish
 - Home headline, subtitle, footer line, app description, privacy and terms descriptions now say PDFs, photos and documents (not PDF only). Group jump buttons on the home page. Share pictures redrawn.
+
+## SEO pass 2
+- Text pages (Privacy, Terms, Contact, Help, Licences) have descriptive search titles instead of one-word titles.
+- Tool pages show and mark up Home > Group > Tool breadcrumbs. Group pages list their tools as structured data (ItemList).
+- Home group headings link to the group pages, and the footer links to all 14 group pages, so every tool is reachable in two clicks from every page.
+- Share tags now include picture size and description text.

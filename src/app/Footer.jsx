@@ -6,6 +6,7 @@ import { clearPrefs } from '../shared/lib/usePref.js';
 import { AdSlot } from '../shared/ui/AdSlot.jsx';
 import { InstallButton } from '../shared/ui/InstallButton.jsx';
 import { Link } from '../shared/ui/Link.jsx';
+import { hubs } from '../features/hubs/hubList.js';
 import { pages } from '../features/pages/pageList.js';
 import { BrandName } from './BrandName.jsx';
 
@@ -25,6 +26,9 @@ export function Footer() {
           {pages.map((page) => (
             <Link key={page.id} to={page.path}>{t(`${page.id}.title`)}</Link>
           ))}
+        </nav>
+        <nav className="footer-links footer-groups" aria-label={t('hub.kicker')}>
+          {hubs.map((hub) => <Link key={hub.category} to={hub.path}>{t(`category.${hub.category}`)}</Link>)}
         </nav>
         <p className="footer-privacy">{t('home.privacy')}</p>
         <p className="footer-forget">

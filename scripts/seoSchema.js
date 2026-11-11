@@ -29,6 +29,7 @@ export function homeGraph(c) {
 }
 
 export function toolGraph(c, steps, faq) {
+  const parents = c.parents ?? [];
   return {
     '@context': CONTEXT,
     '@graph': [
@@ -45,13 +46,15 @@ export function toolGraph(c, steps, faq) {
       },
       howTo(c.name, steps),
       faqPage(faq),
-      crumbs([c.home, { name: c.name, url: c.url }]),
+      crumbs([c.home, ...parents, { name: c.name, url: c.url }]),
     ],
   };
 }
 
 export function listGraph(c) {
-  return { '@context': CONTEXT, '@graph': [{ '@type': 'CollectionPage', name: c.name, url: c.url, description: c.description, inLanguage: c.lang }, crumbs([c.home, ...c.parents, { name: c.name, url: c.url }])] };
+  const page = { '@type': 'CollectionPage', name: c.name, url: c.url, description: c.description, inLanguage: c.lang };
+  if (c.items) page.mainEntity = { '@type': 'ItemList', itemListElement: c.items.map((item, i) => ({ '@type': 'ListItem', position: i + 1, name: item.name, url: item.url })) };
+  return { '@context': CONTEXT, '@graph': [page, crumbs([c.home, ...c.parents, { name: c.name, url: c.url }])] };
 }
 
 export function guideGraph(c, steps, date) {
