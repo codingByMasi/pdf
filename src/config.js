@@ -3,7 +3,7 @@ export const config = {
   siteName: 'PDF Shortener',
   // CHANGE THESE two when you have your real web address and email.
   siteUrl: 'https://pdfshortener.com',
-  contactEmail: 'hello@example.com',
+  contactEmail: 'pdfshortener@gmail.com',
   defaultLang: 'en',
   ads: { enabled: false },
   limits: {
