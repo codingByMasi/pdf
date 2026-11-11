@@ -1,6 +1,6 @@
 // Site-wide settings: the site name, file limits, and the ads on/off switch.
 export const config = {
-  siteName: 'PDF Shortener',
+  siteName: 'PDF Shortner',
   // CHANGE THESE two when you have your real web address and email.
   siteUrl: 'https://pdfshortner.com',
   contactEmail: 'hello@example.com',

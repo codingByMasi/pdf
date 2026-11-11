@@ -4,8 +4,8 @@ import { buildManifest, buildServiceWorker } from './pwa.js';
 
 describe('pwa', () => {
   it('uses the site name and gives icons for installing', () => {
-    const manifest = buildManifest('PDF Shortener');
-    expect(manifest.name).toBe('PDF Shortener');
+    const manifest = buildManifest('PDF Shortner');
+    expect(manifest.name).toBe('PDF Shortner');
     expect(manifest.short_name.length).toBeLessThanOrEqual(12);
     expect(manifest.icons.map((i) => i.sizes)).toEqual(['192x192', '512x512']);
   });
