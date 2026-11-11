@@ -5,7 +5,8 @@ export const config = {
   siteUrl: 'https://pdfshortener.com',
   contactEmail: 'pdfshortener@gmail.com',
   defaultLang: 'en',
-  ads: { enabled: false },
+  // Keep enabled false until Google approves the site. Then set publisherId (ca-pub-...) and the slot ids, and see docs/12-adsense.md.
+  ads: { enabled: false, publisherId: '', slots: { footer: '' } },
   limits: {
     maxFileMB: 100,
     maxFiles: 50,

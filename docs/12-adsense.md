@@ -20,20 +20,18 @@ Ads stay OFF (`ads.enabled` in src/config.js) until Google approves the site and
 - **Traffic.** Never click your own ads, never ask others to, never buy fake traffic. Some countries need the site to be some months old.
 - **Ad placement rules.** No ads on screens without real content, no ads that look like buttons, no more ads than content, nothing covering the tool.
 
-## Needed in the code when approved (not done yet, on purpose)
-1. **Consent message (CMP) for the EEA, UK and Switzerland.** Google requires a Google-certified consent tool there. Turn on Google's free "Privacy & messaging" consent message in the AdSense account. The privacy page already promises this.
-2. **Change the security rules in public/_headers.** They now block all outside scripts, so ads would not load. Roughly (copy the exact list from Google's AdSense CSP page when you do it):
-   - script-src: add https://pagead2.googlesyndication.com, https://*.google.com, https://*.googlesyndication.com, https://*.doubleclick.net, https://*.adtrafficquality.google
-   - frame-src: add https://googleads.g.doubleclick.net, https://*.googlesyndication.com, https://tpc.googlesyndication.com
-   - img-src: add https:
-   - connect-src: add https://*.google.com, https://*.googlesyndication.com, https://*.doubleclick.net
-   - style-src: add 'unsafe-inline' (ads need it)
-   Only add the rules on ad-showing pages if you can; the tools themselves should keep the strict rules.
-3. **Load the ad script only when ads are on.** Add it in the AdSlot component, never when `ads.enabled` is false.
-4. **ads.txt.** Put a file public/ads.txt with the line Google gives you (publisher ID). Without it earnings can be limited.
-5. **Service worker.** Keep ad files out of the offline cache.
-6. **Offline mode.** Ads cannot load offline; AdSlot must show nothing then.
-7. **Then test again:** all pages at 320/768/1440, the layout shift (CLS) with ads, the tools still work, and the Privacy page text matches what really runs.
+## Switching ads on (the setup is built; ads are still OFF)
+When Google approves the site:
+1. In AdSense, turn on the free "Privacy & messaging" consent message for Europe, the UK and Switzerland (Google's script shows it; no code needed).
+2. Create one ad unit and copy its slot number.
+3. In src/config.js set `ads: { enabled: true, publisherId: 'ca-pub-XXXXXXXXXXXXXXXX', slots: { footer: 'SLOT NUMBER' } }`.
+4. Run `npm run build`. With ads on, the build does three things by itself (scripts/adsSetup.js):
+   - writes dist/ads.txt with your publisher ID,
+   - adds the Google sources to the security rules in dist/_headers (check the list in scripts/adsSetup.js against Google's AdSense security-policy page),
+   - stops with a clear error if the publisher ID is missing or has the wrong shape.
+5. The ad code loads only when ads are on, set up and the visitor is online (src/shared/lib/adScript.js). Offline visitors never see ads, and the offline copy never stores Google files.
+6. Deploy, then test: all pages at 320/768/1440, the tools still work, and no "no cookies" wording is left on the home page, Help or footer.
+7. Change the Privacy page date and, if you add more ad places, add a slot name in config and an AdSlot component for it. Keep ads away from the tool area.
 
 ## Honest notes
 - Approval is Google's decision. A tool-only site can be rejected for "low value content"; adding more real guides is the fix.

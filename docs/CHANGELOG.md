@@ -158,3 +158,7 @@
 
 ## About page
 - New /about page (English and Hindi), linked in the footer, in the sitemap (now 332 addresses). Written honestly: what the site is, how it works, its limits, how to reach us. It does not name a person; add one if you want.
+
+## AdSense setup (dormant) and 6 more guides
+- Ads stay off. config.ads now has publisherId and slots. scripts/adsSetup.js writes ads.txt and widens the security rules only when ads are on. src/shared/lib/adScript.js loads Google's script only when allowed. AdSlot shows one footer advert when set up.
+- 6 new guides (22 in all), English and Hindi: hide private details (redact), scan with a phone, shrink a PDF for email, resize a photo for forms, work out a loan EMI, save only some pages.

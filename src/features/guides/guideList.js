@@ -16,6 +16,12 @@ export const guides = [
   { slug: 'add-watermark-to-pdf', tool: 'watermark' },
   { slug: 'make-an-invoice-pdf-free', tool: 'invoiceMaker' },
   { slug: 'type-hindi-with-english-letters', tool: 'hindiTyping' },
+  { slug: 'redact-private-information-in-pdf', tool: 'redact' },
+  { slug: 'scan-documents-to-pdf-with-phone', tool: 'scanner' },
+  { slug: 'reduce-pdf-size-for-email', tool: 'compress' },
+  { slug: 'resize-photo-for-online-forms', tool: 'imageResize' },
+  { slug: 'calculate-loan-emi', tool: 'emiCalc' },
+  { slug: 'extract-pages-from-pdf', tool: 'extract' },
 ].map((g) => ({ ...g, path: `/guides/${g.slug}` }));
 
 export const guidesPath = '/guides';
