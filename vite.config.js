@@ -8,8 +8,21 @@ const siteNamePlugin = {
   transformIndexHtml: (html) => html.replaceAll('%SITE_NAME%', config.siteName),
 };
 
+// Preloads the two main fonts so text does not jump when they arrive.
+const fontPreloadPlugin = {
+  name: 'font-preload',
+  transformIndexHtml: {
+    order: 'post',
+    handler: (html, ctx) => {
+      const names = Object.keys(ctx.bundle || {}).filter((n) => /(dm-sans-latin-400-normal|manrope-latin-800-normal).*\.woff2$/.test(n));
+      const tags = names.map((n) => `<link rel="preload" as="font" type="font/woff2" crossorigin href="/${n}">`).join('\n    ');
+      return html.replace('</head>', `    ${tags}\n  </head>`);
+    },
+  },
+};
+
 export default defineConfig({
-  plugins: [react(), siteNamePlugin],
+  plugins: [react(), siteNamePlugin, fontPreloadPlugin],
   // Wide target so older phones and browsers can run the site.
   build: { target: ['es2020', 'chrome80', 'edge88', 'firefox78', 'safari13.1'], cssTarget: ['chrome80', 'safari13.1', 'firefox78'] },
   // Workers are loaded as modules so they can load pdf-lib on demand.
