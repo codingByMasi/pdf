@@ -151,3 +151,7 @@
 - Tool pages show and mark up Home > Group > Tool breadcrumbs. Group pages list their tools as structured data (ItemList).
 - Home group headings link to the group pages, and the footer links to all 14 group pages, so every tool is reachable in two clicks from every page.
 - Share tags now include picture size and description text.
+
+## Privacy and Terms for AdSense
+- Privacy now has 10 sections (files, device storage, host, analytics, adverts and cookies, ad choices, Europe/UK consent, children, emails, changes) and Terms has 9 (adds adverts, our work and open-source, not professional advice). English and Hindi. Written fresh, not copied from any other site.
+- New docs/12-adsense.md: AdSense checklist and the security-rule changes needed when ads go live. Ads stay off.
