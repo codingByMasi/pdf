@@ -26,8 +26,10 @@ export const notices = {
   imageBackground: 'rights',
   signaturePhoto: 'sign',
   bmiCalc: 'health',
-  currencyConv: 'calc',
-  dateStamp: 'rights',
+  currencyConv: 'currencyRate',
+  resumeCheck: 'resumeRules',
+  tableExtract: 'tableRough',
+  dateStamp: 'dateStampPlain',
 };
 
 export function noticeFor(toolId) {

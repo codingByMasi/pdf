@@ -165,3 +165,6 @@
 
 ## Privacy page, round 2
 - Privacy now has 13 sections. New or fuller: schools and children, how long we keep things (we keep no files; emails deleted after about 12 months), data in other countries, your rights and a privacy contact (reply within 30 days). Written fresh.
+
+## Honest limits on four tool pages
+- Currency Converter, Resume Checker, PDF Table to CSV and Date/Name Stamp now show a short note saying what they do not do (typed rate, rules not AI, rough and text-only, plain not certified).
