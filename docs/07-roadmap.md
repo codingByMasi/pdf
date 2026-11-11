@@ -138,10 +138,10 @@ Not built unless the owner asks.
 - [x] Developer tools: colour palette and gradient maker, CSS minifier, regex tester
 
 ## M. Site items (queued after step J)
-- [ ] "My recent tools" row and favourites on the home page, stored on the device
-- [ ] Keyboard shortcuts, and paste a file from the clipboard
-- [ ] Help page that explains common errors in plain words
-- [ ] Hindi guides
+- [x] "My recent tools" row and favourites on the home page, stored on the device
+- [x] Keyboard shortcuts, and paste a file from the clipboard
+- [x] Help page that explains common errors in plain words
+- [x] Hindi guides
 
 ## N. More languages (queued last)
 - [ ] Bengali, Tamil, Marathi, Gujarati, Urdu (right-to-left), Arabic (right-to-left), Spanish

@@ -1,5 +1,5 @@
 // Keeps the list of files a person added, checks each one, and lets them remove or reorder.
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { config } from '../../config.js';
 import { reorder } from '../../shared/lib/reorder.js';
 import { validateFile } from '../../shared/lib/validateFile.js';
@@ -29,6 +29,19 @@ export function useFileSelection(tool) {
     setErrorKey(problem);
     setItems(merged);
   }
+
+  // Pasting a copied file (Ctrl+V or Cmd+V) adds it, unless the person is typing in a box.
+  useEffect(() => {
+    const onPaste = (event) => {
+      const files = Array.from(event.clipboardData?.files ?? []);
+      const typing = /^(INPUT|TEXTAREA|SELECT)$/.test(document.activeElement?.tagName ?? '');
+      if (!files.length || typing) return;
+      event.preventDefault();
+      addFiles(files);
+    };
+    document.addEventListener('paste', onPaste);
+    return () => document.removeEventListener('paste', onPaste);
+  });
 
   function removeItem(id) {
     setErrorKey('');

@@ -70,3 +70,6 @@
 .swatch-chip span { background: rgba(255,255,255,.85); color: #111; font-family: monospace; padding: 0 0.35rem; border-radius: 4px; font-size: 0.85rem; }
 .gradient-box { height: 96px; border-radius: 12px; border: 1px solid var(--border); }
 .match-list { padding-left: 1.3rem; } .match-list code { overflow-wrap: anywhere; }
+.fav-button { display: inline-flex; align-items: center; gap: 0.4rem; min-height: 52px; padding: 0 1rem; margin-top: 0.5rem; border: 1px solid var(--dash); border-radius: 999px; background: var(--surface); color: var(--primary-dark); cursor: pointer; }
+.fav-button[aria-pressed="true"] { background: var(--pale); font-weight: 700; }
+.fav-button[aria-pressed="true"] svg { fill: currentColor; }

@@ -137,3 +137,8 @@
 
 ## Queued tools, batch 3
 - Barcode maker (Code 128 and EAN-13, checked with a second decoder), QR reader from a photo (jsQR), colour palette and gradient maker, CSS minifier, regex tester (runs in a worker, stopped after 2 seconds).
+
+## Site items (list M)
+- Home page rows "Your favourites" and "Used lately" (star button on each tool page), stored on the device and removed by Forget my settings.
+- Press / on the home page to search; paste a copied file with Ctrl+V or Cmd+V on tool pages.
+- Help page (/help) in English and Hindi. The 16 guides were already in Hindi.

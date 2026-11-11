@@ -8,6 +8,7 @@ import { Icon } from '../../shared/ui/Icon.jsx';
 import { TrustRow } from '../../shared/ui/TrustRow.jsx';
 import { ToolSearch } from './ToolSearch.jsx';
 import { ToolCard } from './ToolCard.jsx';
+import { ToolRows } from './ToolRows.jsx';
 
 export function HomePage() {
   const { t } = useI18n();
@@ -40,6 +41,7 @@ export function HomePage() {
           </div>
           <p>{t('home.toolsText')}</p>
         </div>
+        {query.trim() ? null : <ToolRows />}
         {found.length === 0 ? <p className="no-results" role="status">{t('search.none')}</p> : null}
         {groupByCategory(found).map(({ category, tools: group }) => (
           <section key={category} className="category" aria-labelledby={`group-${category}`}>

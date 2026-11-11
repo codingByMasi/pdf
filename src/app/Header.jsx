@@ -10,6 +10,7 @@ import { LanguageSwitch } from './LanguageSwitch.jsx';
 const links = [
   { to: '/', key: 'nav.tools' },
   { to: '/guides', key: 'nav.guides' },
+  { to: '/help', key: 'help.title' },
   { to: '/privacy', key: 'privacy.title' },
   { to: '/contact', key: 'contact.title' },
 ];

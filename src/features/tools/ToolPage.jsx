@@ -1,5 +1,6 @@
 // Page for one tool: breadcrumb, title with icon, working area, trust row, 3 steps and questions.
-import { Suspense } from 'react';
+import { Suspense, useEffect } from 'react';
+import { addRecent } from '../../shared/lib/toolMemory.js';
 import { useI18n } from '../../shared/i18n/useI18n.js';
 import { usePageMeta } from '../../shared/lib/usePageMeta.js';
 import { Icon } from '../../shared/ui/Icon.jsx';
@@ -11,12 +12,14 @@ import { toolScreens } from './toolRegistry.js';
 import { HowToSteps } from './HowToSteps.jsx';
 import { FaqList } from './FaqList.jsx';
 import { RelatedTools } from './RelatedTools.jsx';
+import { FavouriteButton } from './FavouriteButton.jsx';
 
 export function ToolPage({ tool }) {
   const { t } = useI18n();
   const name = t(`tool.${tool.id}.name`);
   const Screen = toolScreens[tool.id];
   usePageMeta({ title: t(`tool.${tool.id}.seoTitle`), description: t(`tool.${tool.id}.seoDesc`), path: tool.path, image: tool.id });
+  useEffect(() => { addRecent(tool.id); }, [tool.id]);
   return (
     <div className="tool-page">
       <nav className="breadcrumb" aria-label={t('tool.backHome')}>
@@ -29,6 +32,7 @@ export function ToolPage({ tool }) {
         <div>
           <h1>{name}</h1>
           <p>{t(`tool.${tool.id}.desc`)}</p>
+          <FavouriteButton toolId={tool.id} />
         </div>
       </section>
       <Suspense fallback={<div className="screen-loading"><StatusMessage kind="info">{t('tool.loading')}</StatusMessage></div>}>
