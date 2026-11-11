@@ -5,7 +5,12 @@ import { config } from './src/config.js';
 
 const siteNamePlugin = {
   name: 'site-name',
-  transformIndexHtml: (html) => html.replaceAll('%SITE_NAME%', config.siteName),
+  transformIndexHtml: (html) => {
+    const named = html.replaceAll('%SITE_NAME%', config.siteName);
+    // Lets Google check that you own the site. A plain label: no ad code runs and no cookies are set.
+    const id = config.ads.publisherId;
+    return id ? named.replace('</head>', `    <meta name="google-adsense-account" content="${id}" />\n  </head>`) : named;
+  },
 };
 
 // Preloads the two main fonts so text does not jump when they arrive.

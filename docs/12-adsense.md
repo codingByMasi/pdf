@@ -22,6 +22,7 @@ Ads stay OFF (`ads.enabled` in src/config.js) until Google approves the site and
 
 ## Switching ads on (the setup is built; ads are still OFF)
 When Google approves the site:
+0. Your publisher ID is already in src/config.js and every page has the google-adsense-account label, which lets Google verify the site without running any ad code.
 1. In AdSense, turn on the free "Privacy & messaging" consent message for Europe, the UK and Switzerland (Google's script shows it; no code needed).
 2. Create one ad unit and copy its slot number.
 3. In src/config.js set `ads: { enabled: true, publisherId: 'ca-pub-XXXXXXXXXXXXXXXX', slots: { footer: 'SLOT NUMBER' } }`.

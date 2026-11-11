@@ -168,3 +168,6 @@
 
 ## Honest limits on four tool pages
 - Currency Converter, Resume Checker, PDF Table to CSV and Date/Name Stamp now show a short note saying what they do not do (typed rate, rules not AI, rough and text-only, plain not certified).
+
+## AdSense site check
+- Publisher ID is in config. Every page now carries a google-adsense-account meta label (a plain label, no ad code, no cookies) so Google can verify ownership. Ads stay off.
