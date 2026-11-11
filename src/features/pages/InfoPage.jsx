@@ -12,7 +12,7 @@ export function InfoPage({ page }) {
   return (
     <article className="info-page">
       <header className="info-hero">
-        <p className="kicker">{t(isContact || page.id === 'help' ? 'info.kickerHelp' : 'info.kickerLegal')}</p>
+        <p className="kicker">{t(isContact || page.id === 'help' || page.id === 'about' ? 'info.kickerHelp' : 'info.kickerLegal')}</p>
         <h1>{t(`${page.id}.title`)}</h1>
         <p className="info-lead">{t(`${page.id}.intro`, vars)}</p>
       </header>

@@ -12,7 +12,7 @@ Ads stay OFF (`ads.enabled` in src/config.js) until Google approves the site and
 - **Original, useful content.** Tool pages with real how-to text and FAQ, plus the 16 guides. This is our strongest part. Add more guides over time (one honest, useful guide per popular tool).
 - **Not "low value".** Pages that are only a tool and a button can be rejected as thin. Keep the how-to and FAQ on every tool page and keep adding guides.
 - **Privacy Policy** that names Google, cookies and ad choices (done, English and Hindi, see /privacy). Have a lawyer read it before ads go live.
-- **Terms, Contact page, About-style page.** Done (/terms, /contact). Consider adding a short About page saying who runs the site.
+- **Terms, Contact page, About-style page.** Done (/terms, /contact). About page done (/about).
 - **Easy navigation.** Home, group pages, footer links, search. Done.
 - **No copied text, no copyright problems, nothing illegal.** Done; see docs/10-legal.md.
 - **No prohibited content.** Our tools that could be misused have notices. Do not add fake-document, fake-ID or similar tools.

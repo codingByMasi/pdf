@@ -155,3 +155,6 @@
 ## Privacy and Terms for AdSense
 - Privacy now has 10 sections (files, device storage, host, analytics, adverts and cookies, ad choices, Europe/UK consent, children, emails, changes) and Terms has 9 (adds adverts, our work and open-source, not professional advice). English and Hindi. Written fresh, not copied from any other site.
 - New docs/12-adsense.md: AdSense checklist and the security-rule changes needed when ads go live. Ads stay off.
+
+## About page
+- New /about page (English and Hindi), linked in the footer, in the sitemap (now 332 addresses). Written honestly: what the site is, how it works, its limits, how to reach us. It does not name a person; add one if you want.
