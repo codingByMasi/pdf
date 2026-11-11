@@ -1,4 +1,4 @@
-// After the build: when ads are switched on, writes ads.txt and opens the security rules just enough for Google AdSense. Does nothing while ads are off.
+// After the build: when a publisher id is set, writes ads.txt and opens the security rules just enough for Google's AdSense script. Does nothing without an id.
 import { readFileSync, writeFileSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -41,14 +41,14 @@ export function adsHeaders(headersText) {
 if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
   const dist = join(dirname(fileURLToPath(import.meta.url)), '..', 'dist');
   const { enabled, publisherId } = config.ads;
-  if (!enabled) {
-    console.log('Ads are off: no ads.txt, security rules unchanged');
-  } else if (!isValidPublisherId(publisherId)) {
+  if (enabled && !isValidPublisherId(publisherId)) {
     throw new Error('Ads are on but config.ads.publisherId is missing or wrong (it looks like ca-pub-1234567890123456).');
+  } else if (!isValidPublisherId(publisherId)) {
+    console.log('No publisher id: no ads.txt, security rules unchanged');
   } else {
     writeFileSync(join(dist, 'ads.txt'), buildAdsTxt(publisherId));
     const file = join(dist, '_headers');
     writeFileSync(file, adsHeaders(readFileSync(file, 'utf8')));
-    console.log('Ads are on: wrote ads.txt and opened the security rules for AdSense');
+    console.log(`Publisher id set (ads ${enabled ? 'on' : 'off'}): wrote ads.txt and opened the security rules for the Google script`);
   }
 }

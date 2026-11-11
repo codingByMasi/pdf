@@ -171,3 +171,4 @@
 
 ## AdSense site check
 - Publisher ID is in config. Every page now carries a google-adsense-account meta label (a plain label, no ad code, no cookies) so Google can verify ownership. Ads stay off.
+- Also added Google's own site-check script to every page head (as asked), plus ads.txt and the security-rule change, because a publisher id is now set. Ads still show nowhere.

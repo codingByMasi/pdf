@@ -7,9 +7,10 @@ const siteNamePlugin = {
   name: 'site-name',
   transformIndexHtml: (html) => {
     const named = html.replaceAll('%SITE_NAME%', config.siteName);
-    // Lets Google check that you own the site. A plain label: no ad code runs and no cookies are set.
+    // Lets Google check that you own the site: the label and Google's own site-check script. No advert is shown while config.ads.enabled is false.
     const id = config.ads.publisherId;
-    return id ? named.replace('</head>', `    <meta name="google-adsense-account" content="${id}" />\n  </head>`) : named;
+    const tags = `    <meta name="google-adsense-account" content="${id}" />\n    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${id}" crossorigin="anonymous"></script>\n`;
+    return id ? named.replace('</head>', `${tags}  </head>`) : named;
   },
 };
 
