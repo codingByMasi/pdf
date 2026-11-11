@@ -6,7 +6,7 @@ import { ContactForm } from './ContactForm.jsx';
 
 export function InfoPage({ page }) {
   const { t } = useI18n();
-  const vars = { site: config.siteName };
+  const vars = { site: config.siteName, email: config.contactEmail };
   const isContact = page.id === 'contact';
   usePageMeta({ title: t(`${page.id}.seoTitle`), description: t(`${page.id}.seoDesc`, vars), path: page.path });
   return (

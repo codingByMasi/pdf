@@ -1,7 +1,7 @@
 // The plain text pages: About, Privacy, Terms, Contact. "sections" is how many text blocks each has.
 export const pages = [
   { id: 'about', path: '/about', sections: 5 },
-  { id: 'privacy', path: '/privacy', sections: 10 },
+  { id: 'privacy', path: '/privacy', sections: 13 },
   { id: 'terms', path: '/terms', sections: 9 },
   { id: 'licences', path: '/licences', sections: 5 },
   { id: 'help', path: '/help', sections: 8 },
