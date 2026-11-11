@@ -131,3 +131,6 @@
 
 ## Queued tools, batch 1 (PDF tools)
 - Scan Pack (A4, Letter or fit; four margins), Signature from a Photo (paper made see-through, optional black or blue ink, PNG), Date, Time and Name Stamp (English and Hindi), PDF Table to CSV (rough, text PDFs only), PDF Metadata Cleaner, and Hindi or Roman digits in Number Pages.
+
+## Queued tools, batch 2 (text and calculators)
+- BMI calculator, time zone converter (browser clock data, no internet), currency converter (you type the rate), hash and checksum tool (SHA-1/256/384/512, no MD5), saved details (kept only on this device), resume checker (plain rules, no AI), typing speed test (English and Hindi).

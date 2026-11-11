@@ -118,4 +118,11 @@ export const toolScreens = {
   dateStamp: lazy(() => import('./dateStamp/DateStampTool.jsx')),
   tableExtract: lazy(() => import('./tableExtract/TableExtractTool.jsx')),
   metadataClean: lazy(() => import('./metadataClean/MetadataCleanTool.jsx')),
+  bmiCalc: lazy(() => import('./bmiCalc/BmiCalcTool.jsx')),
+  timeZone: lazy(() => import('./timeZone/TimeZoneTool.jsx')),
+  currencyConv: lazy(() => import('./currencyConv/CurrencyConvTool.jsx')),
+  hashTool: lazy(() => import('./hashTool/HashTool.jsx')),
+  savedDetails: lazy(() => import('./savedDetails/SavedDetailsTool.jsx')),
+  resumeCheck: lazy(() => import('./resumeCheck/ResumeCheckTool.jsx')),
+  typingTest: lazy(() => import('./typingTest/TypingTestTool.jsx')),
 };

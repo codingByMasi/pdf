@@ -25,6 +25,8 @@ export const notices = {
   imageBlur: 'rights',
   imageBackground: 'rights',
   signaturePhoto: 'sign',
+  bmiCalc: 'health',
+  currencyConv: 'calc',
   dateStamp: 'rights',
 };
 

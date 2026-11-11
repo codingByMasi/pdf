@@ -49,3 +49,17 @@
 .related-hub a, .related-guide a { display: inline-flex; align-items: center; min-height: 52px; }
 
 .screen-loading { min-height: 22rem; }
+.typing-passage { font-size: 1.3rem; line-height: 1.8; padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow-wrap: anywhere; }
+.typing-ok { color: #1a7f37; } .typing-bad { color: #c62828; background: #fde7e7; } .typing-todo { color: var(--muted); }
+.typing-now { border-bottom: 3px solid var(--primary); }
+.hash-list dd { margin: 0 0 0.75rem; font-family: monospace; overflow-wrap: anywhere; font-size: 0.9rem; }
+.hash-list dt { font-weight: 700; }
+.match-ok { color: #1a7f37; font-weight: 700; }
+.saved-row { display: grid; gap: 0.5rem; align-items: end; grid-template-columns: 1fr auto; }
+.saved-row > :first-child { min-width: 0; }
+.check-list { list-style: none; padding: 0; display: grid; gap: 0.5rem; }
+.check-list li { padding: 0.75rem 1rem; border-radius: 10px; border: 1px solid var(--border); background: var(--surface); }
+.check-ok { border-left: 5px solid #1a7f37 !important; } .check-bad { border-left: 5px solid #c62828 !important; }
+.file-pick { display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; }
+.file-pick-name { overflow-wrap: anywhere; }
+.zone-select { width: 100%; min-height: 52px; padding: 0.5rem 0.75rem; border: 1px solid var(--dash); border-radius: 10px; background: var(--surface); color: inherit; }

@@ -128,12 +128,12 @@ Not built unless the owner asks.
 - [x] Date, time and name stamp on pages
 - [x] Table extractor: PDF tables to CSV (rough, text PDFs only)
 - [x] Page numbers in Hindi digits and other styles
-- [ ] Saved details (name, address) kept on the device, to copy into forms
+- [x] Saved details (name, address) kept on the device, to copy into forms
 - [x] Metadata cleaner for PDFs (author, device info)
-- [ ] Resume checker (length, fonts, simple tips, no AI)
-- [ ] Typing speed test, and typing practice in Hindi
-- [ ] Currency, time zone and BMI calculators (currency rates need the internet: only with a clear note, or fixed manual rate)
-- [ ] Hash / checksum tool (SHA-256 and others) to check a file was not changed
+- [x] Resume checker (length, fonts, simple tips, no AI)
+- [x] Typing speed test, and typing practice in Hindi
+- [x] Currency, time zone and BMI calculators (currency rates need the internet: only with a clear note, or fixed manual rate)
+- [x] Hash / checksum tool (SHA-256 and others) to check a file was not changed
 - [ ] Barcode maker (Code128, EAN) and QR reader from a photo
 - [ ] Developer tools: colour palette and gradient maker, CSS minifier, regex tester
 

@@ -119,6 +119,13 @@ export const tools = [
   { id: 'dateStamp', path: '/date-name-stamp-pdf', category: 'edit', icon: 'calendar', kind: 'pdf', multiple: false },
   { id: 'tableExtract', path: '/pdf-table-to-csv', category: 'inspect', icon: 'table', kind: 'pdf', multiple: false },
   { id: 'metadataClean', path: '/clean-pdf-metadata', category: 'protect', icon: 'trash', kind: 'pdf', multiple: false },
+  { id: 'bmiCalc', path: '/bmi-calculator', category: 'calc', icon: 'calculator', kind: 'none', multiple: false },
+  { id: 'timeZone', path: '/time-zone-converter', category: 'calc', icon: 'globe', kind: 'none', multiple: false },
+  { id: 'currencyConv', path: '/currency-converter', category: 'calc', icon: 'rupee', kind: 'none', multiple: false },
+  { id: 'hashTool', path: '/hash-checksum', category: 'text', icon: 'hash', kind: 'none', multiple: false },
+  { id: 'savedDetails', path: '/saved-details', category: 'text', icon: 'form', kind: 'none', multiple: false },
+  { id: 'resumeCheck', path: '/resume-checker', category: 'docs', icon: 'doc', kind: 'none', multiple: false },
+  { id: 'typingTest', path: '/typing-speed-test', category: 'text', icon: 'text', kind: 'none', multiple: false },
 ];
 
 export function findToolById(id) {
