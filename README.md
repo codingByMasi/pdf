@@ -1,4 +1,4 @@
-# PDF Shortner
+# PDF Shortener
 
 Free tools for PDFs, photos, text and documents (about 130 of them) that run fully in the browser, in English and Hindi. Files never leave the user's device. No login, no backend.
 

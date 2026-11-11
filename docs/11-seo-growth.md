@@ -13,7 +13,7 @@ Nobody can promise a Google ranking. This list does the honest things that help:
 
 ## Before launch (you must do these)
 1. `siteUrl` is set to https://pdfshortner.com. Still set `contactEmail` in `src/config.js`. Every canonical link, sitemap address and share picture address uses `siteUrl`. If it still says example.com, search engines will ignore the site.
-2. The site name "PDF Shortner" is in `src/config.js` only. The home text now says the site is for PDFs, photos and documents. If you want a broader name, change it there and run `node scripts/makeShareImages.js`.
+2. The site name "PDF Shortener" is in `src/config.js` only. The home text now says the site is for PDFs, photos and documents. If you want a broader name, change it there and run `node scripts/makeShareImages.js`.
 3. Deploy (docs/05-deploy.md). Open `https://yoursite/sitemap.xml` and `https://yoursite/robots.txt` to check they load.
 4. Have Privacy and Terms checked by a lawyer (docs/10-legal.md).
 
