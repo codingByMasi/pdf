@@ -174,3 +174,6 @@
 - Also added Google's own site-check script to every page head (as asked), plus ads.txt and the security-rule change, because a publisher id is now set. Ads still show nowhere.
 - Footer page links (About, Privacy, Terms, Contact...) are now also in the plain page HTML, so crawlers that do not run scripts, like the AdSense check, can find the Privacy page.
 - Re-linked the Cloudflare project to GitHub (done by the owner); this note triggers a fresh deploy from the newest code.
+
+## Security additions
+- Added HSTS (1 year, no subdomains, no preload), Cross-Origin-Resource-Policy on /assets, and .well-known/security.txt (expires 2027-11-12: renew it each year).

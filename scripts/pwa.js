@@ -5,7 +5,7 @@ import { dirname, join, relative } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import { config } from '../src/config.js';
 
-const SKIP = new Set(['sw.js', '_headers', 'robots.txt', 'sitemap.xml', 'ads.txt']);
+const SKIP = new Set(['sw.js', '_headers', 'robots.txt', 'sitemap.xml', 'ads.txt', '.well-known/security.txt']);
 // Share pictures are for social sites, not for offline use.
 const isShare = (f) => f.startsWith('/og/');
 

@@ -1,0 +1,4 @@
+Contact: mailto:pdfshortener@gmail.com
+Expires: 2027-11-12T00:00:00.000Z
+Preferred-Languages: en, hi
+Canonical: https://pdfshortener.com/.well-known/security.txt
