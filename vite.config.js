@@ -8,9 +8,14 @@ const siteNamePlugin = {
   transformIndexHtml: (html) => {
     const named = html.replaceAll('%SITE_NAME%', config.siteName);
     // Lets Google check that you own the site: the label and Google's own site-check script. No advert is shown while config.ads.enabled is false.
+    const seo = config.seo || {};
+    const checks = [
+      seo.googleVerification ? `    <meta name="google-site-verification" content="${seo.googleVerification}" />\n` : '',
+      seo.bingVerification ? `    <meta name="msvalidate.01" content="${seo.bingVerification}" />\n` : '',
+    ].join('');
     const id = config.ads.publisherId;
     const tags = `    <meta name="google-adsense-account" content="${id}" />\n    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${id}" crossorigin="anonymous"></script>\n`;
-    return id ? named.replace('</head>', `${tags}  </head>`) : named;
+    return (id ? named.replace('</head>', `${tags}  </head>`) : named).replace('</head>', `${checks}  </head>`);
   },
 };
 

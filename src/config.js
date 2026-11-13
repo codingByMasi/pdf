@@ -7,6 +7,8 @@ export const config = {
   defaultLang: 'en',
   // Keep enabled false until Google approves the site. Then set publisherId (ca-pub-...) and the slot ids, and see docs/12-adsense.md.
   ads: { enabled: false, publisherId: 'ca-pub-6973524994504204', slots: { footer: '' } },
+  // Paste the code each search engine gives you (just the code, not the whole tag) to prove you own the site. Empty means no tag.
+  seo: { googleVerification: '', bingVerification: '' },
   limits: {
     maxFileMB: 100,
     maxFiles: 50,

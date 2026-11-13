@@ -7,6 +7,7 @@ import { Icon } from '../../shared/ui/Icon.jsx';
 import { Link } from '../../shared/ui/Link.jsx';
 import { StatusMessage } from '../../shared/ui/StatusMessage.jsx';
 import { TrustRow } from '../../shared/ui/TrustRow.jsx';
+import { ShareLine } from '../../shared/ui/ShareLine.jsx';
 import { noticeFor } from '../../shared/lib/toolNotices.js';
 import { toolScreens } from './toolRegistry.js';
 import { HowToSteps } from './HowToSteps.jsx';
@@ -45,6 +46,7 @@ export function ToolPage({ tool }) {
       <TrustRow />
       <HowToSteps toolId={tool.id} />
       <FaqList toolId={tool.id} />
+      <ShareLine title={name} />
       <RelatedTools tool={tool} />
     </div>
   );

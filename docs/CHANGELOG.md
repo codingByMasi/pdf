@@ -177,3 +177,7 @@
 
 ## Security additions
 - Added HSTS (1 year, no subdomains, no preload), Cross-Origin-Resource-Policy on /assets, and .well-known/security.txt (expires 2027-11-12: renew it each year).
+
+## Search visibility
+- Every tool page now has a Share / Copy link line near the bottom (the Share button shows only on browsers that support it, mostly phones).
+- config.seo has empty slots for the Google and Bing ownership codes; they add the meta tag to every page once filled.

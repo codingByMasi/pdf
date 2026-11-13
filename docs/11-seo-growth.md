@@ -45,3 +45,8 @@ Nobody can promise a Google ranking. This list does the honest things that help:
 - Home, one tool, one guide, one group page at 320, 768 and 1440 px, in English and Hindi: no sideways scroll.
 - View source of a built page (`dist/merge-pdf.html`): title, description, canonical, hreflang, JSON-LD are present.
 - Rich Results Test (search.google.com/test/rich-results) on a tool page and a guide page.
+
+## Search engine ownership codes (built, empty until you paste the code)
+- Google Search Console: choose "HTML tag", copy the long code from content="..." and paste it as `seo.googleVerification` in src/config.js.
+- Bing Webmaster Tools: choose "HTML Meta Tag", copy the code from content="..." and paste it as `seo.bingVerification`. (Or use Bing's "Import from Google Search Console", which needs no code.)
+- Push, wait for the deploy, then press Verify. Submit https://pdfshortener.com/sitemap.xml in both.
