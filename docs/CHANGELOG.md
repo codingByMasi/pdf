@@ -1,4 +1,7 @@
 # Changelog
+## Step (q): five tools from the pdf24 comparison
+- New: Invert PDF Colors, Halve PDF Pages, Print PDF as Poster, PDF Overlay (on top or behind), Assemble PDF (choose pages from each file). All browser-only, no new library.
+- Limits: Invert makes pages into pictures (text not selectable). Overlay "behind" loses links and form boxes. Poster sheets do not overlap. Only tested in unit tests so far, not in Firefox, Safari or on phones.
 ## Step (p): audio and video
 - Audio trimmer (cuts a part, saves WAV; own WAV writer), voice recorder, screen recorder (browser MediaRecorder). New group "Audio and video".
 - No big libraries: no MP3 or video converting or trimming (needs ffmpeg or lame, which are heavy and have tricky licences).

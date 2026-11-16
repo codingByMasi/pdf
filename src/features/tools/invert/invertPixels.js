@@ -1,0 +1,9 @@
+// Flips the colours of picture pixels (white becomes black). Works on canvas pixel data in place; keeps transparency.
+export function invertInPlace(data) {
+  for (let i = 0; i < data.length; i += 4) {
+    data[i] = 255 - data[i];
+    data[i + 1] = 255 - data[i + 1];
+    data[i + 2] = 255 - data[i + 2];
+  }
+  return data;
+}

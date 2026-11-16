@@ -35,8 +35,20 @@ import { splitByGroups } from '../splitMarks/splitByGroups.js';
 import { makePhotoSheet } from '../photoSheet/makePhotoSheet.js';
 import { addDateStamp } from '../dateStamp/addDateStamp.js';
 import { cleanMetadata } from '../metadataClean/cleanMetadata.js';
+import { halvePages } from '../halve/halvePages.js';
+import { makePoster } from '../poster/makePoster.js';
+import { layerPdf } from '../pdfLayer/layerPdf.js';
+import { assemblePdf } from '../assemble/assemblePdf.js';
 
 export const tasks = {
+  halve: ({ bytes, cut }, { onProgress }) => halvePages(bytes, { cut }, onProgress),
+
+  poster: ({ bytes, grid, paper }, { onProgress }) => makePoster(bytes, { grid, paper }, onProgress),
+
+  layerPdf: ({ main, layer, position }, { onProgress }) => layerPdf(main, layer, { position }, onProgress),
+
+  assemble: ({ parts }, { onProgress }) => assemblePdf(parts, onProgress),
+
   dateStamp: ({ bytes, options }, { onProgress }) => addDateStamp(bytes, options, {}, onProgress),
 
   cleanMetadata: ({ bytes }) => cleanMetadata(bytes),

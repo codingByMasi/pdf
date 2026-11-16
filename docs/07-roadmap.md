@@ -153,5 +153,9 @@ Not built unless the owner asks.
 - [x] 16 guides (English and Hindi), group pages, related tools, share line
 - [x] Speed and accessibility report, docs/11-seo-growth.md
 
+## Q. From the pdf24 comparison
+- [x] Invert colours, Halve pages, Poster, PDF overlay, Assemble PDF
+- [ ] Ideas not built yet: Make PDF fillable, SVG to PDF/PNG, TIFF to PDF (needs a small MIT library), PDF to SVG, Print PDF. Not possible in the browser: Word/Excel/PowerPoint conversions, PDF/A, passwords, OCR.
+
 ## Launch (not tools, matters most)
 - [ ] Deploy per docs/05-deploy.md, set siteUrl and contactEmail in src/config.js, have Privacy and Terms reviewed (docs/10-legal.md), test on real phones and in Firefox and Safari.

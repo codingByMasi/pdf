@@ -1,0 +1,56 @@
+/* Less scrolling: short hero, small cards in more columns, tap-to-open groups, tighter tool pages. Loaded after the other styles. */
+.home-hero { padding: 1.5rem 1rem 1.25rem; }
+.home-hero .eyebrow { margin-bottom: 0.6rem; }
+.home-hero h1 { font-size: clamp(1.8rem, 7vw, 2.8rem); }
+.hero-text, .home-hero .trust-row { display: none; }
+.privacy-note { margin: 0.6rem 0 1rem; }
+.search-wrap { min-height: 56px; }
+.tools-section { padding: 1.5rem 1rem 3rem; }
+.section-heading { margin-bottom: 0.5rem; }
+.section-heading h2 { font-size: 1.4rem; }
+.category { margin-top: 1.25rem; }
+.category-title { margin-bottom: 0.6rem; }
+
+.tool-grid { grid-template-columns: repeat(2, 1fr); gap: 0.4rem; }
+.tool-card { flex-direction: row; align-items: center; gap: 8px; min-height: 52px; padding: 0.35rem 0.6rem; border-radius: 10px; }
+.tool-icon { flex: none; width: 32px; height: 32px; border-radius: 8px; }
+.tool-icon svg { width: 18px; height: 18px; }
+.tool-name { margin: 0; font-size: 0.88rem; line-height: 1.2; overflow-wrap: anywhere; }
+.tool-desc, .card-arrow { display: none; }
+.tool-card:hover { transform: none; box-shadow: none; }
+
+.fold { margin-top: 0.6rem; border: 1px solid var(--border); border-radius: 14px; background: var(--surface); }
+.fold-summary { display: flex; align-items: center; gap: 10px; min-height: 56px; padding: 0 1rem; list-style: none; cursor: pointer; font: 700 1.05rem var(--font-head); }
+.fold-summary::-webkit-details-marker { display: none; }
+.fold-summary::after { content: '+'; margin-inline-start: auto; color: var(--primary-dark); font-size: 1.6rem; line-height: 1; }
+.fold[open] > .fold-summary::after { content: '\2212'; }
+.fold > .tool-grid { padding: 0 0.75rem; }
+.fold-hub { margin: 0.25rem 1rem 0.5rem; }
+.fold-hub a { display: inline-flex; align-items: center; min-height: 52px; }
+
+.tool-intro { margin-bottom: 1rem; }
+.tool-page-icon { width: 52px; height: 52px; border-radius: 14px; }
+.tool-intro h1 { font-size: clamp(1.5rem, 6vw, 2.2rem); }
+.tool-intro p { font-size: 0.95rem; }
+.tool-page > .trust-row { margin: 1rem 0 1.5rem; }
+.how-section { margin-bottom: 1.5rem; text-align: left; }
+.how-section h2, .faq-section h2 { font-size: 1.3rem; }
+.steps { gap: 0.5rem; margin-top: 0.75rem; }
+.step { display: flex; align-items: center; gap: 12px; padding: 0.75rem 1rem; border-radius: 14px; }
+.step p { margin: 0; font-size: 1rem; }
+.faq-section { gap: 0.5rem; padding-top: 1.25rem; }
+.faq-item summary { min-height: 56px; }
+.related-section { margin-top: 1.5rem; }
+
+@media (min-width: 600px) {
+  .home-hero { padding: 2rem 1.5rem 1.5rem; }
+  .tools-section { padding: 2rem 1.5rem 4rem; }
+  .tool-grid { grid-template-columns: repeat(3, 1fr); }
+  .tool-page { padding: 1rem 1.5rem 4rem; }
+}
+@media (min-width: 821px) {
+  .tool-grid { grid-template-columns: repeat(4, 1fr); gap: 0.5rem; }
+  .steps { grid-template-columns: repeat(3, 1fr); }
+  .faq-section { grid-template-columns: 1fr; gap: 0.5rem; padding-top: 1.5rem; }
+}
+@media (min-width: 1100px) { .tool-grid { grid-template-columns: repeat(5, 1fr); } }
