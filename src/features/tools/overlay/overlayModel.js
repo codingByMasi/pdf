@@ -17,6 +17,9 @@ export const makeLine = (x1, y1, x2, y2, color, width) => ({ id: id(), type: 'li
 export const makeText = (x, y, text, size, color) => ({ id: id(), type: 'text', x, y, text, size, color });
 export const makeImage = (x, y, w, h, bytes, mime, url) => ({ id: id(), type: 'image', x, y, w, h, bytes, mime, url });
 
+// A fill-in field to be made real in the PDF. kind: 'text' | 'check' | 'dropdown'. options: one word per line (dropdown).
+export const makeField = (kind, x, y, w, h) => ({ id: id(), type: 'field', fieldKind: kind, name: '', options: '', x, y, w, h });
+
 const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
 
 export function moveItem(item, dx, dy) {

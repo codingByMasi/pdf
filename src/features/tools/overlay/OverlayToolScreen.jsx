@@ -12,7 +12,7 @@ import { OverlayEditor } from './OverlayEditor.jsx';
 import { useOverlay } from './useOverlay.js';
 
 // tools: tool names to offer. before: something shown above the editor. extra(api): more editor buttons.
-export default function OverlayToolScreen({ tool, tools, addText, addPicture, extra, before, suffix, noteKey }) {
+export default function OverlayToolScreen({ tool, task = 'overlay', tools, addText, addPicture, extra, before, suffix, noteKey }) {
   const { t } = useI18n();
   const selection = useFileSelection(tool);
   const job = usePdfJob();
@@ -23,7 +23,7 @@ export default function OverlayToolScreen({ tool, tools, addText, addPicture, ex
   function run() {
     job.run(async (onProgress) => {
       const bytes = new Uint8Array(await file.arrayBuffer());
-      const result = await runTask('overlay', { bytes, byPage: itemsForWorker(overlay.byPage) }, { onProgress });
+      const result = await runTask(task, { bytes, byPage: itemsForWorker(overlay.byPage) }, { onProgress });
       return {
         blob: new Blob([result.bytes], { type: 'application/pdf' }),
         fileName: outputName(file.name, suffix),
