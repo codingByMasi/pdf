@@ -1,4 +1,7 @@
 # Changelog
+## Step (r): Make PDF Fillable
+- New tool: place text boxes, tick boxes and drop-down lists on pages and save a PDF with real fill-in fields (pdf-lib, no new library). Reuses the page editor with a new "field" item.
+- Limits: field names and list words use plain English letters only; fields on turned pages not checked in real viewers; not tried in Firefox, Safari or on phones.
 ## Step (q): five tools from the pdf24 comparison
 - New: Invert PDF Colors, Halve PDF Pages, Print PDF as Poster, PDF Overlay (on top or behind), Assemble PDF (choose pages from each file). All browser-only, no new library.
 - Limits: Invert makes pages into pictures (text not selectable). Overlay "behind" loses links and form boxes. Poster sheets do not overlap. Only tested in unit tests so far, not in Firefox, Safari or on phones.
