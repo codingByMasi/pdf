@@ -3023,4 +3023,5 @@ export const en = {
   "assemble.hint": "Leave a box empty to use every page of that file.",
   "assemble.pagesOf": "Pages from file {number} ({name})",
   "assemble.placeholder": "For example 1-3, 5",
+  "home.popular": "Popular tools",
 };

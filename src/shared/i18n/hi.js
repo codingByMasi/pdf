@@ -3023,4 +3023,5 @@ export const hi = {
   "assemble.hint": "किसी फ़ाइल के सारे पेज चाहिए तो बॉक्स खाली छोड़ें।",
   "assemble.pagesOf": "फ़ाइल {number} के पेज ({name})",
   "assemble.placeholder": "जैसे 1-3, 5",
+  "home.popular": "लोकप्रिय टूल",
 };

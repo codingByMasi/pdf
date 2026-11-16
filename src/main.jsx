@@ -12,6 +12,7 @@ import './styles/images.css';
 import './styles/text.css';
 import './styles/editor.css';
 import './styles/theme.css';
+import './styles/compact.css';
 import { applyStoredTheme } from './shared/lib/theme.js';
 
 applyStoredTheme();

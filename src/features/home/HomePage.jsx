@@ -7,9 +7,8 @@ import { categories, groupByCategory, tools } from '../../shared/lib/toolCatalog
 import { Icon } from '../../shared/ui/Icon.jsx';
 import { TrustRow } from '../../shared/ui/TrustRow.jsx';
 import { ToolSearch } from './ToolSearch.jsx';
-import { ToolCard } from './ToolCard.jsx';
-import { Link } from '../../shared/ui/Link.jsx';
-import { hubForCategory } from '../hubs/hubList.js';
+import { PopularRow } from './PopularRow.jsx';
+import { CategoryFold } from './CategoryFold.jsx';
 import { ToolRows } from './ToolRows.jsx';
 
 export function HomePage() {
@@ -41,27 +40,12 @@ export function HomePage() {
             <p className="kicker">{t('home.kicker', { count: tools.length, groups: categories.length })}</p>
             <h2 id="tools-heading">{t('home.allTools')}</h2>
           </div>
-          <p>{t('home.toolsText')}</p>
         </div>
-        {query.trim() ? null : (
-          <nav className="category-jump" aria-label={t('home.jump')}>
-            {groupByCategory(tools).map(({ category }) => <a key={category} href={`#group-${category}`}>{t(`category.${category}`)}</a>)}
-          </nav>
-        )}
         {query.trim() ? null : <ToolRows />}
+        {query.trim() ? null : <PopularRow />}
         {found.length === 0 ? <p className="no-results" role="status">{t('search.none')}</p> : null}
         {groupByCategory(found).map(({ category, tools: group }) => (
-          <section key={category} className="category" aria-labelledby={`group-${category}`}>
-            <div className="category-title">
-              <h3 id={`group-${category}`}><Link to={hubForCategory(category).path}>{t(`category.${category}`)}</Link></h3>
-              <span className="count-badge">{group.length}</span>
-            </div>
-            <ul className="tool-grid">
-              {group.map((tool) => (
-                <li key={tool.id}><ToolCard tool={tool} /></li>
-              ))}
-            </ul>
-          </section>
+          <CategoryFold key={`${category}-${query.trim() ? 'q' : 'a'}`} category={category} tools={group} open={Boolean(query.trim())} />
         ))}
       </section>
     </>
