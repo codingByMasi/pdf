@@ -129,5 +129,10 @@ export const toolScreens = {
   qrReader: lazy(() => import('./qrReader/QrReaderTool.jsx')),
   colourPalette: lazy(() => import('./colourPalette/ColourPaletteTool.jsx')),
   cssMinify: lazy(() => import('./cssMinify/CssMinifyTool.jsx')),
+  invert: lazy(() => import('./invert/InvertTool.jsx')),
+  halve: lazy(() => import('./halve/HalveTool.jsx')),
+  poster: lazy(() => import('./poster/PosterTool.jsx')),
+  pdfLayer: lazy(() => import('./pdfLayer/PdfLayerTool.jsx')),
+  assemble: lazy(() => import('./assemble/AssembleTool.jsx')),
   regexTest: lazy(() => import('./regexTest/RegexTestTool.jsx')),
 };

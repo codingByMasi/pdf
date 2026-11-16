@@ -131,6 +131,11 @@ export const tools = [
   { id: 'colourPalette', path: '/colour-palette-gradient', category: 'text', icon: 'image', kind: 'none', multiple: false },
   { id: 'cssMinify', path: '/css-minifier', category: 'text', icon: 'code', kind: 'none', multiple: false },
   { id: 'regexTest', path: '/regex-tester', category: 'text', icon: 'code', kind: 'none', multiple: false },
+  { id: 'invert', path: '/invert-pdf-colors', category: 'edit', icon: 'moon', kind: 'pdf', multiple: false },
+  { id: 'halve', path: '/halve-pdf-pages', category: 'organize', icon: 'split', kind: 'pdf', multiple: false },
+  { id: 'poster', path: '/print-pdf-as-poster', category: 'organize', icon: 'grid', kind: 'pdf', multiple: false },
+  { id: 'pdfLayer', path: '/pdf-overlay', category: 'edit', icon: 'layers', kind: 'pdf', multiple: true },
+  { id: 'assemble', path: '/assemble-pdf', category: 'organize', icon: 'merge', kind: 'pdf', multiple: true },
 ];
 
 export function findToolById(id) {
