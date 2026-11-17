@@ -12,7 +12,8 @@ export function ItemPanel({ item, height, onChange, onRemove }) {
   const { t } = useI18n();
   const sliderId = useId();
   const isText = item.type === 'text';
-  const sized = ['text', 'image', 'rect', 'ellipse'].includes(item.type);
+  const isField = item.type === 'field';
+  const sized = ['text', 'image', 'rect', 'ellipse', 'field'].includes(item.type);
   const value = isText ? item.size : item.w;
   const nudge = (dx, dy) => onChange(moveWithin(item, dx, dy, height));
 
@@ -21,6 +22,12 @@ export function ItemPanel({ item, height, onChange, onRemove }) {
       <h3>{t('overlay.selected')}</h3>
       {isText ? (
         <TextField multiline label={t('overlay.textLabel')} value={item.text} onChange={(event) => onChange({ ...item, text: event.target.value })} />
+      ) : null}
+      {isField ? (
+        <TextField label={t('fillable.name')} hint={t('fillable.nameHint')} value={item.name} maxLength={40} onChange={(event) => onChange({ ...item, name: event.target.value })} />
+      ) : null}
+      {isField && item.fieldKind === 'dropdown' ? (
+        <TextField multiline label={t('fillable.options')} hint={t('fillable.optionsHint')} value={item.options} onChange={(event) => onChange({ ...item, options: event.target.value })} />
       ) : null}
       {isText || item.type === 'path' || item.type === 'line' ? (
         <ColorPicker value={item.color} onChange={(color) => onChange({ ...item, color })} />

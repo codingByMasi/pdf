@@ -27,6 +27,15 @@ export function OverlayItem({ item, draft = false }) {
           ))}
         </text>
       );
+    case 'field':
+      return (
+        <g {...common}>
+          <rect x={item.x} y={item.y} width={item.w} height={item.h} fill="rgba(26, 86, 219, 0.12)" stroke="#1a56db" strokeWidth="0.003" strokeDasharray="0.01 0.006" />
+          {item.fieldKind === 'check' ? <path d={`M ${item.x + item.w * 0.2} ${item.y + item.h * 0.55} l ${item.w * 0.2} ${item.h * 0.25} l ${item.w * 0.4} ${-item.h * 0.5}`} fill="none" stroke="#1a56db" strokeWidth="0.004" /> : null}
+          {item.fieldKind === 'dropdown' ? <path d={`M ${item.x + item.w - 0.035} ${item.y + item.h * 0.4} l 0.012 ${item.h * 0.25} l 0.012 ${-item.h * 0.25} z`} fill="#1a56db" /> : null}
+          {item.name && item.fieldKind !== 'check' ? <text x={item.x + 0.008} y={item.y + item.h * 0.68} fontSize={item.h * 0.5} fill="#1a56db">{item.name}</text> : null}
+        </g>
+      );
     case 'image':
       return <image {...common} href={item.url} x={item.x} y={item.y} width={item.w} height={item.h} preserveAspectRatio="none" />;
     default:

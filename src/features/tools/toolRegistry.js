@@ -134,5 +134,6 @@ export const toolScreens = {
   poster: lazy(() => import('./poster/PosterTool.jsx')),
   pdfLayer: lazy(() => import('./pdfLayer/PdfLayerTool.jsx')),
   assemble: lazy(() => import('./assemble/AssembleTool.jsx')),
+  makeFillable: lazy(() => import('./makeFillable/MakeFillableTool.jsx')),
   regexTest: lazy(() => import('./regexTest/RegexTestTool.jsx')),
 };

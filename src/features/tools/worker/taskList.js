@@ -34,6 +34,7 @@ import { applyMarks } from '../textMarks/applyMarks.js';
 import { splitByGroups } from '../splitMarks/splitByGroups.js';
 import { makePhotoSheet } from '../photoSheet/makePhotoSheet.js';
 import { addDateStamp } from '../dateStamp/addDateStamp.js';
+import { addFields } from '../makeFillable/addFields.js';
 import { cleanMetadata } from '../metadataClean/cleanMetadata.js';
 import { halvePages } from '../halve/halvePages.js';
 import { makePoster } from '../poster/makePoster.js';
@@ -48,6 +49,7 @@ export const tasks = {
   layerPdf: ({ main, layer, position }, { onProgress }) => layerPdf(main, layer, { position }, onProgress),
 
   assemble: ({ parts }, { onProgress }) => assemblePdf(parts, onProgress),
+  addFields: ({ bytes, byPage }, { onProgress }) => addFields(bytes, byPage, onProgress),
 
   dateStamp: ({ bytes, options }, { onProgress }) => addDateStamp(bytes, options, {}, onProgress),
 

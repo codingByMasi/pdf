@@ -136,6 +136,7 @@ export const tools = [
   { id: 'poster', path: '/print-pdf-as-poster', category: 'organize', icon: 'grid', kind: 'pdf', multiple: false },
   { id: 'pdfLayer', path: '/pdf-overlay', category: 'edit', icon: 'layers', kind: 'pdf', multiple: true },
   { id: 'assemble', path: '/assemble-pdf', category: 'organize', icon: 'merge', kind: 'pdf', multiple: true },
+  { id: 'makeFillable', path: '/make-pdf-fillable', category: 'edit', icon: 'form', kind: 'pdf', multiple: false },
 ];
 
 export function findToolById(id) {
